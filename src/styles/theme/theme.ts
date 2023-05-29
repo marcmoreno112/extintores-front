@@ -1,5 +1,6 @@
 import { DefaultTheme } from "styled-components";
 import "@fontsource/archivo";
+import "@fontsource/archivo-black";
 
 const theme: DefaultTheme = {
   colors: {
@@ -11,7 +12,7 @@ const theme: DefaultTheme = {
 
   fonts: {
     primary: "'Archivo', sans-serif",
-    secondary: "sans-serif",
+    secondary: "'Archivo black', sans-serif",
   },
 };
 

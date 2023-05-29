@@ -5,7 +5,6 @@ import { store } from "../store";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme/theme";
 import GlobalStyle from "../styles/GlobalStyles/GlobalStyles";
-import appRouter from "../router/appRouter";
 import {
   RouteObject,
   RouterProvider,
@@ -14,7 +13,7 @@ import {
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a 'Lista' link", () => {
+    test("Then it should show a 'Lista' link, a 'Login' link and an image with the alternative text 'Create element'", () => {
       const expectedListText = "Lista";
       const expectedLoginText = "Login";
 
@@ -36,8 +35,6 @@ describe("Given a Navigation component", () => {
         </ThemeProvider>
       );
 
-      <RouterProvider router={appRouter} />;
-
       const lista = screen.getByRole("link", { name: expectedListText });
       const plus = screen.getByAltText("Create element");
       const login = screen.getByRole("link", { name: expectedLoginText });
@@ -47,4 +44,5 @@ describe("Given a Navigation component", () => {
       expect(login).toBeInTheDocument();
     });
   });
+  ssssss;
 });

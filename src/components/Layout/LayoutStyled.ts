@@ -4,7 +4,7 @@ const LayoutStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 30px;
+  padding: 20px;
   gap: 2rem;
 
   h1 {

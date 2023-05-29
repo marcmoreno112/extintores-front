@@ -8,19 +8,10 @@ const GlobalStyle = createGlobalStyle`
 body {
   font-family: ${(props) => props.theme.fonts.primary};
   font-size: 1rem;
-}
-
-body {
-  margin: 30px;
-  font-family: inherit;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: inherit;
   font-size: 1.2rem;
   margin: 0;
 }

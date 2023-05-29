@@ -4,9 +4,15 @@ import NavigationStyled from "./NavigationStyled";
 const Navigation = (): React.ReactElement => {
   return (
     <NavigationStyled>
-      <NavLink to={"/"}>Lista</NavLink>
-      <NavLink to={"/"}>+</NavLink>
-      <NavLink to={"/"}>Login</NavLink>
+      <NavLink to={"/"} className={"outside"}>
+        Lista
+      </NavLink>
+      <NavLink to={"/"}>
+        <img src="+.png" alt="+" />
+      </NavLink>
+      <NavLink to={"/"} className={"outside right"}>
+        Login
+      </NavLink>
     </NavigationStyled>
   );
 };

@@ -1,5 +1,7 @@
+import Layout from "../Layout/Layout";
+
 const App = (): JSX.Element => {
-  return <h1>Extintores</h1>;
+  return <Layout />;
 };
 
 export default App;

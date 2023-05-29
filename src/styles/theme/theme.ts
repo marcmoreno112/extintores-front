@@ -1,4 +1,5 @@
 import { DefaultTheme } from "styled-components";
+import "@fontsource/archivo";
 
 const theme: DefaultTheme = {
   colors: {

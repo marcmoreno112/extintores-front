@@ -10,8 +10,9 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
+import { PropsWithChildren } from "react";
 
-export const renderWithProviders = (
+export const renderWithProvidersRouter = (
   ui: React.ReactElement,
   preloadedState?: PreloadedState<RootState>
 ) => {
@@ -32,6 +33,26 @@ export const renderWithProviders = (
         <ThemeProvider theme={theme}>
           <GlobalStyle />
           <RouterProvider router={mockRouter} />
+        </ThemeProvider>
+      </Provider>
+    );
+  };
+
+  render(ui, { wrapper: Wrapper });
+};
+
+export const renderWithProviders = (
+  ui: React.ReactElement,
+  preloadedState?: PreloadedState<RootState>
+) => {
+  const testStore = preloadedState ? setupStore(preloadedState) : store;
+
+  const Wrapper = ({ children }: PropsWithChildren): React.ReactElement => {
+    return (
+      <Provider store={testStore}>
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          {children}
         </ThemeProvider>
       </Provider>
     );

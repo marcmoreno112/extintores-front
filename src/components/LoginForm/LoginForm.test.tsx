@@ -1,56 +1,54 @@
+import { vi } from "vitest";
 import { screen } from "@testing-library/react";
 import LoginForm from "./LoginForm";
 import { renderWithProviders } from "../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
 
 describe("Given a LoginForm component", () => {
+  const expectedButtonText = "Enviar";
+  const submitFunction = vi.fn();
+  const expectedUsernameLabel = "Nombre de usuario";
+  const expectedUsernameText = "Juan";
+  const expectedPasswordText = "1234";
+  const expectedPasswordLabel = "Contraseña";
+
   describe("When it is rendered", () => {
     test("Then it should show a button with the text 'Enviar'", () => {
-      const expectedText = "Enviar";
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
-      renderWithProviders(<LoginForm />);
-
-      const button = screen.getByRole("button", { name: expectedText });
+      const button = screen.getByRole("button", { name: expectedButtonText });
 
       expect(button).toBeInTheDocument();
     });
     test("Then it should show a 'Nombre de usuario' input", () => {
-      const expectedText = "Nombre de usuario";
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
-      renderWithProviders(<LoginForm />);
+      const usernameInput = screen.getByLabelText(expectedUsernameLabel);
 
-      const input = screen.getByLabelText(expectedText);
-
-      expect(input).toBeInTheDocument();
+      expect(usernameInput).toBeInTheDocument();
     });
     test("Then it should show a 'Contraseña' input", () => {
-      const expectedText = "Contraseña";
+      const expectedPasswordLabel = "Contraseña";
 
-      renderWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
-      const input = screen.getByLabelText(expectedText);
+      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
 
-      expect(input).toBeInTheDocument();
+      expect(passwordInput).toBeInTheDocument();
     });
   });
   describe("When it is rendered and the input are empty", () => {
     test("Then it show a disabled button", () => {
-      const buttonText = "Enviar";
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
-      renderWithProviders(<LoginForm />);
-
-      const button = screen.getByRole("button", { name: buttonText });
+      const button = screen.getByRole("button", { name: expectedButtonText });
 
       expect(button).toBeDisabled();
     });
   });
   describe("When it is rendered and the user types 'Juan' at the username input", () => {
     test("Then it should show the text 'Juan' at the username input and a disabled button", async () => {
-      const expectedUsernameText = "Juan";
-      const expectedUsernameLabel = "Nombre de usuario";
-      const expectedButtonText = "Enviar";
-
-      renderWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
       const usernameInput = screen.getByLabelText(expectedUsernameLabel);
       const button = screen.getByRole("button", { name: expectedButtonText });
@@ -62,11 +60,7 @@ describe("Given a LoginForm component", () => {
   });
   describe("When it is rendered and the user types '1234' at the password input", () => {
     test("Then it should show the text '1234' at the password input and a disabled button", async () => {
-      const expectedPasswordText = "1234";
-      const expectedPasswordLabel = "Contraseña";
-      const expectedButtonText = "Enviar";
-
-      renderWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
       const passwordInput = screen.getByLabelText(expectedPasswordLabel);
       const button = screen.getByRole("button", { name: expectedButtonText });
@@ -78,13 +72,7 @@ describe("Given a LoginForm component", () => {
   });
   describe("When it is rendered and the user types 'Juan' at the username input and '1234' at the password input", () => {
     test("Then it should show the text 'Juan' at the username input, the text '1234' at the password input and an enabled button", async () => {
-      const expectedUsernameText = "Juan";
-      const expectedUsernameLabel = "Nombre de usuario";
-      const expectedPasswordText = "1234";
-      const expectedPasswordLabel = "Contraseña";
-      const expectedButtonText = "Enviar";
-
-      renderWithProviders(<LoginForm />);
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
       const button = screen.getByRole("button", {
         name: expectedButtonText,
       });
@@ -94,6 +82,21 @@ describe("Given a LoginForm component", () => {
       await userEvent.type(usernameInput, expectedUsernameText);
 
       expect(button).toBeEnabled();
+    });
+  });
+  describe("When it is rendered and the user types credentials and clicks the send button", () => {
+    test("Then it should call the received function", async () => {
+      renderWithProviders(<LoginForm submitFunction={submitFunction} />);
+      const button = screen.getByRole("button", {
+        name: expectedButtonText,
+      });
+      const usernameInput = screen.getByLabelText(expectedUsernameLabel);
+      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
+      await userEvent.type(passwordInput, expectedPasswordText);
+      await userEvent.type(usernameInput, expectedUsernameText);
+      await userEvent.click(button);
+
+      expect(submitFunction).toHaveBeenCalled();
     });
   });
 });

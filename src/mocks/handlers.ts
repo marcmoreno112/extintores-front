@@ -1,6 +1,6 @@
 // src/mocks/handlers.js
 import { rest } from "msw";
-import paths from "../utils/paths";
+import paths from "../router/paths";
 import { tokenMock } from "./userMocks";
 
 const apiUrl = import.meta.env.VITE_API_URL;

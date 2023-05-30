@@ -21,6 +21,7 @@ describe("Given a LoginForm component", () => {
 
       expect(button).toBeInTheDocument();
     });
+
     test("Then it should show a 'Nombre de usuario' input", () => {
       renderWithProviders(<LoginForm submitFunction={submitFunction} />);
 
@@ -28,6 +29,7 @@ describe("Given a LoginForm component", () => {
 
       expect(usernameInput).toBeInTheDocument();
     });
+
     test("Then it should show a 'Contraseña' input", () => {
       const expectedPasswordLabel = "Contraseña";
 
@@ -38,6 +40,7 @@ describe("Given a LoginForm component", () => {
       expect(passwordInput).toBeInTheDocument();
     });
   });
+
   describe("When it is rendered and the input are empty", () => {
     test("Then it show a disabled button", () => {
       renderWithProviders(<LoginForm submitFunction={submitFunction} />);
@@ -47,6 +50,7 @@ describe("Given a LoginForm component", () => {
       expect(button).toBeDisabled();
     });
   });
+
   describe("When it is rendered and the user types 'Juan' at the username input", () => {
     test("Then it should show the text 'Juan' at the username input and a disabled button", async () => {
       renderWithProviders(<LoginForm submitFunction={submitFunction} />);
@@ -59,6 +63,7 @@ describe("Given a LoginForm component", () => {
       expect(button).toBeDisabled();
     });
   });
+
   describe("When it is rendered and the user types '1234' at the password input", () => {
     test("Then it should show the text '1234' at the password input and a disabled button", async () => {
       renderWithProviders(<LoginForm submitFunction={submitFunction} />);
@@ -71,6 +76,7 @@ describe("Given a LoginForm component", () => {
       expect(button).toBeDisabled();
     });
   });
+
   describe("When it is rendered and the user types 'Juan' at the username input and '1234' at the password input", () => {
     test("Then it should show the text 'Juan' at the username input, the text '1234' at the password input and an enabled button", async () => {
       renderWithProviders(<LoginForm submitFunction={submitFunction} />);
@@ -85,6 +91,7 @@ describe("Given a LoginForm component", () => {
       expect(button).toBeEnabled();
     });
   });
+
   describe("When it is rendered and the user types credentials and clicks the send button", () => {
     test("Then it should call the received function", async () => {
       renderWithProviders(<LoginForm submitFunction={submitFunction} />);

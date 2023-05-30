@@ -6,8 +6,11 @@ const HeaderStyled = styled.header`
   justify-content: center;
   align-items: center;
   gap: 50px;
-  width: 100%;
+  background-color: white;
+  top: 0;
+  padding: 20px;
   position: fixed;
+  width: 100%;
 
   h1 {
     color: ${(props) => props.theme.colors.primary};

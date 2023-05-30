@@ -1,42 +1,14 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Navigation from "./Navigation";
-import { Provider } from "react-redux";
-import { store } from "../store";
-import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme/theme";
-import GlobalStyle from "../styles/GlobalStyles/GlobalStyles";
-import appRouter from "../router/appRouter";
-import {
-  RouteObject,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { renderWithProviders } from "../utils/testUtils";
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a 'Lista' link", () => {
+    test("Then it should show a 'Lista' link, a 'Login' link and an image with the alternative text 'Create element'", () => {
       const expectedListText = "Lista";
       const expectedLoginText = "Login";
 
-      const routes: RouteObject[] = [
-        {
-          path: "/",
-          element: <Navigation />,
-        },
-      ];
-
-      const mockRouter = createBrowserRouter(routes);
-
-      render(
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Provider store={store}>
-            <RouterProvider router={mockRouter} />
-          </Provider>
-        </ThemeProvider>
-      );
-
-      <RouterProvider router={appRouter} />;
+      renderWithProviders(<Navigation />);
 
       const lista = screen.getByRole("link", { name: expectedListText });
       const plus = screen.getByAltText("Create element");

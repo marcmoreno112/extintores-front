@@ -7,8 +7,8 @@ const theme: DefaultTheme = {
     primary: "#c31e24",
     secondary: "#573928",
     tertiary: "#F1D0C7",
-    "tertiary-dark": "#80141B",
-    "feedback-ok": "#23AD29",
+    tertiaryDark: "#80141B",
+    feedbackOk: "#23AD29",
   },
 
   fonts: {

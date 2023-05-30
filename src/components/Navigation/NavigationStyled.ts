@@ -9,13 +9,15 @@ const NavigationStyled = styled.nav`
   width: 100%;
 
   .navigation {
-    &_outside-link {
-      flex: 4;
-    }
+    flex: 4;
 
-    &_right-link {
-      text-align: right;
+    &__center-link {
+      text-align: center;
+      flex: 1;
     }
+  }
+  .right {
+    text-align: right;
   }
 
   .active {

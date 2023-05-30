@@ -1,20 +1,21 @@
 import { NavLink } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
-import paths from "../../utils/paths";
+import paths from "../../router/paths";
 
 const Navigation = (): React.ReactElement => {
   return (
     <NavigationStyled>
-      <NavLink to={"/"} className={"navigation_outside-link"}>
+      <NavLink to="/" className="navigation">
         Lista
       </NavLink>
-      <NavLink to={"/"}>
-        <img src="/+.svg" alt="Create element" />
-      </NavLink>
       <NavLink
-        to={`${paths.user}${paths.login}`}
-        className={"navigation_outside-link navigation_right-link"}
+        to="/"
+        aria-label="Create element"
+        className="navigation__center-link"
       >
+        <img src="/+.svg" alt="Sum symbol for the create element page link" />
+      </NavLink>
+      <NavLink to={`${paths.login}`} className="navigation right">
         Login
       </NavLink>
     </NavigationStyled>

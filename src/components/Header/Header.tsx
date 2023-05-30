@@ -4,7 +4,7 @@ import HeaderStyled from "./HeaderStyled";
 const Header = (): React.ReactElement => {
   return (
     <HeaderStyled>
-      <h1>Extintores</h1>
+      <h1 className="title">Extintores</h1>
       <Navigation />
     </HeaderStyled>
   );

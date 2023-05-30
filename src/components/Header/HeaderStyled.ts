@@ -12,7 +12,7 @@ const HeaderStyled = styled.header`
   position: fixed;
   width: 100%;
 
-  h1 {
+  .title {
     color: ${(props) => props.theme.colors.primary};
     font-family: ${(props) => props.theme.fonts.secondary};
     font-size: 2rem;

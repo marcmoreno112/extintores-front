@@ -8,7 +8,7 @@ const Navigation = (): React.ReactElement => {
         Lista
       </NavLink>
       <NavLink to={"/"}>
-        <img src="/+.png" alt="Create element" />
+        <img src="/+.svg" alt="Create element" />
       </NavLink>
       <NavLink to={"/user/login"} className={"outside right"}>
         Login

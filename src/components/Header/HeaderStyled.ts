@@ -5,6 +5,14 @@ const HeaderStyled = styled.header`
   flex-direction: column;
   justify-content: center;
   gap: 50px;
+<<<<<<< Updated upstream
+=======
+  background-color: white;
+  top: 0;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+>>>>>>> Stashed changes
 
   h1 {
     color: ${(props) => props.theme.colors.primary};

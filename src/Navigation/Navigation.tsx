@@ -8,9 +8,9 @@ const Navigation = (): React.ReactElement => {
         Lista
       </NavLink>
       <NavLink to={"/"}>
-        <img src="+.png" alt="Create element" />
+        <img src="/+.png" alt="Create element" />
       </NavLink>
-      <NavLink to={"/"} className={"outside right"}>
+      <NavLink to={"/user/login"} className={"outside right"}>
         Login
       </NavLink>
     </NavigationStyled>

@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../utils/testUtils";
+import { renderWithProvidersRouter } from "../utils/testUtils";
 import LoginPage from "./LoginPage";
 
 describe("Given a LoginPage page", () => {
@@ -7,7 +7,7 @@ describe("Given a LoginPage page", () => {
     test("Then it should show a 'Login' title", () => {
       const expectedTitle = "Login";
 
-      renderWithProviders(<LoginPage />);
+      renderWithProvidersRouter(<LoginPage />);
 
       const title = screen.getByRole("heading", { name: expectedTitle });
 

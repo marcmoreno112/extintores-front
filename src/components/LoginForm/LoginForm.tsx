@@ -34,8 +34,8 @@ const LoginForm = ({ submitFunction }: LoginFormProps) => {
 
   return (
     <LoginFormStyled className="form" onSubmit={handleSubmit}>
-      <div className="form_form-control">
-        <label htmlFor="username" className="form_label-text">
+      <div className="form__control">
+        <label htmlFor="username" className="form__label">
           Nombre de usuario
         </label>
         <input
@@ -43,13 +43,13 @@ const LoginForm = ({ submitFunction }: LoginFormProps) => {
           name="username"
           id="username"
           autoComplete="off"
-          className="form_text-field"
+          className="form__text-field"
           value={userCredentials.username}
           onChange={handleChange}
         />
       </div>
-      <div className="form_form-control">
-        <label htmlFor="password" className="form_label-text">
+      <div className="form__control">
+        <label htmlFor="password" className="form__label">
           Contraseña
         </label>
         <input
@@ -57,14 +57,14 @@ const LoginForm = ({ submitFunction }: LoginFormProps) => {
           name="password"
           id="password"
           autoComplete="off"
-          className="form_text-field"
+          className="form__text-field"
           value={userCredentials.password}
           onChange={handleChange}
         />
       </div>
-      <div className="form_send-button-container">
+      <div className="form__send-button-container">
         <button
-          className="form_send-button"
+          className="form__send-button"
           type="submit"
           disabled={isDisabled}
         >

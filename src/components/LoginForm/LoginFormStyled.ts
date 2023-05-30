@@ -8,7 +8,7 @@ const LoginFormStyled = styled.form`
   margin-top: 30px;
 
   .form {
-    &_text-field {
+    &__text-field {
       padding: 18px;
       background-color: ${(props) => props.theme.colors.tertiaryDark};
       border-radius: 8px;
@@ -16,13 +16,13 @@ const LoginFormStyled = styled.form`
       font-size: 1.2rem;
     }
 
-    &_form-control {
+    &__control {
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    &_send-button {
+    &__send-button {
       background-color: ${(props) => props.theme.colors.tertiary};
       font-size: 1.2rem;
       font-weight: 700;
@@ -31,12 +31,12 @@ const LoginFormStyled = styled.form`
       width: 120px;
     }
 
-    &_send-button-container {
+    &__send-button-container {
       display: flex;
       justify-content: right;
     }
 
-    &_label-text {
+    &__label {
       font-size: 1.3rem;
     }
   }

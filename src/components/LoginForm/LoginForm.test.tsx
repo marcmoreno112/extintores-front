@@ -3,13 +3,14 @@ import { screen } from "@testing-library/react";
 import LoginForm from "./LoginForm";
 import { renderWithProviders } from "../../utils/testUtils";
 import userEvent from "@testing-library/user-event";
+import { userCredentialsMock } from "../../mocks/userMocks";
 
 describe("Given a LoginForm component", () => {
   const expectedButtonText = "Enviar";
   const submitFunction = vi.fn();
   const expectedUsernameLabel = "Nombre de usuario";
-  const expectedUsernameText = "Juan";
-  const expectedPasswordText = "1234";
+  const expectedUsernameText = userCredentialsMock.username;
+  const expectedPasswordText = userCredentialsMock.password;
   const expectedPasswordLabel = "Contraseña";
 
   describe("When it is rendered", () => {

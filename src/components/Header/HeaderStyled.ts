@@ -5,7 +5,7 @@ const HeaderStyled = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 30px;
   background-color: white;
   top: 0;
   padding: 20px;

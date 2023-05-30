@@ -10,7 +10,7 @@ const useUser = () => {
     async (userCredentials: UserStructure): Promise<string> => {
       const {
         data: { token },
-      } = await axios.post(
+      } = await axios.post<{ token: string }>(
         `${apiUrl}${paths.user}${paths.login}`,
         userCredentials
       );

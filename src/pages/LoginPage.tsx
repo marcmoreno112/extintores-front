@@ -1,12 +1,32 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
+import { useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm/LoginForm";
+import useToken from "../hooks/useToken/useToken";
+import useUser from "../hooks/useUser/useUser";
+import { useAppDispatch } from "../store";
+import { loginUserActionCreator } from "../store/user/userSlice";
+import { UserStructure } from "../types";
 import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): React.ReactElement => {
+  const { getToken } = useUser();
+  const dispatch = useAppDispatch();
+  const { decodeToken } = useToken();
+  const navigate = useNavigate();
+
+  const loginUser = async (userCredentials: UserStructure) => {
+    const token = await getToken(userCredentials);
+
+    const userData = decodeToken(token);
+
+    dispatch(loginUserActionCreator(userData));
+
+    navigate("/");
+  };
+
   return (
     <LoginPageStyled>
       <h2 className="page-title">Login</h2>
-      <LoginForm submitFunction={() => {}} />
+      <LoginForm submitFunction={loginUser} />
     </LoginPageStyled>
   );
 };

@@ -3,7 +3,7 @@ import LoginFormStyled from "./LoginFormStyled";
 import { UserStructure } from "../../types";
 
 interface LoginFormProps {
-  submitFunction: () => void;
+  submitFunction: (userCredentials: UserStructure) => void;
 }
 
 const LoginForm = ({ submitFunction }: LoginFormProps) => {
@@ -25,7 +25,7 @@ const LoginForm = ({ submitFunction }: LoginFormProps) => {
   const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    submitFunction();
+    submitFunction(userCredentials);
 
     setUserLogin(initialUserState);
   };

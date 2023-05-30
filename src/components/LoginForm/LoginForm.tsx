@@ -3,8 +3,10 @@ import LoginFormStyled from "./LoginFormStyled";
 const LoginForm = () => {
   return (
     <LoginFormStyled className="form">
-      <div className="form-control">
-        <label htmlFor="username">Nombre de usuario</label>
+      <div className="form_form-control">
+        <label htmlFor="username" className="form_label-text">
+          Nombre de usuario
+        </label>
         <input
           type="text"
           name="username"
@@ -13,8 +15,10 @@ const LoginForm = () => {
           className="form_text-field"
         />
       </div>
-      <div className="form-control">
-        <label htmlFor="password">Contraseña</label>
+      <div className="form_form-control">
+        <label htmlFor="password" className="form_label-text">
+          Contraseña
+        </label>
         <input
           type="password"
           name="password"

@@ -7,36 +7,38 @@ const LoginFormStyled = styled.form`
   gap: 20px;
   margin-top: 30px;
 
-  .form_text-field {
-    padding: 18px;
-    background-color: ${(props) => props.theme.colors["tertiary-dark"]};
-    border-radius: 8px;
-    color: white;
-    font-size: 1.2rem;
-  }
+  .form {
+    &_text-field {
+      padding: 18px;
+      background-color: ${(props) => props.theme.colors.tertiaryDark};
+      border-radius: 8px;
+      color: white;
+      font-size: 1.2rem;
+    }
 
-  label {
-    font-size: 1.3rem;
-  }
+    &_form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
 
-  .form-control {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
+    &_send-button {
+      background-color: ${(props) => props.theme.colors.tertiary};
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 18px;
+      border-radius: 8px;
+      width: 120px;
+    }
 
-  .form_send-button {
-    background-color: ${(props) => props.theme.colors.tertiary};
-    font-size: 1.2rem;
-    font-weight: 700;
-    padding: 18px;
-    border-radius: 8px;
-    width: 120px;
-  }
+    &_send-button-container {
+      display: flex;
+      justify-content: right;
+    }
 
-  .form_send-button-container {
-    display: flex;
-    justify-content: right;
+    &_label-text {
+      font-size: 1.3rem;
+    }
   }
 `;
 

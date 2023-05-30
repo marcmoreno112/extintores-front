@@ -5,7 +5,7 @@ const LoginPageStyled = styled.main`
   width: 100%;
   padding-top: 180px;
 
-  h2 {
+  .page-title {
     font-size: 1.8rem;
   }
 `;

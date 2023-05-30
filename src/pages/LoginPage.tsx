@@ -6,17 +6,21 @@ import { useAppDispatch } from "../store";
 import { loginUserActionCreator } from "../store/user/userSlice";
 import { UserStructure } from "../types";
 import LoginPageStyled from "./LoginPageStyled";
+import useLocalStorage from "../hooks/useLocalStorage/useLocalStorage";
 
 const LoginPage = (): React.ReactElement => {
   const { getToken } = useUser();
   const dispatch = useAppDispatch();
   const { decodeToken } = useToken();
   const navigate = useNavigate();
+  const { addToLocalStorage } = useLocalStorage();
 
   const loginUser = async (userCredentials: UserStructure) => {
     const token = await getToken(userCredentials);
 
     const userData = decodeToken(token);
+
+    addToLocalStorage("token", token);
 
     dispatch(loginUserActionCreator(userData));
 

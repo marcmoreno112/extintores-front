@@ -9,6 +9,7 @@ body {
   font-family: ${(props) => props.theme.fonts.primary};
   font-size: 1rem;
   background-color: white;
+  margin: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

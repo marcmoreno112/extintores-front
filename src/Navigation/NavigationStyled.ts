@@ -4,6 +4,7 @@ const NavigationStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   font-size: 1.5rem;
+  font-weight: 600;
   color: ${(props) => props.theme.colors.secondary};
   width: 100%;
 
@@ -13,6 +14,10 @@ const NavigationStyled = styled.nav`
 
   .right {
     text-align: right;
+  }
+
+  .active {
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 

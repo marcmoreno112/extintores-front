@@ -24,6 +24,20 @@ const LoginFormStyled = styled.form`
     flex-direction: column;
     gap: 10px;
   }
+
+  .form_send-button {
+    background-color: ${(props) => props.theme.colors.tertiary};
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px;
+    border-radius: 8px;
+    width: 120px;
+  }
+
+  .form_send-button-container {
+    display: flex;
+    justify-content: right;
+  }
 `;
 
 export default LoginFormStyled;

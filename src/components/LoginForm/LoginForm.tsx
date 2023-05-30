@@ -23,6 +23,9 @@ const LoginForm = () => {
           className="form_text-field"
         />
       </div>
+      <div className="form_send-button-container">
+        <button className="form_send-button">Enviar</button>
+      </div>
     </LoginFormStyled>
   );
 };

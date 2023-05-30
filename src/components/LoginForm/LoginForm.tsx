@@ -2,7 +2,11 @@ import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
 import { UserStructure } from "../../types";
 
-const LoginForm = () => {
+interface LoginFormProps {
+  submitFunction: () => void;
+}
+
+const LoginForm = ({ submitFunction }: LoginFormProps) => {
   const initialUserState: UserStructure = {
     username: "",
     password: "",
@@ -18,10 +22,18 @@ const LoginForm = () => {
     });
   };
 
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    submitFunction();
+
+    setUserLogin(initialUserState);
+  };
+
   const isDisabled = !userCredentials.username || !userCredentials.password;
 
   return (
-    <LoginFormStyled className="form">
+    <LoginFormStyled className="form" onSubmit={handleSubmit}>
       <div className="form_form-control">
         <label htmlFor="username" className="form_label-text">
           Nombre de usuario

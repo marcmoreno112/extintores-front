@@ -8,12 +8,14 @@ const NavigationStyled = styled.nav`
   color: ${(props) => props.theme.colors.secondary};
   width: 100%;
 
-  .navigation_outside-link {
-    flex: 4;
-  }
+  .navigation {
+    &_outside-link {
+      flex: 4;
+    }
 
-  .navigation_right-link {
-    text-align: right;
+    &_right-link {
+      text-align: right;
+    }
   }
 
   .active {

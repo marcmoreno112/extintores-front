@@ -76,4 +76,24 @@ describe("Given a LoginForm component", () => {
       expect(button).toBeDisabled();
     });
   });
+  describe("When it is rendered and the user types 'Juan' at the username input and '1234' at the password input", () => {
+    test("Then it should show the text 'Juan' at the username input, the text '1234' at the password input and an enabled button", async () => {
+      const expectedUsernameText = "Juan";
+      const expectedUsernameLabel = "Nombre de usuario";
+      const expectedPasswordText = "1234";
+      const expectedPasswordLabel = "Contraseña";
+      const expectedButtonText = "Enviar";
+
+      renderWithProviders(<LoginForm />);
+      const button = screen.getByRole("button", {
+        name: expectedButtonText,
+      });
+      const usernameInput = screen.getByLabelText(expectedUsernameLabel);
+      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
+      await userEvent.type(passwordInput, expectedPasswordText);
+      await userEvent.type(usernameInput, expectedUsernameText);
+
+      expect(button).toBeEnabled();
+    });
+  });
 });

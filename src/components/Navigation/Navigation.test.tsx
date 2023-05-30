@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import Navigation from "./Navigation";
-import { renderWithProvidersRouter } from "../utils/testUtils";
+import { renderWithProvidersRouter } from "../../utils/testUtils";
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {

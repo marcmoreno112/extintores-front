@@ -17,9 +17,9 @@ describe("Given a loginUser reducer", () => {
       };
       const userAction = loginUserActionCreator(user);
       const newState: UserStateStructure = {
-        name: "Luigi",
-        id: "jke133",
-        token: "jlfe233323",
+        name: user.name,
+        id: user.id,
+        token: user.token,
         isLogged: true,
       };
 

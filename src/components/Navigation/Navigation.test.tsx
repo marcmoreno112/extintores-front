@@ -4,32 +4,20 @@ import { renderWithProvidersRouter } from "../../utils/testUtils";
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a link with the 'Lista'", () => {
+    test("Then it should show a link with the text 'Lista', another one with the text 'Login' and another link with the label 'Create element'", () => {
       const expectedListText = "Lista";
+      const expectedLoginText = "Login";
+      const expectedSumText = "Create element";
 
       renderWithProvidersRouter(<Navigation />);
 
       const lista = screen.getByRole("link", { name: expectedListText });
+      const login = screen.getByRole("link", { name: expectedLoginText });
+      const sum = screen.getByRole("link", { name: expectedSumText });
 
       expect(lista).toBeInTheDocument();
-    });
-    test("Then it should show a link with the text 'Login'", () => {
-      const expectedLoginText = "Login";
-
-      renderWithProvidersRouter(<Navigation />);
-
-      const login = screen.getByRole("link", { name: expectedLoginText });
-
       expect(login).toBeInTheDocument();
-    });
-    test("Then it should show an image with the alternative text 'Create element'", () => {
-      const expectedAltText = "Create element";
-
-      renderWithProvidersRouter(<Navigation />);
-
-      const plus = screen.getByAltText(expectedAltText);
-
-      expect(plus).toBeInTheDocument();
+      expect(sum).toBeInTheDocument();
     });
   });
 });

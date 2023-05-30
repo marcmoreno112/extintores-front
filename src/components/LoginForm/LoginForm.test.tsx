@@ -32,4 +32,15 @@ describe("Given a LoginForm component", () => {
       expect(input).toBeInTheDocument();
     });
   });
+  describe("When it is rendered and the input are empty", () => {
+    test("Then it show a disabled button", () => {
+      const buttonText = "Enviar";
+
+      renderWithProviders(<LoginForm />);
+
+      const button = screen.getByRole("button", { name: buttonText });
+
+      expect(button).toBeDisabled();
+    });
+  });
 });

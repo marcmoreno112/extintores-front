@@ -1,15 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import Navigation from "./Navigation";
-import { Provider } from "react-redux";
-import { store } from "../store";
-import { ThemeProvider } from "styled-components";
-import theme from "../styles/theme/theme";
-import GlobalStyle from "../styles/GlobalStyles/GlobalStyles";
-import {
-  RouteObject,
-  RouterProvider,
-  createBrowserRouter,
-} from "react-router-dom";
+import { renderWithProviders } from "../utils/testUtils";
 
 describe("Given a Navigation component", () => {
   describe("When it is rendered", () => {
@@ -17,23 +8,7 @@ describe("Given a Navigation component", () => {
       const expectedListText = "Lista";
       const expectedLoginText = "Login";
 
-      const routes: RouteObject[] = [
-        {
-          path: "/",
-          element: <Navigation />,
-        },
-      ];
-
-      const mockRouter = createBrowserRouter(routes);
-
-      render(
-        <ThemeProvider theme={theme}>
-          <GlobalStyle />
-          <Provider store={store}>
-            <RouterProvider router={mockRouter} />
-          </Provider>
-        </ThemeProvider>
-      );
+      renderWithProviders(<Navigation />);
 
       const lista = screen.getByRole("link", { name: expectedListText });
       const plus = screen.getByAltText("Create element");
@@ -44,5 +19,4 @@ describe("Given a Navigation component", () => {
       expect(login).toBeInTheDocument();
     });
   });
-  ssssss;
 });

@@ -34,9 +34,9 @@ describe("Given a Header component", () => {
         </ThemeProvider>
       );
 
-      const plus = screen.getByRole("heading", { name: expectedTitle });
+      const title = screen.getByRole("heading", { name: expectedTitle });
 
-      expect(plus).toBeInTheDocument();
+      expect(title).toBeInTheDocument();
     });
   });
 });

@@ -13,7 +13,12 @@ const Navigation = (): React.ReactElement => {
         aria-label="Create element"
         className="navigation__center-link"
       >
-        <img src="/+.svg" alt="Sum symbol for the create element page link" />
+        <img
+          src="/+.svg"
+          alt="Sum symbol for the create element page link"
+          width={25}
+          height={25}
+        />
       </NavLink>
       <NavLink to={`${paths.login}`} className="navigation right">
         Login

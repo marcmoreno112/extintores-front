@@ -21,6 +21,7 @@ describe("Given a getFromLocalStorage function", () => {
       expect(token).toBe(expectedToken);
     });
   });
+
   describe("When it is called and there is not a token", () => {
     test("Then it should return null", async () => {
       const { result } = renderHook(() => useLocalStorage());

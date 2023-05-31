@@ -1,6 +1,9 @@
 import { renderHook } from "@testing-library/react";
 import { tokenMock, userCredentialsMock } from "../../../mocks/userMocks";
 import useUser from "../useUser";
+import { UserStructure } from "../../../types";
+import { server } from "../../../mocks/server";
+import { errorHandlers } from "../../../mocks/handlers";
 
 describe("Given a getToken function", () => {
   describe("When it receives valid user credentials", () => {
@@ -17,6 +20,28 @@ describe("Given a getToken function", () => {
       const token = await getToken(userCredentials);
 
       expect(token).toBe(expectedToken);
+    });
+  });
+  describe("When it receives invalid user credentials", () => {
+    test("Then it should return a 'Wrong credentials' message", () => {
+      server.use(...errorHandlers);
+
+      const userCredentials: UserStructure = {
+        username: "",
+        password: "aaa",
+      };
+
+      const {
+        result: {
+          current: { getToken },
+        },
+      } = renderHook(() => useUser());
+
+      const getTokenFunction = async () => {
+        await getToken(userCredentials);
+      };
+
+      expect(getTokenFunction).rejects.toThrowError();
     });
   });
 });

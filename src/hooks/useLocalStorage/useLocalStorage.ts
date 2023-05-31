@@ -1,3 +1,5 @@
+import { useCallback } from "react";
+
 const useLocalStorage = () => {
   const addToLocalStorage = (
     localStorageKey: string,
@@ -6,13 +8,12 @@ const useLocalStorage = () => {
     localStorage.setItem(localStorageKey, localStorageValue);
   };
 
-  const getTokenFromLocalStorage = () => {
-    const token = localStorage.getItem("token") as string;
-
+  const getFromLocalStorage = useCallback((key: string) => {
+    const token = localStorage.getItem(key);
     return token;
-  };
+  }, []);
 
-  return { addToLocalStorage, getTokenFromLocalStorage };
+  return { addToLocalStorage, getFromLocalStorage: getFromLocalStorage };
 };
 
 export default useLocalStorage;

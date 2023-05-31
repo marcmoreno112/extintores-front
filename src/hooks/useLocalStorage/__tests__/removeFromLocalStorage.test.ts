@@ -1,3 +1,4 @@
+import { renderHook } from "@testing-library/react";
 import useLocalStorage from "../useLocalStorage";
 
 describe("Given a removeFromLocalStorage", () => {
@@ -5,7 +6,8 @@ describe("Given a removeFromLocalStorage", () => {
     test("Then LocalStorage token property should be empty", () => {
       const key = "token";
 
-      const { removeFromLocalStorage } = useLocalStorage();
+      const { result } = renderHook(() => useLocalStorage());
+      const { removeFromLocalStorage } = result.current;
       removeFromLocalStorage(key);
 
       expect(localStorage.getItem(key)).toBeNull();

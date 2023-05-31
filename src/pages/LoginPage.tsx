@@ -15,7 +15,7 @@ const LoginPage = (): React.ReactElement => {
   const navigate = useNavigate();
   const { addToLocalStorage } = useLocalStorage();
 
-  const loginUser = async (userCredentials: UserStructure) => {
+  const onSubmitLoginUser = async (userCredentials: UserStructure) => {
     const token = await getToken(userCredentials);
 
     const userData = decodeToken(token);
@@ -30,7 +30,7 @@ const LoginPage = (): React.ReactElement => {
   return (
     <LoginPageStyled>
       <h2 className="page-title">Login</h2>
-      <LoginForm submitFunction={loginUser} />
+      <LoginForm submitFunction={onSubmitLoginUser} />
     </LoginPageStyled>
   );
 };

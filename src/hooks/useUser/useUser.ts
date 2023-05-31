@@ -8,14 +8,18 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const useUser = () => {
   const getToken = useCallback(
     async (userCredentials: UserStructure): Promise<string> => {
-      const {
-        data: { token },
-      } = await axios.post<{ token: string }>(
-        `${apiUrl}${paths.user}${paths.login}`,
-        userCredentials
-      );
+      try {
+        const {
+          data: { token },
+        } = await axios.post<{ token: string }>(
+          `${apiUrl}${paths.user}${paths.login}`,
+          userCredentials
+        );
 
-      return token;
+        return token;
+      } catch (error) {
+        throw error as Error;
+      }
     },
     []
   );

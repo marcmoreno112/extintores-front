@@ -10,10 +10,15 @@ const useLocalStorage = () => {
 
   const getFromLocalStorage = useCallback((key: string) => {
     const token = localStorage.getItem(key);
+
     return token;
   }, []);
 
-  return { addToLocalStorage, getFromLocalStorage: getFromLocalStorage };
+  const removeFromLocalStorage = (key: string) => {
+    localStorage.removeItem(key);
+  };
+
+  return { addToLocalStorage, getFromLocalStorage, removeFromLocalStorage };
 };
 
 export default useLocalStorage;

@@ -1,7 +1,10 @@
-import { vi } from "vitest";
 import { renderHook } from "@testing-library/react";
 import { tokenMock } from "../../../mocks/userMocks";
 import useLocalStorage from "../useLocalStorage";
+
+beforeEach(() => {
+  localStorage.clear;
+});
 
 describe("Given an addToLocalStorage function", () => {
   describe("When it is called with a key 'token' and a token", () => {
@@ -10,18 +13,11 @@ describe("Given an addToLocalStorage function", () => {
       const token = tokenMock;
 
       const { result } = renderHook(() => useLocalStorage());
-      const addToLocalStorage = result.current.addToLocalStorage;
-
-      Object.defineProperty(window, "localStorage", {
-        value: {
-          setItem: vi.fn(),
-        },
-        writable: true,
-      });
+      const { addToLocalStorage } = result.current;
 
       addToLocalStorage(key, token);
 
-      expect(window.localStorage.setItem).toHaveBeenCalledWith(key, token);
+      expect(localStorage.getItem(key)).toBe(token);
     });
   });
 });

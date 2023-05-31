@@ -6,7 +6,13 @@ const useLocalStorage = () => {
     localStorage.setItem(localStorageKey, localStorageValue);
   };
 
-  return { addToLocalStorage };
+  const getTokenFromLocalStorage = () => {
+    const token = localStorage.getItem("token") as string;
+
+    return token;
+  };
+
+  return { addToLocalStorage, getTokenFromLocalStorage };
 };
 
 export default useLocalStorage;

@@ -1,5 +1,5 @@
-import { UserStateStructure, UserTokenStructure } from "./types";
-import { loginUserActionCreator, userReducer } from "./userSlice";
+import { UserStateStructure, UserTokenStructure } from "../types";
+import { loginUserActionCreator, userReducer } from "../userSlice";
 
 describe("Given a loginUser reducer", () => {
   describe("When it receives an empty initialUserState and a user as payload", () => {

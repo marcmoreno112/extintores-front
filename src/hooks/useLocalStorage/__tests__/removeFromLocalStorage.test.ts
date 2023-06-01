@@ -4,6 +4,8 @@ import useLocalStorage from "../useLocalStorage";
 describe("Given a removeFromLocalStorage", () => {
   describe("When it is called with the key 'token'", () => {
     test("Then LocalStorage token property should be empty", () => {
+      localStorage.setItem("token", "something");
+
       const key = "token";
 
       const { result } = renderHook(() => useLocalStorage());

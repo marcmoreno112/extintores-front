@@ -18,7 +18,7 @@ const useUser = () => {
 
         return token;
       } catch (error) {
-        throw error as Error;
+        throw new Error("Wrong credentials");
       }
     },
     []

@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { renderWithProvidersRouter } from "../utils/testUtils";
+import { renderWithProvidersRouter } from "../../utils/testUtils";
 import LoginPage from "./LoginPage";
 
 describe("Given a LoginPage page", () => {

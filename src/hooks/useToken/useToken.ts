@@ -9,7 +9,6 @@ const useToken = () => {
     const userData: UserTokenStructure = {
       id: tokenData.sub,
       name: tokenData.name,
-      token: token,
     };
 
     return userData;

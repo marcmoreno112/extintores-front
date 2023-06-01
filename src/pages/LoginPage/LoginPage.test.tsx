@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import paths from "../../router/paths";
 import { Suspense } from "react";
-import { LazyListPage } from "../../router/LazyPages";
+import { LazyListPage } from "../../router/lazyPages";
 import { errorHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
 import ListPage from "../ListPage/ListPage";

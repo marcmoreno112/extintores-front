@@ -25,7 +25,7 @@ const LoginPage = (): React.ReactElement => {
 
       addToLocalStorage("token", token);
 
-      dispatch(loginUserActionCreator(userData));
+      dispatch(loginUserActionCreator({ ...userData, token }));
 
       navigate("/");
     } catch {

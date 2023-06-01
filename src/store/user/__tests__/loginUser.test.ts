@@ -1,4 +1,4 @@
-import { UserStateStructure, UserTokenStructure } from "../types";
+import { UserDataStructure, UserStateStructure } from "../types";
 import { loginUserActionCreator, userReducer } from "../userSlice";
 
 describe("Given a loginUser reducer", () => {
@@ -10,7 +10,7 @@ describe("Given a loginUser reducer", () => {
         token: "",
         isLogged: false,
       };
-      const user: UserTokenStructure = {
+      const user: UserDataStructure = {
         name: "Luigi",
         id: "jke133",
         token: "jlfe233323",

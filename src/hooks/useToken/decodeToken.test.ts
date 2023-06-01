@@ -13,7 +13,6 @@ describe("Given a decodeToken function", () => {
       const expectedResult: UserTokenStructure = {
         name: expecteName,
         id: expectedId,
-        token: token,
       };
 
       const {

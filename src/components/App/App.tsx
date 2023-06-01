@@ -23,7 +23,7 @@ const App = (): JSX.Element => {
     if (token) {
       const userData: UserTokenStructure = decodeToken(token);
 
-      dispatch(loginUserActionCreator({ ...userData }));
+      dispatch(loginUserActionCreator({ ...userData, token }));
     } else {
       navigate(paths.login);
     }

@@ -16,19 +16,21 @@ const LoginPage = (): React.ReactElement => {
   const { addToLocalStorage } = useLocalStorage();
 
   const onSubmitLoginUser = async (userCredentials: UserStructure) => {
-    const token = await getToken(userCredentials);
+    let token;
 
-    if (!token) {
+    try {
+      token = await getToken(userCredentials);
+
+      const userData = decodeToken(token);
+
+      addToLocalStorage("token", token);
+
+      dispatch(loginUserActionCreator(userData));
+
+      navigate("/");
+    } catch {
       return;
     }
-
-    const userData = decodeToken(token);
-
-    addToLocalStorage("token", token);
-
-    dispatch(loginUserActionCreator(userData));
-
-    navigate("/");
   };
 
   return (

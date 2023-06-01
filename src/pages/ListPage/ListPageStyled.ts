@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LoginPageStyled = styled.main`
+const ListPageStyled = styled.main`
   width: 100%;
   padding-top: 180px;
 
@@ -9,4 +9,4 @@ const LoginPageStyled = styled.main`
   }
 `;
 
-export default LoginPageStyled;
+export default ListPageStyled;

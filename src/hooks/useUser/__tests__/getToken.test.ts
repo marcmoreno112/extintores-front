@@ -24,7 +24,7 @@ describe("Given a getToken function", () => {
   });
   describe("When it receives invalid user credentials", () => {
     test("Then it should return a 'Wrong credentials' message", () => {
-      server.use(...errorHandlers);
+      server.resetHandlers(...errorHandlers);
 
       const userCredentials: UserStructure = {
         username: "",

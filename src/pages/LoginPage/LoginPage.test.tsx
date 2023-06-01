@@ -6,6 +6,7 @@ import {
 import LoginPage from "./LoginPage";
 import userEvent from "@testing-library/user-event";
 import {
+  Navigate,
   RouteObject,
   RouterProvider,
   createMemoryRouter,
@@ -15,7 +16,7 @@ import { Suspense } from "react";
 import { LazyListPage } from "../../router/LazyPages";
 import { errorHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
-import ListPage from "../ListPage/ListPage";
+import App from "../../components/App/App";
 
 describe(`Given a '${paths.login}' path`, () => {
   describe("When it is rendered", () => {
@@ -33,13 +34,20 @@ describe(`Given a '${paths.login}' path`, () => {
   const expectedUsernameLabel = "Nombre de usuario";
   const expectedPasswordLabel = "Contraseña";
 
-  describe("When the user types a valid username or password and clicks the form button", () => {
+  const validUsername = "admin";
+  const validPassword = "admin";
+
+  describe("When the user types a valid credentials and clicks the form button", () => {
     test(`Then it should navigate to "/"`, async () => {
       const routes: RouteObject[] = [
         {
           path: "/",
-          element: <LoginPage />,
+          element: <App />,
           children: [
+            {
+              index: true,
+              element: <Navigate to={`${paths.extintores}`} replace />,
+            },
             {
               path: `${paths.extintores}`,
               element: (
@@ -48,40 +56,9 @@ describe(`Given a '${paths.login}' path`, () => {
                 </Suspense>
               ),
             },
-          ],
-        },
-      ];
-
-      const mockRouter = createMemoryRouter(routes);
-
-      const validUsername = "admin";
-      const validPassword = "admin";
-
-      renderWithProviders(<RouterProvider router={mockRouter} />);
-      const button = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
-      const usernameInput = screen.getByLabelText(expectedUsernameLabel);
-      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
-      await userEvent.type(passwordInput, validUsername);
-      await userEvent.type(usernameInput, validPassword);
-      await userEvent.click(button);
-
-      const expectedPath = "/";
-
-      expect(mockRouter.state.location.pathname).toBe(expectedPath);
-    });
-  });
-  describe("When the user types an invalid username or password and clicks the form button", () => {
-    test("Then it should navigato to '/'", async () => {
-      const routes: RouteObject[] = [
-        {
-          path: "/",
-          element: <LoginPage />,
-          children: [
             {
-              path: `${paths.extintores}`,
-              element: <ListPage />,
+              path: paths.login,
+              element: <LoginPage />,
             },
           ],
         },
@@ -89,22 +66,71 @@ describe(`Given a '${paths.login}' path`, () => {
 
       const mockRouter = createMemoryRouter(routes);
 
-      const invalidUsername = "admin";
-      const invalidPassword = "admin";
-
-      server.resetHandlers(...errorHandlers);
-
       renderWithProviders(<RouterProvider router={mockRouter} />);
+
+      await mockRouter.navigate(paths.login);
+
       const button = screen.getByRole("button", {
         name: expectedButtonText,
       });
+
       const usernameInput = screen.getByLabelText(expectedUsernameLabel);
       const passwordInput = screen.getByLabelText(expectedPasswordLabel);
-      await userEvent.type(passwordInput, invalidUsername);
-      await userEvent.type(usernameInput, invalidPassword);
+      await userEvent.type(passwordInput, validUsername);
+      await userEvent.type(usernameInput, validPassword);
       await userEvent.click(button);
 
-      const expectedPath = "/";
+      const expectedPath = paths.extintores;
+
+      expect(mockRouter.state.location.pathname).toBe(expectedPath);
+    });
+  });
+
+  describe("When the user types invalid credentials and clicks the form button", () => {
+    test("Then it should navigato to '/'", async () => {
+      const routes: RouteObject[] = [
+        {
+          path: "/",
+          element: <App />,
+          children: [
+            {
+              index: true,
+              element: <Navigate to={`${paths.extintores}`} replace />,
+            },
+            {
+              path: `${paths.extintores}`,
+              element: (
+                <Suspense>
+                  <LazyListPage />
+                </Suspense>
+              ),
+            },
+            {
+              path: paths.login,
+              element: <LoginPage />,
+            },
+          ],
+        },
+      ];
+
+      server.resetHandlers(...errorHandlers);
+
+      const mockRouter = createMemoryRouter(routes);
+
+      renderWithProviders(<RouterProvider router={mockRouter} />);
+
+      await mockRouter.navigate(paths.login);
+
+      const usernameInput = screen.getByLabelText(expectedUsernameLabel);
+      const passwordInput = screen.getByLabelText(expectedPasswordLabel);
+      const button = screen.getByRole("button", {
+        name: expectedButtonText,
+      });
+      await userEvent.type(passwordInput, validUsername);
+      await userEvent.type(usernameInput, validPassword);
+      await userEvent.click(button);
+
+      const expectedPath = paths.login;
 
       expect(mockRouter.state.location.pathname).toBe(expectedPath);
     });

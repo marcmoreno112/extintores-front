@@ -1,13 +1,14 @@
 import { screen } from "@testing-library/react";
-import { renderWithProvidersRouter } from "../../utils/testUtils";
+import { renderRouterWithProviders } from "../../utils/testUtils";
 import Layout from "./Layout";
+import { initialUserState } from "../../store/user/userSlice";
 
 describe("Given a Layout component", () => {
   describe("When it is rendered", () => {
     test("Then it should show a 'Extintores' title", () => {
       const expectedTitle = "Extintores";
 
-      renderWithProvidersRouter(<Layout />);
+      renderRouterWithProviders(<Layout />, { state: initialUserState });
 
       const title = screen.getByRole("heading", { name: expectedTitle });
 

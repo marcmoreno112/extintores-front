@@ -1,3 +1,4 @@
+import { UserStateStructure } from "../store/user/types";
 import { UserStructure } from "../types";
 
 export const tokenMock =
@@ -6,4 +7,11 @@ export const tokenMock =
 export const userCredentialsMock: UserStructure = {
   username: "Juan",
   password: "1234",
+};
+
+export const userStateLoggedMock: UserStateStructure = {
+  id: "",
+  isLogged: true,
+  name: "",
+  token: "",
 };

@@ -10,7 +10,7 @@ interface NavigationProps {
 const Navigation = ({
   onClickFunction,
 }: NavigationProps): React.ReactElement => {
-  const isLogged = useAppSelector((state) => state.state.isLogged);
+  const isLogged = useAppSelector((state) => state.userState.isLogged);
 
   return (
     <NavigationStyled>

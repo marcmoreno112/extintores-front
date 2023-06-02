@@ -5,7 +5,7 @@ import {
   renderWithProvidersRouter,
 } from "../../utils/testUtils";
 import { vi } from "vitest";
-import { tokenMock } from "../../mocks/userMocks";
+import { tokenMock, userStateLoggedMock } from "../../mocks/userMocks";
 import {
   RouteObject,
   RouterProvider,
@@ -38,21 +38,21 @@ describe("Given a Navigation component", () => {
 
   describe("When there is a token in localStorage", () => {
     test("Then it should show a 'Logout' button", async () => {
-      const token = tokenMock;
       const expectedButtonText = "Logout";
-
-      localStorage.setItem("token", token);
+      const onClickFunction = vi.fn();
 
       const routes: RouteObject[] = [
         {
           path: "/",
-          element: <App />,
+          element: <Navigation onClickFunction={onClickFunction} />,
         },
       ];
 
       const mockRouter = createMemoryRouter(routes);
 
-      renderWithProviders(<RouterProvider router={mockRouter} />);
+      renderWithProviders(<RouterProvider router={mockRouter} />, {
+        userState: userStateLoggedMock,
+      });
 
       const button = await screen.getByRole("button", {
         name: expectedButtonText,

@@ -1,8 +1,17 @@
 import { NavLink } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
 import paths from "../../router/paths";
+import { useAppSelector } from "../../store";
 
-const Navigation = (): React.ReactElement => {
+interface NavigationProps {
+  onClickFunction: () => void;
+}
+
+const Navigation = ({
+  onClickFunction,
+}: NavigationProps): React.ReactElement => {
+  const isLogged = useAppSelector((state) => state.state.isLogged);
+
   return (
     <NavigationStyled>
       <NavLink to="/" className="navigation">
@@ -20,9 +29,15 @@ const Navigation = (): React.ReactElement => {
           height={25}
         />
       </NavLink>
-      <NavLink to={`${paths.login}`} className="navigation right">
-        Login
-      </NavLink>
+      {isLogged ? (
+        <button className="navigation right" onClick={onClickFunction}>
+          Logout
+        </button>
+      ) : (
+        <NavLink to={`${paths.login}`} className="navigation right">
+          Login
+        </NavLink>
+      )}
     </NavigationStyled>
   );
 };

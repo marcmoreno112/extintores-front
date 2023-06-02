@@ -6,7 +6,6 @@ import { useAppDispatch } from "../../store";
 import { UserTokenStructure } from "../../store/user/types";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import Layout from "../Layout/Layout";
-import paths from "../../router/paths";
 
 const App = (): JSX.Element => {
   const { getFromLocalStorage } = useLocalStorage();
@@ -24,8 +23,6 @@ const App = (): JSX.Element => {
       const userData: UserTokenStructure = decodeToken(token);
 
       dispatch(loginUserActionCreator({ ...userData, token }));
-    } else {
-      navigate(paths.login);
     }
   }, [decodeToken, dispatch, getFromLocalStorage, navigate]);
 

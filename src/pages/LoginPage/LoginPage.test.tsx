@@ -1,7 +1,7 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import {
   renderWithProviders,
-  renderWithProvidersRouter,
+  renderRouterWithProviders,
 } from "../../utils/testUtils";
 import LoginPage from "./LoginPage";
 import userEvent from "@testing-library/user-event";
@@ -17,13 +17,14 @@ import { LazyListPage } from "../../router/lazyPages";
 import { errorHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
 import App from "../../components/App/App";
+import ListPage from "../ListPage/ListPage";
 
 describe(`Given a '${paths.login}' path`, () => {
   describe("When it is rendered", () => {
     test("Then it should show a 'Login' title", () => {
       const expectedTitle = "Login";
 
-      renderWithProvidersRouter(<LoginPage />);
+      renderRouterWithProviders(<LoginPage />);
 
       const title = screen.getByRole("heading", { name: expectedTitle });
 
@@ -49,12 +50,8 @@ describe(`Given a '${paths.login}' path`, () => {
               element: <Navigate to={`${paths.extintores}`} replace />,
             },
             {
-              path: `${paths.extintores}`,
-              element: (
-                <Suspense>
-                  <LazyListPage />
-                </Suspense>
-              ),
+              path: paths.extintores,
+              element: <ListPage />,
             },
             {
               path: paths.login,
@@ -68,16 +65,18 @@ describe(`Given a '${paths.login}' path`, () => {
 
       renderWithProviders(<RouterProvider router={mockRouter} />);
 
-      await mockRouter.navigate(paths.login);
+      const loginButton = screen.getByRole("link", { name: "Login" });
 
-      const button = screen.getByRole("button", {
-        name: expectedButtonText,
-      });
+      await userEvent.click(loginButton);
 
       const usernameInput = screen.getByLabelText(expectedUsernameLabel);
       const passwordInput = screen.getByLabelText(expectedPasswordLabel);
       await userEvent.type(passwordInput, validUsername);
       await userEvent.type(usernameInput, validPassword);
+      const button = screen.getByRole("button", {
+        name: expectedButtonText,
+      });
+
       await userEvent.click(button);
 
       const expectedPath = paths.extintores;
@@ -87,7 +86,7 @@ describe(`Given a '${paths.login}' path`, () => {
   });
 
   describe("When the user types invalid credentials and clicks the form button", () => {
-    test("Then it should navigato to '/'", async () => {
+    test(`Then it should navigate to ${paths.login}`, async () => {
       const routes: RouteObject[] = [
         {
           path: "/",
@@ -119,7 +118,7 @@ describe(`Given a '${paths.login}' path`, () => {
 
       renderWithProviders(<RouterProvider router={mockRouter} />);
 
-      await mockRouter.navigate(paths.login);
+      await waitFor(() => mockRouter.navigate(paths.login));
 
       const usernameInput = screen.getByLabelText(expectedUsernameLabel);
       const passwordInput = screen.getByLabelText(expectedPasswordLabel);

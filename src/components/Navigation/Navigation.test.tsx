@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import Navigation from "./Navigation";
 import {
   renderWithProviders,
-  renderWithProvidersRouter,
+  renderRouterWithProviders,
 } from "../../utils/testUtils";
 import { userStateLoggedMock } from "../../mocks/userMocks";
 import {
@@ -20,7 +20,7 @@ describe("Given a Navigation component", () => {
       const expectedLoginText = "Login";
       const expectedSumText = "Create element";
 
-      renderWithProvidersRouter(<Navigation />);
+      renderRouterWithProviders(<Navigation />);
 
       const lista = screen.getByRole("link", { name: expectedListText });
       const login = screen.getByRole("link", { name: expectedLoginText });

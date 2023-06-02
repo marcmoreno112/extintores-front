@@ -1,16 +1,23 @@
 import { NavLink } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
 import paths from "../../router/paths";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import { logoutUserActionCreator } from "../../store/user/userSlice";
 
-interface NavigationProps {
-  onClickFunction: () => void;
-}
+const Navigation = (): React.ReactElement => {
+  const isLogged = useAppSelector((state) => state.userState.isLogged);
 
-const Navigation = ({
-  onClickFunction,
-}: NavigationProps): React.ReactElement => {
-  const isLogged = useAppSelector((state) => state.state.isLogged);
+  const dispatch = useAppDispatch();
+  const { removeFromLocalStorage } = useLocalStorage();
+
+  const onClickLogoutUser = () => {
+    dispatch(logoutUserActionCreator());
+
+    removeFromLocalStorage("token");
+
+    return;
+  };
 
   return (
     <NavigationStyled>
@@ -30,7 +37,7 @@ const Navigation = ({
         />
       </NavLink>
       {isLogged ? (
-        <button className="navigation right" onClick={onClickFunction}>
+        <button className="navigation right" onClick={onClickLogoutUser}>
           Logout
         </button>
       ) : (

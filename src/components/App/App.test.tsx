@@ -25,7 +25,7 @@ describe("Given an App component", () => {
       const mockRouter = createMemoryRouter(routes);
 
       renderWithProviders(<RouterProvider router={mockRouter} />, {
-        state: preloadedState,
+        userState: preloadedState,
       });
 
       const title = await screen.getByRole("heading", { name: expectedTitle });

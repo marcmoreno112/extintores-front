@@ -8,7 +8,7 @@ describe("Given a Layout component", () => {
     test("Then it should show a 'Extintores' title", () => {
       const expectedTitle = "Extintores";
 
-      renderRouterWithProviders(<Layout />, { state: initialUserState });
+      renderRouterWithProviders(<Layout />, { userState: initialUserState });
 
       const title = screen.getByRole("heading", { name: expectedTitle });
 

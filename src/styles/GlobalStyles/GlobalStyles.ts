@@ -33,6 +33,8 @@ button {
   font: inherit;
   border: none;
   background-color: transparent;
+  padding: 0;
+  color: inherit;
 }
 
 a {

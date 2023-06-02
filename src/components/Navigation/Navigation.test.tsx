@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import Navigation from "./Navigation";
 import {
   renderWithProviders,
-  renderWithProvidersRouter,
+  renderRouterWithProviders,
 } from "../../utils/testUtils";
 import { vi } from "vitest";
 import { tokenMock } from "../../mocks/userMocks";
@@ -22,7 +22,7 @@ describe("Given a Navigation component", () => {
       const expectedSumText = "Create element";
       const onClickFunction = vi.fn();
 
-      renderWithProvidersRouter(
+      renderRouterWithProviders(
         <Navigation onClickFunction={onClickFunction} />
       );
 

@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import { PropsWithChildren } from "react";
 
-export const renderWithProvidersRouter = (
+export const renderRouterWithProviders = (
   ui: React.ReactElement,
   preloadedState?: PreloadedState<RootState>
 ) => {

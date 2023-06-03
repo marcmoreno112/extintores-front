@@ -1,4 +1,4 @@
-import { screen, waitFor } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import {
   renderWithProviders,
   renderRouterWithProviders,
@@ -6,20 +6,27 @@ import {
 import LoginPage from "./LoginPage";
 import userEvent from "@testing-library/user-event";
 import {
-  Navigate,
   RouteObject,
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
 import paths from "../../router/paths";
-import { Suspense } from "react";
-import { LazyListPage } from "../../router/lazyPages";
 import { errorHandlers } from "../../mocks/handlers";
 import { server } from "../../mocks/server";
-import App from "../../components/App/App";
 import ListPage from "../ListPage/ListPage";
+import Header from "../../components/Header/Header";
+import { initialUserState } from "../../store/user/userSlice";
+import { Suspense } from "react";
+import { LazyLoginPage } from "../../router/lazyPages";
 
 describe(`Given a '${paths.login}' path`, () => {
+  const expectedButtonText = "Enviar";
+  const expectedUsernameLabel = "Nombre de usuario";
+  const expectedPasswordLabel = "Contraseña";
+
+  const validUsername = "admin";
+  const validPassword = "admin";
+
   describe("When it is rendered", () => {
     test("Then it should show a 'Login' title", () => {
       const expectedTitle = "Login";
@@ -31,33 +38,22 @@ describe(`Given a '${paths.login}' path`, () => {
       expect(title).toBeInTheDocument();
     });
   });
-  const expectedButtonText = "Enviar";
-  const expectedUsernameLabel = "Nombre de usuario";
-  const expectedPasswordLabel = "Contraseña";
-
-  const validUsername = "admin";
-  const validPassword = "admin";
 
   describe("When the user types a valid credentials and clicks the form button", () => {
-    test(`Then it should navigate to "/"`, async () => {
+    test("Then it should show the title 'Extintores'", async () => {
       const routes: RouteObject[] = [
         {
           path: "/",
-          element: <App />,
-          children: [
-            {
-              index: true,
-              element: <Navigate to={`${paths.extintores}`} replace />,
-            },
-            {
-              path: paths.extintores,
-              element: <ListPage />,
-            },
-            {
-              path: paths.login,
-              element: <LoginPage />,
-            },
-          ],
+          element: (
+            <>
+              <Header />
+              <ListPage />
+            </>
+          ),
+        },
+        {
+          path: paths.login,
+          element: <LoginPage />,
         },
       ];
 
@@ -79,36 +75,35 @@ describe(`Given a '${paths.login}' path`, () => {
 
       await userEvent.click(button);
 
-      const expectedPath = paths.extintores;
+      const expecteTitle = "Extintores";
+      const title = screen.getByRole("heading", {
+        name: expecteTitle,
+        level: 2,
+      });
 
-      expect(mockRouter.state.location.pathname).toBe(expectedPath);
+      expect(title).toBeInTheDocument();
     });
   });
 
   describe("When the user types invalid credentials and clicks the form button", () => {
-    test(`Then it should navigate to ${paths.login}`, async () => {
+    test("Then it should show the title 'Login'", async () => {
       const routes: RouteObject[] = [
         {
           path: "/",
-          element: <App />,
-          children: [
-            {
-              index: true,
-              element: <Navigate to={`${paths.extintores}`} replace />,
-            },
-            {
-              path: `${paths.extintores}`,
-              element: (
-                <Suspense>
-                  <LazyListPage />
-                </Suspense>
-              ),
-            },
-            {
-              path: paths.login,
-              element: <LoginPage />,
-            },
-          ],
+          element: (
+            <>
+              <Header />
+              <ListPage />
+            </>
+          ),
+        },
+        {
+          path: paths.login,
+          element: (
+            <Suspense>
+              <LazyLoginPage />
+            </Suspense>
+          ),
         },
       ];
 
@@ -116,9 +111,13 @@ describe(`Given a '${paths.login}' path`, () => {
 
       const mockRouter = createMemoryRouter(routes);
 
-      renderWithProviders(<RouterProvider router={mockRouter} />);
+      renderWithProviders(<RouterProvider router={mockRouter} />, {
+        userState: initialUserState,
+      });
 
-      await waitFor(() => mockRouter.navigate(paths.login));
+      const loginButton = screen.getByRole("link", { name: "Login" });
+
+      await userEvent.click(loginButton);
 
       const usernameInput = screen.getByLabelText(expectedUsernameLabel);
       const passwordInput = screen.getByLabelText(expectedPasswordLabel);
@@ -129,9 +128,13 @@ describe(`Given a '${paths.login}' path`, () => {
       await userEvent.type(usernameInput, validPassword);
       await userEvent.click(button);
 
-      const expectedPath = paths.login;
+      const expecteTitle = "Login";
+      const title = screen.getByRole("heading", {
+        name: expecteTitle,
+        level: 2,
+      });
 
-      expect(mockRouter.state.location.pathname).toBe(expectedPath);
+      expect(title).toBeInTheDocument();
     });
   });
 });

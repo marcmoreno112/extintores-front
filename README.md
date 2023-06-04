@@ -55,7 +55,9 @@ Follow the link to access the front repository: https://github.com/isdi-coders-2
 
 🔸React Testing Library (https://testing-library.com/)  
 🔸Vitest (https://vitest.dev/)  
-🔸Mock Service Worker (https://mswjs.io/)
+🔸Mock Service Worker (https://mswjs.io/)  
+🔸Fishery (https://github.com/thoughtbot/fishery)  
+🔸Faker-js (https://fakerjs.dev/)
 
 ---
 

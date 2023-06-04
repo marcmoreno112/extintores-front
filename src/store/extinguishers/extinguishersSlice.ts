@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { ExtinguisherStructure } from "./types";
+import { ExtinguisherStructure } from "../../types";
 
 export const initialExtinguishersState: ExtinguisherStructure[] = [];
 
@@ -10,9 +10,7 @@ const extinguishersSlice = createSlice({
     loadExtinguishers: (
       _currentExtinguishersState,
       action: PayloadAction<ExtinguisherStructure[]>
-    ) => ({
-      ...action.payload,
-    }),
+    ) => [...action.payload],
   },
 });
 

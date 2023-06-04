@@ -19,10 +19,10 @@ const extinguisherFactory = Factory.define<ExtinguisherStructure>(() => ({
   usefulLife: faker.string.sample(),
 }));
 
-export const extinguishersMock = (
+export const getExtinguishersMock = (
   numberOfExtinguishers: number,
   data?: ExtinguisherStructure
 ) => extinguisherFactory.buildList(numberOfExtinguishers, data);
 
-export const extinguisherMock = (data?: ExtinguisherStructure) =>
+export const GetExtinguisherMock = (data?: ExtinguisherStructure) =>
   extinguisherFactory.build(data);

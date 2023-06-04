@@ -1,4 +1,4 @@
-import { extinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
+import { getExtinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
 import { ExtinguisherStructure } from "../../types";
 import {
   extinguishersReducer,
@@ -11,7 +11,7 @@ describe("Given a loadExtinguishers reducer", () => {
       const initialExtinguishersState: ExtinguisherStructure[] = [];
 
       const newExtinguishersList: ExtinguisherStructure[] =
-        extinguishersMock(3);
+        getExtinguishersMock(3);
 
       const loadExtinguishersAction =
         loadExtinguishersActionCreator(newExtinguishersList);

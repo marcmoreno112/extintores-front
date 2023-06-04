@@ -1,4 +1,5 @@
 import { ExtinguisherStructure } from "../../types";
+import ExtinguisherCard from "../ExtinguisherCard/ExtinguisherCard";
 import ExtinguishersListStyled from "./ExtinguishersListStyled";
 
 interface ExtinguishersListProps {
@@ -11,7 +12,7 @@ const ExtinguishersList = ({
   return (
     <ExtinguishersListStyled>
       {extinguishers.map((extinguisher) => (
-        <h3 key={extinguisher.id}>{extinguisher.brand}</h3>
+        <ExtinguisherCard extinguisher={extinguisher} key={extinguisher.id} />
       ))}
     </ExtinguishersListStyled>
   );

@@ -6,6 +6,7 @@ const ListPageStyled = styled.main`
 
   .page-title {
     font-size: 1.8rem;
+    padding-bottom: 30px;
   }
 `;
 

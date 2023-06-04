@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import ExtinguishersList from "./ExtinguishersList";
+import { renderWithProviders } from "../../utils/testUtils";
 import { extinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
 
 describe("Given a ExtinguishersList component", () => {
@@ -9,7 +10,9 @@ describe("Given a ExtinguishersList component", () => {
 
       const expectedTitle = extinguishersListMock[0].brand;
 
-      render(<ExtinguishersList extinguishers={extinguishersListMock} />);
+      renderWithProviders(
+        <ExtinguishersList extinguishers={extinguishersListMock} />
+      );
 
       const resultTitle = screen.getByRole("heading", { name: expectedTitle });
 

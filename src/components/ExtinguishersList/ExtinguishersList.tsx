@@ -11,7 +11,7 @@ const ExtinguishersList = ({
   return (
     <ExtinguishersListStyled>
       {extinguishers.map((extinguisher) => (
-        <h3 key={extinguisher.id}>{extinguisher.model}</h3>
+        <h3 key={extinguisher.id}>{extinguisher.brand}</h3>
       ))}
     </ExtinguishersListStyled>
   );

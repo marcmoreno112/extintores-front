@@ -53,8 +53,6 @@ describe("Given an App component", () => {
 
       renderWithProviders(<RouterProvider router={mockRouter} />);
 
-      screen.debug();
-
       const button = await screen.getByRole("button", {
         name: expectedButtonText,
       });

@@ -15,6 +15,7 @@ const ExtinguisherCard = ({
         src={img}
         width={150}
         height={300}
+        loading="lazy"
       />
       <h3>{brand}</h3>
       <h3>{model}</h3>

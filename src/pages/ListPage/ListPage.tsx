@@ -1,6 +1,15 @@
+import { extinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
+import { useAppDispatch } from "../../store";
+import { loadExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
 
 const ListPage = (): React.ReactElement => {
+  const dispatch = useAppDispatch();
+
+  const extinguishersMockList = extinguishersMock(3);
+
+  dispatch(loadExtinguishersActionCreator(extinguishersMockList));
+
   return (
     <ListPageStyled>
       <h2 className="page-title">Extintores</h2>

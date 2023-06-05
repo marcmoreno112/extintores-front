@@ -27,7 +27,10 @@ const ListPage = (): React.ReactElement => {
         const preconnectElement = await document.createElement("link");
         preconnectElement.rel = "preconnect";
         preconnectElement.href = firstExtinguishersUrl;
-        document.head.appendChild(preconnectElement);
+
+        const parent = document.head;
+        const firstChild = document.head.firstChild;
+        parent.insertBefore(preconnectElement, firstChild);
       } catch {
         return;
       }

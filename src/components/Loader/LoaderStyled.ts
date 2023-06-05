@@ -35,6 +35,12 @@ const LoaderStyled = styled.div`
       width: 100%;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .loading-container {
+      animation: none;
+    }
+  }
 `;
 
 export default LoaderStyled;

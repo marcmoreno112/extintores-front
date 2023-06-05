@@ -30,7 +30,7 @@ const Navigation = (): React.ReactElement => {
         className="navigation__center-link"
       >
         <img
-          src="/+.svg"
+          src="/images/+.svg"
           alt="Sum symbol for the create element page link"
           width={25}
           height={25}

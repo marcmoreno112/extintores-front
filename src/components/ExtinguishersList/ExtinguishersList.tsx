@@ -11,8 +11,12 @@ const ExtinguishersList = ({
 }: ExtinguishersListProps): React.ReactElement => {
   return (
     <ExtinguishersListStyled>
-      {extinguishers.map((extinguisher) => (
-        <ExtinguisherCard extinguisher={extinguisher} key={extinguisher.id} />
+      {extinguishers.map((extinguisher, index) => (
+        <ExtinguisherCard
+          extinguisher={extinguisher}
+          key={extinguisher.id}
+          isLazy={index === 0 ? "eager" : "lazy"}
+        />
       ))}
     </ExtinguishersListStyled>
   );

@@ -21,6 +21,13 @@ const ListPage = (): React.ReactElement => {
         const extinguishers = await getExtinguishers();
 
         dispatch(loadExtinguishersActionCreator(extinguishers));
+
+        const firstExtinguishersUrl = extinguishers[0].img;
+
+        const preconnectElement = await document.createElement("link");
+        preconnectElement.rel = "preconnect";
+        preconnectElement.href = firstExtinguishersUrl;
+        document.head.appendChild(preconnectElement);
       } catch {
         return;
       }

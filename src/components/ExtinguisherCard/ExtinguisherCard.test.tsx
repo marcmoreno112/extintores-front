@@ -8,7 +8,9 @@ describe("Given a ExtinguisherCard component", () => {
     test("Then it should show the model of the extinguisher", () => {
       const extinguisher = GetExtinguisherMock();
 
-      renderWithProviders(<ExtinguisherCard extinguisher={extinguisher} />);
+      renderWithProviders(
+        <ExtinguisherCard extinguisher={extinguisher} isLazy="eager" />
+      );
 
       const extinguisherTitle = extinguisher.model;
 

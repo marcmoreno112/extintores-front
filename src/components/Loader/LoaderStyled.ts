@@ -14,7 +14,7 @@ const LoaderStyled = styled.div`
     position: relative;
   }
   .loader::after {
-    content: "Loading";
+    content: "Cargando";
     position: absolute;
     left: 0;
     top: 0;

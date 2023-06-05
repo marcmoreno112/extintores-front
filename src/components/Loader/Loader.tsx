@@ -3,7 +3,7 @@ import LoaderStyled from "./LoaderStyled";
 const Loader = (): React.ReactElement => {
   return (
     <LoaderStyled>
-      <span className="loader">Loading</span>
+      <span className="loader">Cargando</span>
     </LoaderStyled>
   );
 };

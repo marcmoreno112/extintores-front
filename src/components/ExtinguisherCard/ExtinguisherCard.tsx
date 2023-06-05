@@ -3,10 +3,12 @@ import ExtinguisherCardStyled from "./ExtinguisherCardStyled";
 
 interface ExtinguisherCardProps {
   extinguisher: ExtinguisherStructure;
+  isLazy: "lazy" | "eager";
 }
 
 const ExtinguisherCard = ({
   extinguisher: { brand, class: fireClasses, img, model },
+  isLazy,
 }: ExtinguisherCardProps): React.ReactElement => {
   return (
     <ExtinguisherCardStyled>
@@ -15,7 +17,7 @@ const ExtinguisherCard = ({
         src={img}
         width={100}
         height={200}
-        loading="lazy"
+        loading={isLazy}
       />
       <h3>{brand}</h3>
       <h3>{model}</h3>

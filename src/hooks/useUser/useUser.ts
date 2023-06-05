@@ -29,6 +29,8 @@ const useUser = () => {
 
         return token;
       } catch {
+        dispatch(hideLoadingActionCreator());
+
         throw new Error("Wrong credentials");
       }
     },

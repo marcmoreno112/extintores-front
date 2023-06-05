@@ -25,7 +25,8 @@ const ListPage = (): React.ReactElement => {
         const firstExtinguishersUrl = extinguishers[0].img;
 
         const preconnectElement = await document.createElement("link");
-        preconnectElement.rel = "preconnect";
+        preconnectElement.rel = "preload";
+        preconnectElement.as = "image";
         preconnectElement.href = firstExtinguishersUrl;
 
         const parent = document.head;

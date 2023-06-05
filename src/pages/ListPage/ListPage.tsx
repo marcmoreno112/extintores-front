@@ -4,10 +4,6 @@ import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { loadExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
-import {
-  hideLoadingActionCreator,
-  showLoadingActionCreator,
-} from "../../store/ui/uiSlice";
 import Loader from "../../components/Loader/Loader";
 
 const ListPage = (): React.ReactElement => {
@@ -22,13 +18,9 @@ const ListPage = (): React.ReactElement => {
   useEffect(() => {
     (async () => {
       try {
-        dispatch(showLoadingActionCreator());
-
         const extinguishers = await getExtinguishers();
 
         dispatch(loadExtinguishersActionCreator(extinguishers));
-
-        dispatch(hideLoadingActionCreator());
       } catch {
         return;
       }

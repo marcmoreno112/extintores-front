@@ -4,6 +4,7 @@ import useUser from "../useUser";
 import { server } from "../../../mocks/server";
 import { errorHandlers } from "../../../mocks/handlers";
 import { UserStructure } from "../../../types";
+import { providerWrapper } from "../../../utils/testUtils";
 
 describe("Given a getToken function", () => {
   describe("When it receives valid user credentials", () => {
@@ -15,7 +16,7 @@ describe("Given a getToken function", () => {
         result: {
           current: { getToken },
         },
-      } = renderHook(() => useUser());
+      } = renderHook(() => useUser(), { wrapper: providerWrapper });
 
       const token = await getToken(userCredentials);
 
@@ -38,7 +39,7 @@ describe("Given a getToken function", () => {
         result: {
           current: { getToken },
         },
-      } = renderHook(() => useUser());
+      } = renderHook(() => useUser(), { wrapper: providerWrapper });
 
       const getTokenFunction = getToken(userCredentialsMock);
 

@@ -3,6 +3,7 @@ import styled from "styled-components";
 const LoaderStyled = styled.div`
   display: flex;
   justify-content: center;
+  margin-bottom: 50px;
 
   .loader {
     font-size: 48px;
@@ -23,7 +24,7 @@ const LoaderStyled = styled.div`
     height: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    animation: animloader 10s ease-in infinite;
+    animation: animloader 3s ease-in infinite;
   }
 
   @keyframes animloader {

@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { UiState } from "./types";
 
-export const initialUiState: UiState = { isLoading: false, isError: false };
+export const initialUiState: UiState = {
+  isLoading: false,
+  hasModal: false,
+  modal: { color: "fail", img: "", text: "" },
+};
 
 const uiSlice = createSlice({
   name: "ui",
@@ -15,13 +19,15 @@ const uiSlice = createSlice({
       ...currentUiState,
       isLoading: false,
     }),
-    showError: (currentUiState: UiState) => ({
+    showModal: (currentUiState: UiState, { payload: modalError }) => ({
       ...currentUiState,
-      isError: true,
+      hasModal: true,
+      modal: modalError,
     }),
-    hideError: (currentUiState: UiState) => ({
+    hideModal: (currentUiState: UiState) => ({
       ...currentUiState,
-      isError: false,
+      hasModal: false,
+      modal: initialUiState.modal,
     }),
   },
 });
@@ -29,8 +35,8 @@ const uiSlice = createSlice({
 export const {
   showLoading: showLoadingActionCreator,
   hideLoading: hideLoadingActionCreator,
-  showError: showErrorActionCreator,
-  hideError: hideErrorActionCreator,
+  showModal: showModalActionCreator,
+  hideModal: hideModalActionCreator,
 } = uiSlice.actions;
 
 export const uiReducer = uiSlice.reducer;

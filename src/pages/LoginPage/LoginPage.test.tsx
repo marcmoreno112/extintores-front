@@ -90,12 +90,7 @@ describe(`Given a '${paths.login}' path`, () => {
       const routes: RouteObject[] = [
         {
           path: "/",
-          element: (
-            <>
-              <Header />
-              <ListPage />
-            </>
-          ),
+          element: <Header />,
         },
         {
           path: paths.login,

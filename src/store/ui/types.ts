@@ -1,4 +1,7 @@
+import { ModalErrorStructure } from "../../components/Modal/modalErrors";
+
 export interface UiState {
   isLoading: boolean;
-  isError: boolean;
+  hasModal: boolean;
+  modal: ModalErrorStructure;
 }

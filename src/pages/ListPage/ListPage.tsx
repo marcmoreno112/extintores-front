@@ -5,6 +5,11 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { loadExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
 import Loader from "../../components/Loader/Loader";
+import {
+  hideLoadingActionCreator,
+  showModalActionCreator,
+} from "../../store/ui/uiSlice";
+import modalErrors from "../../components/Modal/modalErrors";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -33,7 +38,8 @@ const ListPage = (): React.ReactElement => {
         const firstChild = document.head.firstChild;
         parent.insertBefore(preconnectElement, firstChild);
       } catch {
-        return;
+        dispatch(hideLoadingActionCreator());
+        dispatch(showModalActionCreator(modalErrors.getItemsError));
       }
     })();
   }, [dispatch, getExtinguishers]);

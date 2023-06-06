@@ -8,6 +8,7 @@ import { loginUserActionCreator } from "../../store/user/userSlice";
 import Layout from "../Layout/Layout";
 import Modal from "../Modal/Modal";
 import { hideModalActionCreator } from "../../store/ui/uiSlice";
+import Loader from "../Loader/Loader";
 
 const App = (): JSX.Element => {
   const { getFromLocalStorage } = useLocalStorage();
@@ -18,7 +19,9 @@ const App = (): JSX.Element => {
 
   const navigate = useNavigate();
 
-  const { hasModal, modal } = useAppSelector((state) => state.uiState);
+  const { hasModal, modal, isLoading } = useAppSelector(
+    (state) => state.uiState
+  );
 
   useEffect(() => {
     const token = getFromLocalStorage("token");
@@ -34,6 +37,7 @@ const App = (): JSX.Element => {
 
   return (
     <>
+      {isLoading ? <Loader /> : ""}
       {hasModal ? <Modal action={hideError} modalError={modal} /> : ""}
       <Layout />
     </>

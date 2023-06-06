@@ -4,14 +4,11 @@ import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
 import { useAppDispatch, useAppSelector } from "../../store";
 import { loadExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
-import Loader from "../../components/Loader/Loader";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   const extinguishers = useAppSelector((state) => state.extinguishersState);
-
-  const { isLoading } = useAppSelector((state) => state.uiState);
 
   const { getExtinguishers } = useExtinguishers();
 
@@ -40,7 +37,6 @@ const ListPage = (): React.ReactElement => {
 
   return (
     <ListPageStyled>
-      {isLoading ? <Loader /> : ""}
       <h2 className="page-title">Extintores</h2>
       <ExtinguishersList extinguishers={extinguishers} />
     </ListPageStyled>

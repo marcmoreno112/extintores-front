@@ -18,19 +18,19 @@ const LoginPage = (): React.ReactElement => {
   const { isLoading } = useAppSelector((state) => state.uiState);
 
   const onSubmitLoginUser = async (userCredentials: UserStructure) => {
-    try {
-      const token = await getToken(userCredentials);
+    const token = await getToken(userCredentials);
 
-      const userData = decodeToken(token);
-
-      addToLocalStorage("token", token);
-
-      dispatch(loginUserActionCreator({ ...userData, token }));
-
-      navigate("/");
-    } catch {
+    if (!token) {
       return;
     }
+
+    const userData = decodeToken(token);
+
+    addToLocalStorage("token", token);
+
+    dispatch(loginUserActionCreator({ ...userData, token }));
+
+    navigate("/");
   };
 
   return (

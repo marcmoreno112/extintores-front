@@ -5,11 +5,6 @@ import { useAppDispatch, useAppSelector } from "../../store";
 import { loadExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
 import Loader from "../../components/Loader/Loader";
-import {
-  hideLoadingActionCreator,
-  showModalActionCreator,
-} from "../../store/ui/uiSlice";
-import modalErrors from "../../components/Modal/modalErrors";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -22,9 +17,9 @@ const ListPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      try {
-        const extinguishers = await getExtinguishers();
+      const extinguishers = await getExtinguishers();
 
+      if (extinguishers) {
         dispatch(loadExtinguishersActionCreator(extinguishers));
 
         const firstExtinguishersUrl = extinguishers[0].img;
@@ -37,9 +32,6 @@ const ListPage = (): React.ReactElement => {
         const parent = document.head;
         const firstChild = document.head.firstChild;
         parent.insertBefore(preconnectElement, firstChild);
-      } catch {
-        dispatch(hideLoadingActionCreator());
-        dispatch(showModalActionCreator(modalErrors.getItemsError));
       }
     })();
   }, [dispatch, getExtinguishers]);

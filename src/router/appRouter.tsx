@@ -4,7 +4,7 @@ import App from "../components/App/App";
 import paths from "./paths";
 import { LazyListPage, LazyLoginPage } from "./lazyPages";
 
-const routes: RouteObject[] = [
+export const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,

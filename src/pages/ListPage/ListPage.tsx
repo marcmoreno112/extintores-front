@@ -17,9 +17,9 @@ const ListPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      try {
-        const extinguishers = await getExtinguishers();
+      const extinguishers = await getExtinguishers();
 
+      if (extinguishers) {
         dispatch(loadExtinguishersActionCreator(extinguishers));
 
         const firstExtinguishersUrl = extinguishers[0].img;
@@ -32,8 +32,6 @@ const ListPage = (): React.ReactElement => {
         const parent = document.head;
         const firstChild = document.head.firstChild;
         parent.insertBefore(preconnectElement, firstChild);
-      } catch {
-        return;
       }
     })();
   }, [dispatch, getExtinguishers]);

@@ -6,7 +6,9 @@ import { useAppDispatch } from "../../store";
 import {
   hideLoadingActionCreator,
   showLoadingActionCreator,
+  showModalActionCreator,
 } from "../../store/ui/uiSlice";
+import modalErrors from "../../components/Modal/modalErrors";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -14,7 +16,7 @@ const useExtinguishers = () => {
   const dispatch = useAppDispatch();
 
   const getExtinguishers = useCallback(async (): Promise<
-    ExtinguisherStructure[]
+    ExtinguisherStructure[] | undefined
   > => {
     try {
       dispatch(showLoadingActionCreator());
@@ -29,7 +31,8 @@ const useExtinguishers = () => {
 
       return extinguishers;
     } catch {
-      throw new Error("Database problem");
+      dispatch(hideLoadingActionCreator());
+      dispatch(showModalActionCreator(modalErrors.getItemsError));
     }
   }, [dispatch]);
 

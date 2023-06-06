@@ -75,9 +75,9 @@ describe(`Given a '${paths.login}' path`, () => {
 
       await userEvent.click(button);
 
-      const expecteTitle = "Extintores";
+      const expectedTitle = "Extintores";
       const title = screen.getByRole("heading", {
-        name: expecteTitle,
+        name: expectedTitle,
         level: 2,
       });
 

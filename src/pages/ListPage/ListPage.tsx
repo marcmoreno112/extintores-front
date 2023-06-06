@@ -19,20 +19,22 @@ const ListPage = (): React.ReactElement => {
     (async () => {
       const extinguishers = await getExtinguishers();
 
-      if (extinguishers) {
-        dispatch(loadExtinguishersActionCreator(extinguishers));
-
-        const firstExtinguishersUrl = extinguishers[0].img;
-
-        const preconnectElement = await document.createElement("link");
-        preconnectElement.rel = "preload";
-        preconnectElement.as = "image";
-        preconnectElement.href = firstExtinguishersUrl;
-
-        const parent = document.head;
-        const firstChild = document.head.firstChild;
-        parent.insertBefore(preconnectElement, firstChild);
+      if (!extinguishers) {
+        return;
       }
+
+      dispatch(loadExtinguishersActionCreator(extinguishers));
+
+      const firstExtinguishersUrl = extinguishers[0].img;
+
+      const preconnectElement = await document.createElement("link");
+      preconnectElement.rel = "preload";
+      preconnectElement.as = "image";
+      preconnectElement.href = firstExtinguishersUrl;
+
+      const parent = document.head;
+      const firstChild = document.head.firstChild;
+      parent.insertBefore(preconnectElement, firstChild);
     })();
   }, [dispatch, getExtinguishers]);
 

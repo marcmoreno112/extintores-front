@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 const LoaderStyled = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.95;
+  background-color: white;
   display: flex;
   justify-content: center;
-  margin-bottom: 50px;
+  align-items: center;
 
   .loader {
     font-size: 48px;
-    display: inline-block;
     font-family: ${(props) => props.theme.fonts.primary};
     font-weight: bold;
     color: ${(props) => props.theme.colors.primary};

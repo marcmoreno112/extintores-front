@@ -3,7 +3,10 @@ import styled from "styled-components";
 const ModalStyled = styled.div`
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   opacity: 0.95;
   background-color: white;

@@ -33,6 +33,7 @@ const useExtinguishers = () => {
       return extinguishers;
     } catch {
       dispatch(hideLoadingActionCreator());
+
       dispatch(showModalActionCreator(modals.getItemsError));
     }
   }, [dispatch]);
@@ -41,14 +42,16 @@ const useExtinguishers = () => {
     dispatch(showLoadingActionCreator());
 
     try {
-      await axios.delete(`${apiUrl}${paths.extintores}/:${id}`, {
+      await axios.delete(`${apiUrl}${paths.extintores}/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
       dispatch(hideLoadingActionCreator());
+
       dispatch(showModalActionCreator(modals.deleteItemSuccess));
     } catch {
       dispatch(hideLoadingActionCreator());
+
       dispatch(showModalActionCreator(modals.deleteItemError));
     }
   };

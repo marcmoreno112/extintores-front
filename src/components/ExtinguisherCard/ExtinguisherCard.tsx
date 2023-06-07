@@ -1,3 +1,4 @@
+import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
 import { useAppDispatch } from "../../store";
 import { deleteExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import { ExtinguisherStructure } from "../../types";
@@ -16,8 +17,12 @@ const ExtinguisherCard = ({
   isOwner,
 }: ExtinguisherCardProps): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const { deleteExtinguisher } = useExtinguishers();
 
-  const deleteAction = () => dispatch(deleteExtinguisherActionCreator(id));
+  const deleteAction = () => {
+    dispatch(deleteExtinguisherActionCreator(id));
+    deleteExtinguisher(id);
+  };
 
   return (
     <ExtinguisherCardStyled>

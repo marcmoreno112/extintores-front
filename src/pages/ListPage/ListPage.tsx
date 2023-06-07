@@ -38,7 +38,7 @@ const ListPage = (): React.ReactElement => {
   return (
     <ListPageStyled>
       <h2 className="page-title">Extintores</h2>
-      <ExtinguishersList extinguishers={extinguishers} />
+      <ExtinguishersList extinguishers={extinguishers.extinguishers} />
     </ListPageStyled>
   );
 };

@@ -30,6 +30,10 @@ const LoaderStyled = styled.div`
     overflow: hidden;
     box-sizing: border-box;
     animation: animloader 3s ease-in infinite;
+
+    @media (prefers-reduced-motion: reduce) {
+      animation: none;
+    }
   }
 
   @keyframes animloader {
@@ -38,12 +42,6 @@ const LoaderStyled = styled.div`
     }
     100% {
       width: 100%;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .loading-container {
-      animation: none;
     }
   }
 `;

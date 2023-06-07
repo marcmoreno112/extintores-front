@@ -8,7 +8,7 @@ import {
   showLoadingActionCreator,
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
-import modalErrors from "../../components/Modal/modalErrors";
+import modals from "../../components/Modal/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -32,7 +32,7 @@ const useExtinguishers = () => {
       return extinguishers;
     } catch {
       dispatch(hideLoadingActionCreator());
-      dispatch(showModalActionCreator(modalErrors.getItemsError));
+      dispatch(showModalActionCreator(modals.getItemsError));
     }
   }, [dispatch]);
 

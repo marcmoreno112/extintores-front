@@ -19,10 +19,10 @@ const uiSlice = createSlice({
       ...currentUiState,
       isLoading: false,
     }),
-    showModal: (currentUiState: UiState, { payload: modalError }) => ({
+    showModal: (currentUiState: UiState, { payload: modal }) => ({
       ...currentUiState,
       hasModal: true,
-      modal: modalError,
+      modal: modal,
     }),
     hideModal: (currentUiState: UiState) => ({
       ...currentUiState,

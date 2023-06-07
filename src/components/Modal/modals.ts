@@ -1,15 +1,15 @@
-export interface ModalErrorStructure {
+export interface ModalStructure {
   img: string;
   text: string;
   color: "ok" | "fail";
 }
 
-interface ModalErrorsObject {
-  wrongCredentials: ModalErrorStructure;
-  getItemsError: ModalErrorStructure;
+interface ModalsObject {
+  wrongCredentials: ModalStructure;
+  getItemsError: ModalStructure;
 }
 
-const modalErrors: ModalErrorsObject = {
+const modals: ModalsObject = {
   wrongCredentials: {
     text: "Credenciales erróneas",
     img: "/images/errorModal.svg",
@@ -22,4 +22,4 @@ const modalErrors: ModalErrorsObject = {
   },
 };
 
-export default modalErrors;
+export default modals;

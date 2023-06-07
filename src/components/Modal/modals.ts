@@ -7,6 +7,8 @@ export interface ModalStructure {
 interface ModalsObject {
   wrongCredentials: ModalStructure;
   getItemsError: ModalStructure;
+  deleteItemSuccess: ModalStructure;
+  deleteItemError: ModalStructure;
 }
 
 const modals: ModalsObject = {
@@ -19,6 +21,16 @@ const modals: ModalsObject = {
     text: "No hay extintores",
     img: "/images/errorModal.svg",
     color: "fail",
+  },
+  deleteItemSuccess: {
+    text: "Extintor eliminado",
+    color: "ok",
+    img: "images/successModal.svg",
+  },
+  deleteItemError: {
+    text: "No se pudo eliminar",
+    color: "fail",
+    img: "images/errorModal.svg",
   },
 };
 

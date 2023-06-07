@@ -47,7 +47,6 @@ describe("Given a ListPage page", () => {
       const button = screen.getByRole("button");
 
       await userEvent.click(button);
-      screen.debug();
 
       expect(button).not.toBeInTheDocument();
     });

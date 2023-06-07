@@ -9,7 +9,6 @@ const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   const extinguishers = useAppSelector((state) => state.extinguishersState);
-
   const { getExtinguishers } = useExtinguishers();
 
   useEffect(() => {

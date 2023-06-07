@@ -28,6 +28,16 @@ const ExtinguisherCardStyled = styled.li`
       width: 100%;
     }
   }
+
+  .card-button {
+    width: 25px;
+
+    &-container {
+      text-align: right;
+      width: 100%;
+      padding-right: 20px;
+    }
+  }
 `;
 
 export default ExtinguisherCardStyled;

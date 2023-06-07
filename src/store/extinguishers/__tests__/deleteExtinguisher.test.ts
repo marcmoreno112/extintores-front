@@ -19,9 +19,7 @@ describe("Given a deleteExtinguisher reducer", () => {
       );
 
       const expectedExtinguishersList = initialExtinguishersList.filter(
-        (extinguisher) => {
-          extinguisher.id !== idToDelete;
-        }
+        (extinguisher) => extinguisher.id !== idToDelete
       );
 
       expect(newExtinguishersState.extinguishers).toStrictEqual(

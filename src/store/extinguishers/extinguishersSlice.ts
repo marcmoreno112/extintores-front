@@ -23,9 +23,7 @@ const extinguishersSlice = createSlice({
     ): ExtinguishersStateStructure => ({
       ...currentExtinguishersState,
       extinguishers: currentExtinguishersState.extinguishers.filter(
-        (extinguisher) => {
-          extinguisher.id !== action.payload;
-        }
+        (extinguisher) => extinguisher.id !== action.payload
       ),
     }),
   },

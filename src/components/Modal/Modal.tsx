@@ -1,14 +1,14 @@
 import Button from "../Button/Button";
 import ModalStyled from "./ModalStyled";
-import { ModalErrorStructure } from "./modalErrors";
+import { ModalStructure } from "./modals";
 
 interface ModalProps {
-  modalError: ModalErrorStructure;
+  modal: ModalStructure;
   action: () => void;
 }
 
 const Modal = ({
-  modalError: { color, img, text },
+  modal: { color, img, text },
   action,
 }: ModalProps): React.ReactElement => {
   return (

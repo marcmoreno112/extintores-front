@@ -8,7 +8,7 @@ import {
   showLoadingActionCreator,
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
-import modalErrors from "../../components/Modal/modalErrors";
+import modals from "../../components/Modal/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -33,7 +33,7 @@ const useUser = () => {
       } catch {
         dispatch(hideLoadingActionCreator());
 
-        dispatch(showModalActionCreator(modalErrors.wrongCredentials));
+        dispatch(showModalActionCreator(modals.wrongCredentials));
       }
     },
     [dispatch]

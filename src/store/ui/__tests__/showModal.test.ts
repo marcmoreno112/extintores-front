@@ -1,4 +1,4 @@
-import modalErrors from "../../../components/Modal/modalErrors";
+import modals from "../../../components/Modal/modals";
 import { initialUiState, showModalActionCreator, uiReducer } from "../uiSlice";
 
 describe("Given a showModal reducer", () => {
@@ -7,9 +7,7 @@ describe("Given a showModal reducer", () => {
       const currentUiState = initialUiState;
       const expectedUiNewState = true;
 
-      const showErrorAction = showModalActionCreator(
-        modalErrors.wrongCredentials
-      );
+      const showErrorAction = showModalActionCreator(modals.wrongCredentials);
       const newUiState = uiReducer(currentUiState, showErrorAction);
 
       const hasModal = newUiState.hasModal;

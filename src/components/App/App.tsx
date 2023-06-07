@@ -33,12 +33,12 @@ const App = (): JSX.Element => {
     }
   }, [decodeToken, dispatch, getFromLocalStorage, navigate]);
 
-  const hideError = () => dispatch(hideModalActionCreator());
+  const hideModal = () => dispatch(hideModalActionCreator());
 
   return (
     <>
-      {isLoading ? <Loader /> : ""}
-      {hasModal ? <Modal action={hideError} modalError={modal} /> : ""}
+      {isLoading && <Loader />}
+      {hasModal && <Modal action={hideModal} modal={modal} />}
       <Layout />
     </>
   );

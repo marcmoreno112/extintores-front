@@ -9,7 +9,7 @@ import {
   createMemoryRouter,
 } from "react-router-dom";
 import { tokenMock } from "../../mocks/userMocks";
-import modalErrors from "../Modal/modalErrors";
+import modals from "../Modal/modals";
 import { UiState } from "../../store/ui/types";
 import userEvent from "@testing-library/user-event";
 import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
@@ -69,16 +69,16 @@ describe("Given an App component", () => {
   });
 
   describe("When it is called and there is an error getting extintores", () => {
-    test(`Then it should show a '${modalErrors.getItemsError.text}' modal`, async () => {
+    test(`Then it should show a '${modals.getItemsError.text}' modal`, async () => {
       server.resetHandlers(...errorHandlers);
 
       const preloadedState: UiState = {
         isLoading: false,
         hasModal: false,
-        modal: modalErrors.getItemsError,
+        modal: modals.getItemsError,
       };
 
-      const expectedText = modalErrors.getItemsError.text;
+      const expectedText = modals.getItemsError.text;
 
       const testRoutes: RouteObject[] = routes;
 
@@ -99,10 +99,10 @@ describe("And the user clicks the close button", () => {
     const preloadedState: UiState = {
       isLoading: false,
       hasModal: true,
-      modal: modalErrors.getItemsError,
+      modal: modals.getItemsError,
     };
 
-    const expectedText = modalErrors.getItemsError.text;
+    const expectedText = modals.getItemsError.text;
 
     const routes: RouteObject[] = [
       {

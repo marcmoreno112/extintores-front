@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "./Modal";
 import { vi } from "vitest";
-import modalErrors from "./modalErrors";
+import modals from "./modals";
 import { renderWithProviders } from "../../utils/testUtils";
 
 describe("Given a Modal component", () => {
@@ -10,15 +10,13 @@ describe("Given a Modal component", () => {
 
   const expectedText = "Test error";
 
-  const modalErrorMock = modalErrors.wrongCredentials;
+  const modalMock = modals.wrongCredentials;
 
-  modalErrorMock.text = expectedText;
+  modalMock.text = expectedText;
 
-  describe("When it receives a modalError with the text 'Test error' and an action", () => {
+  describe("When it receives a modal with the text 'Test error' and an action", () => {
     test("Then it should show an image with the text 'Test error'", async () => {
-      renderWithProviders(
-        <Modal action={action} modalError={modalErrorMock} />
-      );
+      renderWithProviders(<Modal action={action} modal={modalMock} />);
 
       const img = await screen.findByAltText(expectedText);
 
@@ -26,9 +24,7 @@ describe("Given a Modal component", () => {
     });
     describe("And the user click the button", () => {
       test("Then the action should be called", async () => {
-        renderWithProviders(
-          <Modal action={action} modalError={modalErrorMock} />
-        );
+        renderWithProviders(<Modal action={action} modal={modalMock} />);
 
         const button = await screen.findByRole("button");
 

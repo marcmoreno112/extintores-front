@@ -21,8 +21,8 @@ const extinguisherFactory = Factory.define<ExtinguisherStructure>(() => ({
 
 export const getExtinguishersMock = (
   numberOfExtinguishers: number,
-  data?: ExtinguisherStructure
+  data?: Partial<ExtinguisherStructure>
 ) => extinguisherFactory.buildList(numberOfExtinguishers, data);
 
-export const GetExtinguisherMock = (data?: ExtinguisherStructure) =>
+export const getExtinguisherMock = (data?: Partial<ExtinguisherStructure>) =>
   extinguisherFactory.build(data);

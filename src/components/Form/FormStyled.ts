@@ -39,6 +39,19 @@ const FormStyled = styled.form`
     &__label {
       font-size: 1.3rem;
     }
+
+    &__checkbox {
+      &-control {
+        background-color: ${(props) => props.theme.colors.tertiaryDark};
+        color: white;
+        display: flex;
+        flex-direction: column;
+        border-radius: 8px;
+        gap: 20px;
+        padding: 20px 8px;
+        transform: translateY(-10px);
+      }
+    }
   }
 `;
 

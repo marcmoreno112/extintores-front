@@ -39,6 +39,7 @@ const App = (): JSX.Element => {
     <>
       {isLoading && <Loader />}
       {hasModal && <Modal action={hideModal} modal={modal} />}
+
       <Layout />
     </>
   );

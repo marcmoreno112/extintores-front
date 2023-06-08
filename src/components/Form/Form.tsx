@@ -1,6 +1,10 @@
 import FormStyled from "./FormStyled";
 
-const Form = (): React.ReactElement => {
+interface FormProps {
+  buttonText: string;
+}
+
+const Form = ({ buttonText }: FormProps): React.ReactElement => {
   return (
     <FormStyled className="form">
       <div className="form__control">
@@ -145,7 +149,7 @@ const Form = (): React.ReactElement => {
 
       <div className="form__send-button-container">
         <button className="form__send-button" type="submit">
-          Crear
+          {buttonText}
         </button>
       </div>
     </FormStyled>

@@ -25,7 +25,7 @@ const useExtinguishers = () => {
       const {
         data: { extinguishers },
       } = await axios.get<{ extinguishers: ExtinguisherStructure[] }>(
-        `${apiUrl}${paths.extintores}`
+        `${apiUrl}${paths.extinguishers}`
       );
 
       dispatch(hideLoadingActionCreator());
@@ -42,7 +42,7 @@ const useExtinguishers = () => {
     dispatch(showLoadingActionCreator());
 
     try {
-      await axios.delete(`${apiUrl}${paths.extintores}/${id}`, {
+      await axios.delete(`${apiUrl}${paths.extinguishers}/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

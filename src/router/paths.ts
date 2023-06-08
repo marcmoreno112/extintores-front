@@ -1,7 +1,7 @@
 const paths = {
   user: "/user",
   login: "/login",
-  extintores: "/extintores",
+  extinguishers: "/extintores",
 };
 
 export default paths;

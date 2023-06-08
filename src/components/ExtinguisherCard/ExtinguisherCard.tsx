@@ -20,8 +20,8 @@ const ExtinguisherCard = ({
   const { deleteExtinguisher } = useExtinguishers();
 
   const deleteAction = () => {
-    dispatch(deleteExtinguisherActionCreator(id));
     deleteExtinguisher(id);
+    dispatch(deleteExtinguisherActionCreator(id));
   };
 
   return (

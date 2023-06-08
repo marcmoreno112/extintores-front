@@ -42,13 +42,15 @@ describe("Given a ListPage page", () => {
         extinguishersState: initialExtinguisherState,
       });
 
-      //const expectedAltTextButton = "close button";
+      const cardTitle = extinguishersMock[0].brand;
+
+      const card = screen.getByRole("heading", { name: cardTitle });
 
       const button = screen.getByRole("button");
 
       await userEvent.click(button);
 
-      expect(button).not.toBeInTheDocument();
+      expect(card).not.toBeInTheDocument();
     });
   });
 });

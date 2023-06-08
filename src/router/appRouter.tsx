@@ -11,7 +11,7 @@ export const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Navigate to={`${paths.extintores}`} replace />,
+        element: <Navigate to={`${paths.extinguishers}`} replace />,
       },
       {
         path: `${paths.login}`,
@@ -22,7 +22,7 @@ export const routes: RouteObject[] = [
         ),
       },
       {
-        path: `${paths.extintores}`,
+        path: `${paths.extinguishers}`,
         element: (
           <Suspense>
             <LazyListPage />

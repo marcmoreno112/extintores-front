@@ -10,7 +10,7 @@ import Modal from "../Modal/Modal";
 import { hideModalActionCreator } from "../../store/ui/uiSlice";
 import Loader from "../Loader/Loader";
 
-const App = (): JSX.Element => {
+const App = (): React.ReactElement => {
   const { getFromLocalStorage } = useLocalStorage();
 
   const { decodeToken } = useToken();

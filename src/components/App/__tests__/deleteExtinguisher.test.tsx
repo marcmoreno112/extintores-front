@@ -30,10 +30,10 @@ describe("Given an App component", () => {
           children: [
             {
               index: true,
-              element: <Navigate to={`${paths.extintores}`} replace />,
+              element: <Navigate to={`${paths.extinguishers}`} replace />,
             },
             {
-              path: `${paths.extintores}`,
+              path: `${paths.extinguishers}`,
               element: <ListPage />,
             },
           ],
@@ -88,10 +88,10 @@ describe("Given a deleteExtinguisher function", () => {
           children: [
             {
               index: true,
-              element: <Navigate to={`${paths.extintores}`} replace />,
+              element: <Navigate to={`${paths.extinguishers}`} replace />,
             },
             {
-              path: `${paths.extintores}`,
+              path: `${paths.extinguishers}`,
               element: <ListPage />,
             },
           ],

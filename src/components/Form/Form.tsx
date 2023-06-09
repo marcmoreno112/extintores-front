@@ -5,9 +5,14 @@ import FormStyled from "./FormStyled";
 interface FormProps {
   buttonText: string;
   userId: string;
+  submitFunction: (formData: ExtinguisherData) => void;
 }
 
-const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
+const Form = ({
+  buttonText,
+  userId,
+  submitFunction,
+}: FormProps): React.ReactElement => {
   const initialFormState: ExtinguisherData = {
     brand: "",
     class: [],
@@ -44,8 +49,27 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
     });
   };
 
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    submitFunction(formData);
+
+    setFormData(initialFormState);
+  };
+
+  const isDisabled =
+    !formData.brand ||
+    formData.class.length === 0 ||
+    !formData.description ||
+    !formData.disadvantages ||
+    !formData.fireExtinguishingAgent ||
+    !formData.img ||
+    !formData.model ||
+    !formData.strengths ||
+    !formData.usefulLife;
+
   return (
-    <FormStyled className="form">
+    <FormStyled className="form" onSubmit={handleSubmit}>
       <div className="form__control">
         <label htmlFor="brand" className="form__label">
           Marca
@@ -243,7 +267,11 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
       </div>
 
       <div className="form__send-button-container">
-        <button className="form__send-button" type="submit">
+        <button
+          className="form__send-button"
+          type="submit"
+          disabled={isDisabled}
+        >
           {buttonText}
         </button>
       </div>

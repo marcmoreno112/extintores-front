@@ -40,6 +40,11 @@ const LoginFormStyled = styled.form`
       font-size: 1.3rem;
     }
   }
+
+  *:disabled {
+    background-color: grey;
+    color: white;
+  }
 `;
 
 export default LoginFormStyled;

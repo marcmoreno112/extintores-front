@@ -57,6 +57,17 @@ const Form = ({
     setFormData(initialFormState);
   };
 
+  const isDisabled =
+    !formData.brand ||
+    formData.class.length === 0 ||
+    !formData.description ||
+    !formData.disadvantages ||
+    !formData.fireExtinguishingAgent ||
+    !formData.img ||
+    !formData.model ||
+    !formData.strengths ||
+    !formData.usefulLife;
+
   return (
     <FormStyled className="form" onSubmit={handleSubmit}>
       <div className="form__control">
@@ -256,7 +267,11 @@ const Form = ({
       </div>
 
       <div className="form__send-button-container">
-        <button className="form__send-button" type="submit">
+        <button
+          className="form__send-button"
+          type="submit"
+          disabled={isDisabled}
+        >
           {buttonText}
         </button>
       </div>

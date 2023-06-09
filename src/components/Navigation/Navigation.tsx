@@ -25,7 +25,7 @@ const Navigation = (): React.ReactElement => {
         Lista
       </NavLink>
       <NavLink
-        to="/"
+        to="/add"
         aria-label="Create element"
         className="navigation__center-link"
       >

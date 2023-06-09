@@ -9,6 +9,7 @@ import {
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
 import modals from "../../components/Modal/modals";
+import { ExtinguisherData } from "../../types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -56,7 +57,33 @@ const useExtinguishers = () => {
     }
   };
 
-  return { getExtinguishers, deleteExtinguisher };
+  const createExtinguisher = async (extinguisher: ExtinguisherData) => {
+    dispatch(showLoadingActionCreator());
+
+    try {
+      const {
+        data: { extinguisher: newExtinguisher },
+      } = await axios.post<{ extinguisher: ExtinguisherStructure }>(
+        `${apiUrl}${paths.extinguishers}`,
+        { extinguisher },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(showModalActionCreator(modals.createItemSuccess));
+
+      return newExtinguisher;
+    } catch {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(showModalActionCreator(modals.createItemError));
+    }
+  };
+
+  return { getExtinguishers, deleteExtinguisher, createExtinguisher };
 };
 
 export default useExtinguishers;

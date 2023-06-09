@@ -127,4 +127,51 @@ describe("Given a Form component", () => {
       expect(button).toBeDisabled();
     });
   });
+
+  describe("When it is rendered and the user types in all the inputs", () => {
+    test("Then the button should be enabled", async () => {
+      const submitFunction = vi.fn();
+
+      renderWithProviders(
+        <Form
+          submitFunction={submitFunction}
+          userId=""
+          buttonText={expectedButtonText}
+        />
+      );
+
+      const expectedLabels = [
+        "Marca",
+        "Modelo",
+        "URL de la imagen",
+        "Descripción",
+        "Desventajas",
+        "Fortalezas",
+        "Agente extintor",
+        "Vida útil",
+      ];
+
+      const text = "hello";
+
+      for (const label of expectedLabels) {
+        const input = await screen.findByLabelText(label);
+
+        await userEvent.type(input, text);
+      }
+
+      const aClassCheckboxText = "Clase A";
+
+      const aClassCheckbox = await screen.findByLabelText(aClassCheckboxText);
+
+      await userEvent.click(aClassCheckbox);
+
+      const button = screen.getByRole("button", { name: expectedButtonText });
+
+      expect(button).toBeEnabled();
+
+      await userEvent.click(button);
+
+      expect(submitFunction).toHaveBeenCalled();
+    });
+  });
 });

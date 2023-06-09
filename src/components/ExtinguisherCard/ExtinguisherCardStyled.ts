@@ -38,6 +38,10 @@ const ExtinguisherCardStyled = styled.li`
       padding-right: 20px;
     }
   }
+
+  .card-image {
+    object-fit: contain;
+  }
 `;
 
 export default ExtinguisherCardStyled;

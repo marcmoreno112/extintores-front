@@ -166,7 +166,7 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
       <span className="form__label">Clase</span>
 
       <div className="form__checkbox-control">
-        <div>
+        <div className="form__checkbox-container">
           <input
             className="form__checkbox"
             type="checkbox"
@@ -181,7 +181,7 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
           </label>
         </div>
 
-        <div>
+        <div className="form__checkbox-container">
           <input
             className="form__checkbox"
             type="checkbox"
@@ -196,7 +196,7 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
           </label>
         </div>
 
-        <div>
+        <div className="form__checkbox-container">
           <input
             className="form__checkbox"
             type="checkbox"
@@ -211,7 +211,7 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
           </label>
         </div>
 
-        <div>
+        <div className="form__checkbox-container">
           <input
             className="form__checkbox"
             type="checkbox"
@@ -226,7 +226,7 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
           </label>
         </div>
 
-        <div>
+        <div className="form__checkbox-container">
           <input
             className="form__checkbox"
             type="checkbox"

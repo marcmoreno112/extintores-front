@@ -12,13 +12,15 @@ import App from "../App";
 import modals from "../../Modal/modals";
 import { ExtinguishersStateStructure } from "../../../store/extinguishers/types";
 import { server } from "../../../mocks/server";
-import { errorHandlers } from "../../../mocks/handlers";
+import { errorHandlers, handlers } from "../../../mocks/handlers";
 import ListPage from "../../../pages/ListPage/ListPage";
 import paths from "../../../router/paths";
 
 describe("Given an App component", () => {
   describe("When it is rendered and the user deletes an extinguisher of his own", () => {
     test(`Then it should show a '${modals.deleteItemSuccess.text}' modal`, async () => {
+      server.resetHandlers(...handlers);
+
       const initialExtinguisherState: ExtinguishersStateStructure = {
         extinguishers: extinguishersMock,
       };

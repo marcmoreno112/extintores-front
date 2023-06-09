@@ -15,11 +15,17 @@ export const handlers = [
       })
     );
   }),
+
   rest.get(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ extinguishers: extinguishersMock }));
   }),
+
   rest.delete(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
     return res(ctx.status(200), ctx.json({ message: "Extinguisher deleted" }));
+  }),
+
+  rest.post(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
+    return res(ctx.status(200), ctx.json({ extinguishers: extinguishersMock }));
   }),
 ];
 
@@ -27,10 +33,15 @@ export const errorHandlers = [
   rest.post(`${apiUrl}${paths.user}${paths.login}`, (_req, res, ctx) => {
     return res(ctx.status(401));
   }),
+
   rest.delete(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
     return res(
       ctx.status(404),
       ctx.json({ message: "Extinguisher not found" })
     );
+  }),
+
+  rest.get(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
+    return res(ctx.status(500), ctx.json({ message: "Database error" }));
   }),
 ];

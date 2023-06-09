@@ -62,6 +62,11 @@ const FormStyled = styled.form`
       }
     }
   }
+
+  *:disabled {
+    background-color: grey;
+    color: white;
+  }
 `;
 
 export default FormStyled;

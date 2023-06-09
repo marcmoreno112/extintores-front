@@ -26,6 +26,17 @@ const extinguishersSlice = createSlice({
         (extinguisher) => extinguisher.id !== action.payload
       ),
     }),
+
+    createExtinguisher: (
+      currentExtinguishersState,
+      action: PayloadAction<ExtinguisherStructure>
+    ) => ({
+      ...currentExtinguishersState,
+      extinguishers: [
+        ...currentExtinguishersState.extinguishers,
+        action.payload,
+      ],
+    }),
   },
 });
 

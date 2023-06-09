@@ -34,6 +34,10 @@ export const errorHandlers = [
     return res(ctx.status(401));
   }),
 
+  rest.post(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
+    return res(ctx.status(401));
+  }),
+
   rest.delete(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
     return res(
       ctx.status(404),

@@ -43,6 +43,7 @@ const extinguishersSlice = createSlice({
 export const {
   loadExtinguishers: loadExtinguishersActionCreator,
   deleteExtinguisher: deleteExtinguisherActionCreator,
+  createExtinguisher: createExtinguisherActionCreator,
 } = extinguishersSlice.actions;
 
 export const extinguishersReducer = extinguishersSlice.reducer;

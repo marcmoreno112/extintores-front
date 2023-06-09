@@ -3,8 +3,7 @@ export interface UserStructure {
   password: string;
 }
 
-export interface ExtinguisherStructure {
-  id: string;
+export interface ExtinguisherData {
   brand: string;
   model: string;
   class: string[];
@@ -15,4 +14,8 @@ export interface ExtinguisherStructure {
   disadvantages: string;
   strengths: string;
   user: string;
+}
+
+export interface ExtinguisherStructure extends ExtinguisherData {
+  id: string;
 }

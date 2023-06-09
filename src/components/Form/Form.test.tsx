@@ -22,7 +22,7 @@ describe("Given a Form component", () => {
     ];
     expectedLabels.forEach((label) => {
       test(`Then it should show a text field with the label ${label}`, () => {
-        renderWithProviders(<Form buttonText={expectedButtonText} />);
+        renderWithProviders(<Form userId="" buttonText={expectedButtonText} />);
 
         const labelElement = screen.getByLabelText(label);
 
@@ -33,7 +33,7 @@ describe("Given a Form component", () => {
 
   describe("When it is rendered with the buttonText 'Crear'", () => {
     test("Then it should show a button with the text", () => {
-      renderWithProviders(<Form buttonText={expectedButtonText} />);
+      renderWithProviders(<Form userId="" buttonText={expectedButtonText} />);
 
       const button = screen.getByRole("button", { name: expectedButtonText });
 

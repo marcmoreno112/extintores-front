@@ -5,9 +5,14 @@ import FormStyled from "./FormStyled";
 interface FormProps {
   buttonText: string;
   userId: string;
+  submitFunction: (formData: ExtinguisherData) => void;
 }
 
-const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
+const Form = ({
+  buttonText,
+  userId,
+  submitFunction,
+}: FormProps): React.ReactElement => {
   const initialFormState: ExtinguisherData = {
     brand: "",
     class: [],
@@ -44,8 +49,16 @@ const Form = ({ buttonText, userId }: FormProps): React.ReactElement => {
     });
   };
 
+  const handleSubmit = (event: React.ChangeEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    submitFunction(formData);
+
+    setFormData(initialFormState);
+  };
+
   return (
-    <FormStyled className="form">
+    <FormStyled className="form" onSubmit={handleSubmit}>
       <div className="form__control">
         <label htmlFor="brand" className="form__label">
           Marca

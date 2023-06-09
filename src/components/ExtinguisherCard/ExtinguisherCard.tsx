@@ -29,7 +29,12 @@ const ExtinguisherCard = ({
       {isOwner && (
         <div className="card-button-container">
           <Button actionOnClick={deleteAction} className="card-button">
-            <img src="/images/close-button.svg" alt="close button" />
+            <img
+              src="/images/close-button.svg"
+              alt="close button"
+              width={25}
+              height={25}
+            />
           </Button>
         </div>
       )}
@@ -40,6 +45,7 @@ const ExtinguisherCard = ({
         width={150}
         height={300}
         loading={isLazy}
+        className="card-image"
       />
       <h3>{brand}</h3>
       <h3>{model}</h3>

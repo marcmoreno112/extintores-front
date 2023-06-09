@@ -24,6 +24,11 @@ ul {
   margin-bottom: 0;
 }
 
+textarea {
+  font-family: inherit;
+  border: none;
+}
+
 input {
   font-family: inherit;
   border: none;

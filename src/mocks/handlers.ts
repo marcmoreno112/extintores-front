@@ -25,7 +25,10 @@ export const handlers = [
   }),
 
   rest.post(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ extinguishers: extinguishersMock }));
+    return res(
+      ctx.status(200),
+      ctx.json({ extinguisher: extinguishersMock[0] })
+    );
   }),
 ];
 

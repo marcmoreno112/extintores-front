@@ -3,7 +3,7 @@ import Form from "../../components/Form/Form";
 import { useAppDispatch, useAppSelector } from "../../store";
 import AddExtinguisherPageStyled from "./AddExtinguisherPageStyled";
 import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
-import { ExtinguisherData, ExtinguisherStructure } from "../../types";
+import { ExtinguisherData } from "../../types";
 import { createExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 
 const AddExtinguisherPage = (): React.ReactElement => {
@@ -13,15 +13,12 @@ const AddExtinguisherPage = (): React.ReactElement => {
 
   const navigate = useNavigate();
 
-  const onSubmitCreateExtinguisher = async (
-    extinguisher: ExtinguisherData
-  ): Promise<ExtinguisherStructure | undefined> => {
+  const onSubmitCreateExtinguisher = async (extinguisher: ExtinguisherData) => {
     const newExtinguisher = await createExtinguisher(extinguisher);
 
     if (!newExtinguisher) {
       return;
     }
-
     dispatch(createExtinguisherActionCreator(newExtinguisher));
 
     navigate("/");

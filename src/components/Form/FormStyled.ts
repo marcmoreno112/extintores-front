@@ -41,6 +41,15 @@ const FormStyled = styled.form`
     }
 
     &__checkbox {
+      width: 25px;
+      height: 25px;
+
+      &-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
       &-control {
         background-color: ${(props) => props.theme.colors.tertiaryDark};
         color: white;

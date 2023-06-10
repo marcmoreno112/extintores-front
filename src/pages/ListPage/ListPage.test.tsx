@@ -8,6 +8,8 @@ import { ExtinguishersStateStructure } from "../../store/extinguishers/types";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
 import { extinguishersMock } from "../../mocks/extinguishersMocks";
+import { getExtinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
+import { store } from "../../store";
 
 beforeAll(() => {
   vi.clearAllMocks();
@@ -25,6 +27,7 @@ describe("Given a ListPage page", () => {
       expect(title).toBeInTheDocument();
     });
   });
+
   describe("When it is rendered and the user clicks the delete button of a extinguisher", () => {
     test("Then the extinguisher should disappear", async () => {
       const initialExtinguisherState: ExtinguishersStateStructure = {
@@ -49,11 +52,48 @@ describe("Given a ListPage page", () => {
 
       const card = screen.getByRole("heading", { name: cardTitle });
 
-      const button = screen.getByRole("button", { name: buttonName });
+      const buttons = screen.getAllByRole("button", { name: buttonName });
 
-      await userEvent.click(button);
+      await userEvent.click(buttons[0]);
 
       expect(card).not.toBeInTheDocument();
+    });
+  });
+
+  describe("When the user clicks the 'Cargar más...' button", () => {
+    test("Then it should show the title 'Extintores'", async () => {
+      const initialExtinguishers = getExtinguishersMock(3);
+
+      const initialExtinguishersState: ExtinguishersStateStructure = {
+        extinguishers: initialExtinguishers,
+        loadNumber: 1,
+      };
+
+      renderWithProviders(<ListPage />, {
+        extinguishersState: initialExtinguishersState,
+      });
+
+      expect(store.getState().extinguishersState.loadNumber).toBe(
+        initialExtinguishersState.loadNumber
+      );
+
+      const pageTitleText = "Extintores";
+
+      const pageTitle = await screen.findByRole("heading", {
+        name: pageTitleText,
+      });
+
+      expect(pageTitle).toBeInTheDocument();
+
+      const loadMoreButtonText = "Cargar más...";
+
+      const loadMoreButton = await screen.findByRole("button", {
+        name: loadMoreButtonText,
+      });
+
+      await userEvent.click(loadMoreButton);
+
+      expect(pageTitle).toBeInTheDocument();
     });
   });
 });

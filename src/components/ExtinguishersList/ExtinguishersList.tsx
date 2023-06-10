@@ -1,4 +1,5 @@
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
+import { loadMoreExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import { ExtinguisherStructure } from "../../types";
 import ExtinguisherCard from "../ExtinguisherCard/ExtinguisherCard";
 import Pagination from "../Pagination/Pagination";
@@ -13,6 +14,12 @@ const ExtinguishersList = ({
 }: ExtinguishersListProps): React.ReactElement => {
   const { id: userId } = useAppSelector((state) => state.userState);
 
+  const dispatch = useAppDispatch();
+
+  const loadMoreAction = () => {
+    dispatch(loadMoreExtinguishersActionCreator());
+  };
+
   return (
     <ExtinguishersListStyled>
       {extinguishers.map((extinguisher, index) => (
@@ -23,7 +30,7 @@ const ExtinguishersList = ({
           isLazy={index === 0 ? "eager" : "lazy"}
         />
       ))}
-      <Pagination />
+      <Pagination loadMoreAction={loadMoreAction} />
     </ExtinguishersListStyled>
   );
 };

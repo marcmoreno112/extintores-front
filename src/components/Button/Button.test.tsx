@@ -5,7 +5,7 @@ import Button from "./Button";
 
 describe("Given a Button component", () => {
   describe("When it receives an actionOnClick and an image with the altText 'hello'", () => {
-    test.only("Then it should show the image", () => {
+    test("Then it should show the image", () => {
       const actionOnClick = vi.fn();
       const className = "";
       const altText = "hello";

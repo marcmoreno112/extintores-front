@@ -53,8 +53,6 @@ const Form = ({
     event.preventDefault();
 
     submitFunction(formData);
-
-    setFormData(initialFormState);
   };
 
   const isDisabled =

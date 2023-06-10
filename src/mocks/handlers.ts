@@ -25,12 +25,19 @@ export const handlers = [
   }),
 
   rest.post(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
-    return res(ctx.status(200), ctx.json({ extinguishers: extinguishersMock }));
+    return res(
+      ctx.status(200),
+      ctx.json({ extinguisher: extinguishersMock[0] })
+    );
   }),
 ];
 
 export const errorHandlers = [
   rest.post(`${apiUrl}${paths.user}${paths.login}`, (_req, res, ctx) => {
+    return res(ctx.status(401));
+  }),
+
+  rest.post(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
     return res(ctx.status(401));
   }),
 

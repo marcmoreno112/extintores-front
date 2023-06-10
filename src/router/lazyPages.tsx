@@ -7,3 +7,7 @@ export const LazyListPage = lazy(() => import("../pages/ListPage/ListPage"));
 export const LazyNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage")
 );
+
+export const LazyAddExtinguisherPage = lazy(
+  () => import("../pages/AddExtinguisherPage/AddExtinguisherPage")
+);

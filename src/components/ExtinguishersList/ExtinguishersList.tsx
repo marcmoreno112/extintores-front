@@ -1,6 +1,7 @@
 import { useAppSelector } from "../../store";
 import { ExtinguisherStructure } from "../../types";
 import ExtinguisherCard from "../ExtinguisherCard/ExtinguisherCard";
+import Pagination from "../Pagination/Pagination";
 import ExtinguishersListStyled from "./ExtinguishersListStyled";
 
 interface ExtinguishersListProps {
@@ -22,6 +23,7 @@ const ExtinguishersList = ({
           isLazy={index === 0 ? "eager" : "lazy"}
         />
       ))}
+      <Pagination />
     </ExtinguishersListStyled>
   );
 };

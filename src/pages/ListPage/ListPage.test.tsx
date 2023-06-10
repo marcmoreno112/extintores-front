@@ -44,9 +44,11 @@ describe("Given a ListPage page", () => {
 
       const cardTitle = extinguishersMock[0].brand;
 
+      const buttonName = "close button";
+
       const card = screen.getByRole("heading", { name: cardTitle });
 
-      const button = screen.getByRole("button");
+      const button = screen.getByRole("button", { name: buttonName });
 
       await userEvent.click(button);
 

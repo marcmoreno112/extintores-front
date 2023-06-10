@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
 const PaginationStyled = styled.div`
-  width: 100%;
+  .button {
+    background-color: ${(props) => props.theme.colors.tertiary};
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 18px;
+    border-radius: 8px;
+    width: 100%;
+  }
 `;
 
 export default PaginationStyled;

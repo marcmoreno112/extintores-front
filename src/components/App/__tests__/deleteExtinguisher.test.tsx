@@ -23,6 +23,7 @@ describe("Given an App component", () => {
 
       const initialExtinguisherState: ExtinguishersStateStructure = {
         extinguishers: extinguishersMock,
+        loadNumber: 1,
       };
 
       const newRoutes: RouteObject[] = [
@@ -81,6 +82,7 @@ describe("Given a deleteExtinguisher function", () => {
 
       const initialExtinguisherState: ExtinguishersStateStructure = {
         extinguishers: extinguishersMock,
+        loadNumber: 1,
       };
 
       const newRoutes: RouteObject[] = [

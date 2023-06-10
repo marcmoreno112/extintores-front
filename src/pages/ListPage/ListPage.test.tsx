@@ -29,6 +29,7 @@ describe("Given a ListPage page", () => {
     test("Then the extinguisher should disappear", async () => {
       const initialExtinguisherState: ExtinguishersStateStructure = {
         extinguishers: extinguishersMock,
+        loadNumber: 1,
       };
 
       renderRouterWithProviders(<ListPage />, {

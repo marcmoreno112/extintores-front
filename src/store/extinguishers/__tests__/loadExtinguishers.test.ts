@@ -17,7 +17,7 @@ describe("Given a loadExtinguishers reducer", () => {
         loadExtinguishersActionCreator(newExtinguishersList);
 
       const newExtinguishersState = extinguishersReducer(
-        { extinguishers: initialExtinguishersState },
+        { extinguishers: initialExtinguishersState, loadNumber: 1 },
         loadExtinguishersAction
       );
 

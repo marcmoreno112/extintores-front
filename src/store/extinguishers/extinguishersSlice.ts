@@ -4,6 +4,7 @@ import { ExtinguishersStateStructure } from "./types";
 
 export const initialExtinguishersState: ExtinguishersStateStructure = {
   extinguishers: [],
+  loadNumber: 1,
 };
 
 const extinguishersSlice = createSlice({
@@ -37,6 +38,11 @@ const extinguishersSlice = createSlice({
         action.payload,
       ],
     }),
+
+    loadMoreExtinguishers: (currentExtinguishersState) => ({
+      ...currentExtinguishersState,
+      loadNumber: currentExtinguishersState.loadNumber + 1,
+    }),
   },
 });
 
@@ -44,6 +50,7 @@ export const {
   loadExtinguishers: loadExtinguishersActionCreator,
   deleteExtinguisher: deleteExtinguisherActionCreator,
   createExtinguisher: createExtinguisherActionCreator,
+  loadMoreExtinguishers: loadMoreExtinguishersActionCreator,
 } = extinguishersSlice.actions;
 
 export const extinguishersReducer = extinguishersSlice.reducer;

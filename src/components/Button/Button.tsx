@@ -1,18 +1,28 @@
-import { PropsWithChildren } from "react";
-
-interface ButtonProps extends PropsWithChildren {
-  actionOnClick: () => void;
-  className: string;
+interface ButtonProps {
+  actionOnClick?: () => void;
+  className?: string;
+  text?: string;
+  url?: string;
+  altText?: string;
+  width?: string;
+  height?: string;
 }
 
 const Button = ({
   actionOnClick,
-  children,
+  text,
+  url,
+  altText,
+  width,
+  height,
   className,
 }: ButtonProps): React.ReactElement => {
   return (
     <button className={className} onClick={actionOnClick}>
-      {children}
+      {text ||
+        ((url || altText) && (
+          <img src={url} alt={altText} width={width} height={height} />
+        ))}
     </button>
   );
 };

@@ -14,7 +14,7 @@ describe("Given a deleteExtinguisher reducer", () => {
         deleteExtinguisherActionCreator(idToDelete);
 
       const newExtinguishersState = extinguishersReducer(
-        { extinguishers: initialExtinguishersList },
+        { extinguishers: initialExtinguishersList, loadNumber: 1 },
         deleteExtinguisherAction
       );
 

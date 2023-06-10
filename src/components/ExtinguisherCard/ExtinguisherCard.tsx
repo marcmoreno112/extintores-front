@@ -28,14 +28,14 @@ const ExtinguisherCard = ({
     <ExtinguisherCardStyled>
       {isOwner && (
         <div className="card-button-container">
-          <Button actionOnClick={deleteAction} className="card-button">
-            <img
-              src="/images/close-button.svg"
-              alt="close button"
-              width={25}
-              height={25}
-            />
-          </Button>
+          <Button
+            altText="close button"
+            height="25"
+            url="/images/close-button.svg"
+            width="25"
+            actionOnClick={deleteAction}
+            className="card-button"
+          />
         </div>
       )}
 

@@ -15,9 +15,14 @@ const Modal = ({
     <ModalStyled>
       <div className={`modal modal--${color}`}>
         <div className="modal__button-container">
-          <Button actionOnClick={action} className="modal__button">
-            <img src="/images/close-button.svg" alt="close button" />
-          </Button>
+          <Button
+            altText="close button"
+            height="50"
+            url="/images/close-button.svg"
+            width="50"
+            actionOnClick={action}
+            className="modal__button"
+          />
         </div>
         <span className={`modal__title modal__title--${color}`}>{text}</span>
         <img src={img} alt={text} height={200} width={200} />

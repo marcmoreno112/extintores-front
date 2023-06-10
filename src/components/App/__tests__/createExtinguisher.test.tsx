@@ -52,7 +52,7 @@ describe("Given an App component", () => {
           token:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2NDZmNmJmYmI3NzkyOGMxZDNjZTI3OTMiLCJuYW1lIjoiYWRtaW4iLCJpYXQiOjE2ODYwODIxNDYsImV4cCI6MTcxMjAwMjE0Nn0.7o2BZ7LtDBQK6dlZqv4fNvPqg3Mv-efllBXFrpVWA3Y",
         },
-        extinguishersState: { extinguishers: extinguishersMock },
+        extinguishersState: { extinguishers: extinguishersMock, loadNumber: 1 },
       });
 
       const expectedLinkText = "Create element";

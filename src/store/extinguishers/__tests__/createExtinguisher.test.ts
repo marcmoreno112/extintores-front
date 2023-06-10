@@ -17,6 +17,7 @@ describe("Given a createExtinguisher reducer", () => {
 
       const initialExtinguishersState: ExtinguishersStateStructure = {
         extinguishers: initialExtinguishers,
+        loadNumber: 1,
       };
 
       const newExtinguisher: ExtinguisherStructure = getExtinguisherMock();

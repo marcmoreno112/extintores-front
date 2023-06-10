@@ -11,9 +11,11 @@ describe("Given a Button component", () => {
       const altText = "hello";
 
       render(
-        <Button className={className} actionOnClick={actionOnClick}>
-          <img alt={altText} />
-        </Button>
+        <Button
+          altText={altText}
+          className={className}
+          actionOnClick={actionOnClick}
+        />
       );
 
       const button = screen.getByAltText(altText);
@@ -26,11 +28,14 @@ describe("Given a Button component", () => {
       const altText = "hello";
 
       render(
-        <Button className={className} actionOnClick={actionOnClick}>
-          <img alt={altText} />
-        </Button>
+        <Button
+          altText={altText}
+          className={className}
+          actionOnClick={actionOnClick}
+        />
       );
 
+      screen.debug();
       const button = screen.getByAltText(altText);
       await userEvent.click(button);
 

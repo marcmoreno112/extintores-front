@@ -24,18 +24,22 @@ const Navigation = (): React.ReactElement => {
       <NavLink to="/" className="navigation">
         Lista
       </NavLink>
-      <NavLink
-        to="/add"
-        aria-label="Create element"
-        className="navigation__center-link"
-      >
-        <img
-          src="/images/+.svg"
-          alt="Sum symbol for the create element page link"
-          width={25}
-          height={25}
-        />
-      </NavLink>
+
+      {isLogged && (
+        <NavLink
+          to="/add"
+          aria-label="Create element"
+          className="navigation__center-link"
+        >
+          <img
+            src="/images/+.svg"
+            alt="Sum symbol for the create element page link"
+            width={25}
+            height={25}
+          />
+        </NavLink>
+      )}
+
       {isLogged ? (
         <button className="navigation right" onClick={onClickLogoutUser}>
           Logout

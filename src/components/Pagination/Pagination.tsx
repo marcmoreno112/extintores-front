@@ -1,15 +1,13 @@
-import { useAppDispatch } from "../../store";
-import { loadMoreExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import Button from "../Button/Button";
 import PaginationStyled from "./PaginationStyled";
 
-const Pagination = (): React.ReactElement => {
-  const dispatch = useAppDispatch();
+interface PaginationProps {
+  loadMoreAction: () => void;
+}
 
-  const loadMoreAction = () => {
-    dispatch(loadMoreExtinguishersActionCreator());
-  };
-
+const Pagination = ({
+  loadMoreAction,
+}: PaginationProps): React.ReactElement => {
   return (
     <PaginationStyled>
       <Button

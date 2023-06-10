@@ -10,8 +10,8 @@ describe("Given a Form component", () => {
     const expectedLabels = [
       "Marca",
       "Modelo",
-      "URL de la imagen",
       "Descripción",
+      "URL de la imagen",
       "Desventajas",
       "Fortalezas",
       "Agente extintor",
@@ -22,6 +22,7 @@ describe("Given a Form component", () => {
       "Clase D",
       "Clase K",
     ];
+
     expectedLabels.forEach((label) => {
       test(`Then it should show a text field with the label ${label}`, () => {
         const submitFunction = vi.fn();
@@ -143,13 +144,21 @@ describe("Given a Form component", () => {
       const expectedLabels = [
         "Marca",
         "Modelo",
-        "URL de la imagen",
+
         "Descripción",
         "Desventajas",
         "Fortalezas",
         "Agente extintor",
         "Vida útil",
       ];
+
+      const urlLabelText = "URL de la imagen";
+
+      const urlLabel = screen.getByLabelText(urlLabelText);
+
+      const typedUrl = "http://www.google.com/";
+
+      await userEvent.type(urlLabel, typedUrl);
 
       const text = "hello";
 

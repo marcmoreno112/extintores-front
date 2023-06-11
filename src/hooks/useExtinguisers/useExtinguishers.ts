@@ -18,21 +18,27 @@ const useExtinguishers = () => {
   const { token } = useAppSelector((state) => state.userState);
   const { loadNumber } = useAppSelector((state) => state.extinguishersState);
 
+  interface GetApiResponse {
+    extinguishers: ExtinguisherStructure[];
+    numberOfExtinguishers: number;
+  }
+
   const getExtinguishers = useCallback(async (): Promise<
-    ExtinguisherStructure[] | undefined
+    GetApiResponse | undefined
   > => {
     dispatch(showLoadingActionCreator());
 
     try {
       const {
-        data: { extinguishers },
-      } = await axios.get<{ extinguishers: ExtinguisherStructure[] }>(
-        `${apiUrl}${paths.extinguishers}?loadNumber=${loadNumber}`
-      );
+        data: { extinguishers, numberOfExtinguishers },
+      } = await axios.get<{
+        extinguishers: ExtinguisherStructure[];
+        numberOfExtinguishers: number;
+      }>(`${apiUrl}${paths.extinguishers}?loadNumber=${loadNumber}`);
 
       dispatch(hideLoadingActionCreator());
 
-      return extinguishers;
+      return { extinguishers, numberOfExtinguishers };
     } catch {
       dispatch(hideLoadingActionCreator());
 

@@ -35,7 +35,6 @@ describe("Given a Button component", () => {
         />
       );
 
-      screen.debug();
       const button = screen.getByAltText(altText);
       await userEvent.click(button);
 

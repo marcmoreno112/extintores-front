@@ -18,6 +18,7 @@ describe("Given a createExtinguisher reducer", () => {
       const initialExtinguishersState: ExtinguishersStateStructure = {
         extinguishers: initialExtinguishers,
         loadNumber: 1,
+        numberOfExtinguishersAtDb: 2,
       };
 
       const newExtinguisher: ExtinguisherStructure = getExtinguisherMock();
@@ -36,6 +37,7 @@ describe("Given a createExtinguisher reducer", () => {
           ...initialExtinguishersState.extinguishers,
           newExtinguisher,
         ],
+        numberOfExtinguishersAtDb: 3,
       };
 
       expect(newExtinguishersState).toStrictEqual(expectedExtinguisherState);

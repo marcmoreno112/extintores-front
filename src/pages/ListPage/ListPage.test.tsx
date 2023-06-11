@@ -33,6 +33,7 @@ describe("Given a ListPage page", () => {
       const initialExtinguisherState: ExtinguishersStateStructure = {
         extinguishers: extinguishersMock,
         loadNumber: 1,
+        numberOfExtinguishersAtDb: 3,
       };
 
       renderRouterWithProviders(<ListPage />, {
@@ -67,6 +68,7 @@ describe("Given a ListPage page", () => {
       const initialExtinguishersState: ExtinguishersStateStructure = {
         extinguishers: initialExtinguishers,
         loadNumber: 1,
+        numberOfExtinguishersAtDb: 3,
       };
 
       renderWithProviders(<ListPage />, {

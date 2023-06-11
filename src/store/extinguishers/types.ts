@@ -4,4 +4,5 @@ export interface ExtinguishersStateStructure {
   extinguishers: ExtinguisherStructure[];
   loadNumber: number;
   numberOfExtinguishersAtDb: number;
+  classFilter: string;
 }

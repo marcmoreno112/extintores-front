@@ -7,6 +7,7 @@ import {
   updateNumberOfExtinguishersActionCreator,
 } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
+import Filter from "../../components/App/Filter/Filter";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -46,6 +47,7 @@ const ListPage = (): React.ReactElement => {
 
   return (
     <ListPageStyled>
+      <Filter />
       <h2 className="page-title">Extintores</h2>
       <ExtinguishersList extinguishers={extinguishers.extinguishers} />
     </ListPageStyled>

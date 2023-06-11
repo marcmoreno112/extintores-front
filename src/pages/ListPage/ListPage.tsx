@@ -7,7 +7,7 @@ import {
   updateNumberOfExtinguishersActionCreator,
 } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
-import Filter from "../../components/App/Filter/Filter";
+import Filter from "../../components/Filter/Filter";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();

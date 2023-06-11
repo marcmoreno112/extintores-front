@@ -69,10 +69,17 @@ describe("Given an App component", () => {
 
       const expectedButtonText = "Crear";
 
+      const urlLabelText = "URL de la imagen";
+
+      const urlLabel = screen.getByLabelText(urlLabelText);
+
+      const typedUrl = "http://www.google.com/";
+
+      await userEvent.type(urlLabel, typedUrl);
+
       const expectedLabels = [
         "Marca",
         "Modelo",
-        "URL de la imagen",
         "Descripción",
         "Desventajas",
         "Fortalezas",
@@ -148,10 +155,17 @@ describe("Given an App component", () => {
 
       const expectedButtonText = "Crear";
 
+      const urlLabelText = "URL de la imagen";
+
+      const urlLabel = screen.getByLabelText(urlLabelText);
+
+      const typedUrl = "http://www.google.com/";
+
+      await userEvent.type(urlLabel, typedUrl);
+
       const expectedLabels = [
         "Marca",
         "Modelo",
-        "URL de la imagen",
         "Descripción",
         "Desventajas",
         "Fortalezas",

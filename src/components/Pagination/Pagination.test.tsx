@@ -12,7 +12,9 @@ describe("Given a Pagination component", () => {
 
       const loadMoreFunction = vi.fn();
 
-      renderWithProviders(<Pagination loadMoreAction={loadMoreFunction} />);
+      renderWithProviders(
+        <Pagination isDisabled="" loadMoreAction={loadMoreFunction} />
+      );
 
       const button = screen.getByRole("button", { name: expectedButtonText });
 
@@ -26,9 +28,12 @@ describe("Given a Pagination component", () => {
 
       const loadMoreFunction = vi.fn();
 
-      renderWithProviders(<Pagination loadMoreAction={loadMoreFunction} />, {
-        extinguishersState: initialExtinguishersState,
-      });
+      renderWithProviders(
+        <Pagination isDisabled="" loadMoreAction={loadMoreFunction} />,
+        {
+          extinguishersState: initialExtinguishersState,
+        }
+      );
 
       const button = screen.getByRole("button", { name: expectedButtonText });
 

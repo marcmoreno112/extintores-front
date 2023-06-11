@@ -30,6 +30,7 @@ describe("Given a ExtinguishersList component", () => {
             extinguishers: extinguishersListMock,
             loadNumber: 1,
             numberOfExtinguishersAtDb: 4,
+            classFilter: "",
           },
         }
       );

@@ -18,6 +18,7 @@ describe("Given a deleteExtinguisher reducer", () => {
           extinguishers: initialExtinguishersList,
           loadNumber: 1,
           numberOfExtinguishersAtDb: 3,
+          classFilter: "",
         },
         deleteExtinguisherAction
       );

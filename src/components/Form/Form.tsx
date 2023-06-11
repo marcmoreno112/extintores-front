@@ -103,7 +103,7 @@ const Form = ({
           URL de la imagen
         </label>
         <input
-          type="text"
+          type="url"
           name="img"
           id="img"
           autoComplete="off"

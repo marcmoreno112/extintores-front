@@ -11,6 +11,11 @@ const PaginationStyled = styled.div`
     border-radius: 8px;
     width: 100%;
   }
+
+  .disabled {
+    background-color: grey;
+    color: white;
+  }
 `;
 
 export default PaginationStyled;

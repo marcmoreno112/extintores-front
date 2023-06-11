@@ -32,6 +32,10 @@ const ListPage = (): React.ReactElement => {
 
       dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
 
+      if (!extinguishers.extinguishers[0]) {
+        return;
+      }
+
       const firstExtinguishersUrl = extinguishers.extinguishers[0].img;
 
       const preconnectElement = await document.createElement("link");

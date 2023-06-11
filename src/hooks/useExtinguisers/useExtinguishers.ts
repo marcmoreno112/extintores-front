@@ -16,7 +16,9 @@ const apiUrl = import.meta.env.VITE_API_URL;
 const useExtinguishers = () => {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state.userState);
-  const { loadNumber } = useAppSelector((state) => state.extinguishersState);
+  const { loadNumber, classFilter } = useAppSelector(
+    (state) => state.extinguishersState
+  );
 
   interface GetApiResponse {
     extinguishers: ExtinguisherStructure[];
@@ -34,7 +36,9 @@ const useExtinguishers = () => {
       } = await axios.get<{
         extinguishers: ExtinguisherStructure[];
         numberOfExtinguishers: number;
-      }>(`${apiUrl}${paths.extinguishers}?loadNumber=${loadNumber}`);
+      }>(
+        `${apiUrl}${paths.extinguishers}?loadNumber=${loadNumber}&filter=${classFilter}`
+      );
 
       dispatch(hideLoadingActionCreator());
 
@@ -44,7 +48,7 @@ const useExtinguishers = () => {
 
       dispatch(showModalActionCreator(modals.getItemsError));
     }
-  }, [dispatch, loadNumber]);
+  }, [classFilter, dispatch, loadNumber]);
 
   const deleteExtinguisher = async (id: string): Promise<void> => {
     dispatch(showLoadingActionCreator());

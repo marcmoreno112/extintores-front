@@ -24,6 +24,7 @@ const ExtinguishersList = ({
 
   const isDisabled =
     numberOfExtinguishersAtDb > shownExtinguishers.length ? "" : "disabled";
+
   return (
     <>
       <ExtinguishersListStyled>

@@ -6,6 +6,7 @@ export const initialExtinguishersState: ExtinguishersStateStructure = {
   extinguishers: [],
   loadNumber: 1,
   numberOfExtinguishersAtDb: 0,
+  classFilter: "",
 };
 
 const extinguishersSlice = createSlice({
@@ -61,6 +62,14 @@ const extinguishersSlice = createSlice({
       ...currentExtinguishersState,
       numberOfExtinguishersAtDb: action.payload,
     }),
+
+    changeClassFilter: (
+      currentExtinguishersState,
+      action: PayloadAction<string>
+    ) => ({
+      ...currentExtinguishersState,
+      classFilter: action.payload,
+    }),
   },
 });
 
@@ -70,6 +79,7 @@ export const {
   createExtinguisher: createExtinguisherActionCreator,
   loadMoreExtinguishers: loadMoreExtinguishersActionCreator,
   updateNumberOfExtinguishers: updateNumberOfExtinguishersActionCreator,
+  changeClassFilter: changeClassFilterActionCreator,
 } = extinguishersSlice.actions;
 
 export const extinguishersReducer = extinguishersSlice.reducer;

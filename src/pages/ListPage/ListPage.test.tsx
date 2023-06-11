@@ -34,6 +34,7 @@ describe("Given a ListPage page", () => {
         extinguishers: extinguishersMock,
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
+        classFilter: "",
       };
 
       renderRouterWithProviders(<ListPage />, {
@@ -69,6 +70,7 @@ describe("Given a ListPage page", () => {
         extinguishers: initialExtinguishers,
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
+        classFilter: "",
       };
 
       renderWithProviders(<ListPage />, {

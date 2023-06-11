@@ -24,18 +24,21 @@ const ExtinguishersList = ({
 
   const isDisabled =
     numberOfExtinguishersAtDb > shownExtinguishers.length ? "" : "disabled";
+
   return (
-    <ExtinguishersListStyled>
-      {extinguishers.map((extinguisher, index) => (
-        <ExtinguisherCard
-          isOwner={userId === extinguisher.user}
-          extinguisher={extinguisher}
-          key={extinguisher.id}
-          isLazy={index === 0 ? "eager" : "lazy"}
-        />
-      ))}
+    <>
+      <ExtinguishersListStyled>
+        {extinguishers.map((extinguisher, index) => (
+          <ExtinguisherCard
+            isOwner={userId === extinguisher.user}
+            extinguisher={extinguisher}
+            key={extinguisher.id}
+            isLazy={index === 0 ? "eager" : "lazy"}
+          />
+        ))}
+      </ExtinguishersListStyled>
       <Pagination isDisabled={isDisabled} loadMoreAction={loadMoreAction} />
-    </ExtinguishersListStyled>
+    </>
   );
 };
 

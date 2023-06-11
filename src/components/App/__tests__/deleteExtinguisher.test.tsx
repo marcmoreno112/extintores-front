@@ -25,6 +25,7 @@ describe("Given an App component", () => {
         extinguishers: extinguishersMock,
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
+        classFilter: "",
       };
 
       const newRoutes: RouteObject[] = [
@@ -85,6 +86,7 @@ describe("Given a deleteExtinguisher function", () => {
         extinguishers: extinguishersMock,
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
+        classFilter: "",
       };
 
       const newRoutes: RouteObject[] = [

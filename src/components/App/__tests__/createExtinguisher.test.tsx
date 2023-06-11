@@ -56,6 +56,7 @@ describe("Given an App component", () => {
           extinguishers: extinguishersMock,
           loadNumber: 1,
           numberOfExtinguishersAtDb: 3,
+          classFilter: "",
         },
       });
 

@@ -7,6 +7,7 @@ import {
   updateNumberOfExtinguishersActionCreator,
 } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
+import Filter from "../../components/Filter/Filter";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -31,6 +32,10 @@ const ListPage = (): React.ReactElement => {
 
       dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
 
+      if (!extinguishers.extinguishers[0]) {
+        return;
+      }
+
       const firstExtinguishersUrl = extinguishers.extinguishers[0].img;
 
       const preconnectElement = await document.createElement("link");
@@ -46,6 +51,7 @@ const ListPage = (): React.ReactElement => {
 
   return (
     <ListPageStyled>
+      <Filter />
       <h2 className="page-title">Extintores</h2>
       <ExtinguishersList extinguishers={extinguishers.extinguishers} />
     </ListPageStyled>

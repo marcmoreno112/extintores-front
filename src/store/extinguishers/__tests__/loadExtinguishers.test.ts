@@ -21,6 +21,7 @@ describe("Given a loadExtinguishers reducer", () => {
           extinguishers: initialExtinguishersState,
           loadNumber: 1,
           numberOfExtinguishersAtDb: 3,
+          classFilter: "",
         },
         loadExtinguishersAction
       );

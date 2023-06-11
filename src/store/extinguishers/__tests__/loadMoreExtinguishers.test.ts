@@ -11,12 +11,14 @@ describe("Given a loadMoreExtinguishers reducer", () => {
         extinguishers: [],
         loadNumber: 1,
         numberOfExtinguishersAtDb: 11,
+        classFilter: "",
       };
 
       const expectedExtinguishersState: ExtinguishersStateStructure = {
         extinguishers: [],
         loadNumber: 2,
         numberOfExtinguishersAtDb: 11,
+        classFilter: "",
       };
 
       const loadMoreExtinguishersAction = loadMoreExtinguishersActionCreator();

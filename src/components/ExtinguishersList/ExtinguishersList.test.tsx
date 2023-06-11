@@ -19,4 +19,26 @@ describe("Given a ExtinguishersList component", () => {
       expect(resultTitle).toBeInTheDocument();
     });
   });
+  describe("When it receives a list of 3 extinguishers and there are 4 in the DB", () => {
+    test("Then the 'Cargar más' button must be enabled", () => {
+      const extinguishersListMock = getExtinguishersMock(3);
+
+      renderWithProviders(
+        <ExtinguishersList extinguishers={extinguishersListMock} />,
+        {
+          extinguishersState: {
+            extinguishers: extinguishersListMock,
+            loadNumber: 1,
+            numberOfExtinguishersAtDb: 4,
+          },
+        }
+      );
+
+      const buttonText = "Cargar más...";
+
+      const button = screen.getByRole("button", { name: buttonText });
+
+      expect(button).toBeEnabled();
+    });
+  });
 });

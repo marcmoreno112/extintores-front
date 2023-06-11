@@ -2,7 +2,10 @@ import { useEffect } from "react";
 import ExtinguishersList from "../../components/ExtinguishersList/ExtinguishersList";
 import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
 import { useAppDispatch, useAppSelector } from "../../store";
-import { loadExtinguishersActionCreator } from "../../store/extinguishers/extinguishersSlice";
+import {
+  loadExtinguishersActionCreator,
+  updateNumberOfExtinguishersActionCreator,
+} from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
 
 const ListPage = (): React.ReactElement => {
@@ -19,9 +22,16 @@ const ListPage = (): React.ReactElement => {
         return;
       }
 
-      dispatch(loadExtinguishersActionCreator(extinguishers));
+      const updateNumberOfExtinguishersAction =
+        updateNumberOfExtinguishersActionCreator(
+          extinguishers.numberOfExtinguishers
+        );
 
-      const firstExtinguishersUrl = extinguishers[0].img;
+      dispatch(updateNumberOfExtinguishersAction);
+
+      dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
+
+      const firstExtinguishersUrl = extinguishers.extinguishers[0].img;
 
       const preconnectElement = await document.createElement("link");
       preconnectElement.rel = "preload";

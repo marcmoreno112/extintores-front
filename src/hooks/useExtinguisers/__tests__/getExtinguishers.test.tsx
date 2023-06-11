@@ -16,7 +16,7 @@ describe("Given a getExtinguishers function", () => {
 
       const expectedExtinguishers = extinguishersMock;
 
-      expect(extinguishers).toStrictEqual(expectedExtinguishers);
+      expect(extinguishers?.extinguishers).toStrictEqual(expectedExtinguishers);
     });
   });
 });

@@ -13,6 +13,8 @@ const ExtinguishersList = ({
   extinguishers,
 }: ExtinguishersListProps): React.ReactElement => {
   const { id: userId } = useAppSelector((state) => state.userState);
+  const { numberOfExtinguishersAtDb, extinguishers: shownExtinguishers } =
+    useAppSelector((state) => state.extinguishersState);
 
   const dispatch = useAppDispatch();
 
@@ -20,6 +22,8 @@ const ExtinguishersList = ({
     dispatch(loadMoreExtinguishersActionCreator());
   };
 
+  const isDisabled =
+    numberOfExtinguishersAtDb > shownExtinguishers.length ? "" : "disabled";
   return (
     <ExtinguishersListStyled>
       {extinguishers.map((extinguisher, index) => (
@@ -30,7 +34,7 @@ const ExtinguishersList = ({
           isLazy={index === 0 ? "eager" : "lazy"}
         />
       ))}
-      <Pagination loadMoreAction={loadMoreAction} />
+      <Pagination isDisabled={isDisabled} loadMoreAction={loadMoreAction} />
     </ExtinguishersListStyled>
   );
 };

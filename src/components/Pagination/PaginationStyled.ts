@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 const PaginationStyled = styled.div`
+  padding-top: 30px;
+
   .button {
     background-color: ${(props) => props.theme.colors.tertiary};
     font-size: 1.2rem;

@@ -1,3 +1,4 @@
+import { ExtinguisherStructure } from "../../../types";
 import {
   extinguishersReducer,
   loadMoreExtinguishersActionCreator,
@@ -12,6 +13,7 @@ describe("Given a loadMoreExtinguishers reducer", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 11,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       const expectedExtinguishersState: ExtinguishersStateStructure = {
@@ -19,6 +21,7 @@ describe("Given a loadMoreExtinguishers reducer", () => {
         loadNumber: 2,
         numberOfExtinguishersAtDb: 11,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       const loadMoreExtinguishersAction = loadMoreExtinguishersActionCreator();

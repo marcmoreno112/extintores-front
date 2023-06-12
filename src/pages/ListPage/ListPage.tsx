@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import ExtinguishersList from "../../components/ExtinguishersList/ExtinguishersList";
-import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
+import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { useAppDispatch, useAppSelector } from "../../store";
 import {
   loadExtinguishersActionCreator,

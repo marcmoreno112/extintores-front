@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
 import { useAppDispatch, useAppSelector } from "../../store";
 import AddExtinguisherPageStyled from "./AddExtinguisherPageStyled";
-import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
+import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { ExtinguisherData } from "../../types";
 import { createExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 

@@ -15,6 +15,7 @@ import { server } from "../../../mocks/server";
 import { errorHandlers, handlers } from "../../../mocks/handlers";
 import ListPage from "../../../pages/ListPage/ListPage";
 import paths from "../../../router/paths";
+import { ExtinguisherStructure } from "../../../types";
 
 describe("Given an App component", () => {
   describe("When it is rendered and the user deletes an extinguisher of his own", () => {
@@ -26,6 +27,7 @@ describe("Given an App component", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       const newRoutes: RouteObject[] = [
@@ -87,6 +89,7 @@ describe("Given a deleteExtinguisher function", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       const newRoutes: RouteObject[] = [

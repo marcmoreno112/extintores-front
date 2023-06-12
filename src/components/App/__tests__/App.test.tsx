@@ -12,7 +12,7 @@ import { tokenMock } from "../../../mocks/userMocks";
 import modals from "../../Modal/modals";
 import { UiState } from "../../../store/ui/types";
 import userEvent from "@testing-library/user-event";
-import useExtinguishers from "../../../hooks/useExtinguisers/useExtinguishers";
+import useExtinguishers from "../../../hooks/useExtinguishers/useExtinguishers";
 import { server } from "../../../mocks/server";
 import { errorHandlers } from "../../../mocks/handlers";
 import { routes } from "../../../router/appRouter";

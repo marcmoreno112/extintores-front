@@ -25,6 +25,10 @@ const useExtinguishers = () => {
     numberOfExtinguishers: number;
   }
 
+  interface GetItemApiResponse {
+    extinguisher: ExtinguisherStructure;
+  }
+
   const getExtinguishers = useCallback(async (): Promise<
     GetApiResponse | undefined
   > => {
@@ -94,7 +98,32 @@ const useExtinguishers = () => {
     }
   };
 
-  return { getExtinguishers, deleteExtinguisher, createExtinguisher };
+  const getSelectedExtinguisher = async (
+    id: string
+  ): Promise<GetItemApiResponse | undefined> => {
+    dispatch(showLoadingActionCreator());
+
+    try {
+      const {
+        data: { extinguisher },
+      } = await axios.get<{
+        extinguisher: ExtinguisherStructure;
+      }>(`${apiUrl}${paths.extinguishers}${paths.detail}/${id}`);
+
+      dispatch(hideLoadingActionCreator());
+
+      return { extinguisher };
+    } catch {
+      dispatch(hideLoadingActionCreator());
+    }
+  };
+
+  return {
+    getExtinguishers,
+    deleteExtinguisher,
+    createExtinguisher,
+    getSelectedExtinguisher,
+  };
 };
 
 export default useExtinguishers;

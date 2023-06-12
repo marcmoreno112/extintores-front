@@ -8,12 +8,15 @@ import {
 } from "../../store/extinguishers/extinguishersSlice";
 import ListPageStyled from "./ListPageStyled";
 import Filter from "../../components/Filter/Filter";
+import NoExtinguishers from "../../components/NoExtinguishersComponent/NoExtinguishers";
 
 const ListPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
 
   const extinguishers = useAppSelector((state) => state.extinguishersState);
   const { getExtinguishers } = useExtinguishers();
+
+  const isEmpty = extinguishers.numberOfExtinguishersAtDb === 0;
 
   useEffect(() => {
     (async () => {
@@ -52,6 +55,7 @@ const ListPage = (): React.ReactElement => {
       <Filter />
       <h2 className="page-title">Extintores</h2>
       <ExtinguishersList extinguishers={extinguishers.extinguishers} />
+      {isEmpty && <NoExtinguishers />}
     </ListPageStyled>
   );
 };

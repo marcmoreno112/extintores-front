@@ -25,6 +25,8 @@ const ExtinguishersList = ({
   const isDisabled =
     numberOfExtinguishersAtDb > shownExtinguishers.length ? "" : "disabled";
 
+  const isEmpty = numberOfExtinguishersAtDb === 0;
+
   return (
     <>
       <ExtinguishersListStyled>
@@ -37,7 +39,9 @@ const ExtinguishersList = ({
           />
         ))}
       </ExtinguishersListStyled>
-      <Pagination isDisabled={isDisabled} loadMoreAction={loadMoreAction} />
+      {!isEmpty && (
+        <Pagination isDisabled={isDisabled} loadMoreAction={loadMoreAction} />
+      )}
     </>
   );
 };

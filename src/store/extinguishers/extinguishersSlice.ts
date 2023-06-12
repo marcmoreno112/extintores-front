@@ -7,6 +7,7 @@ export const initialExtinguishersState: ExtinguishersStateStructure = {
   loadNumber: 1,
   numberOfExtinguishersAtDb: 0,
   classFilter: "",
+  selectedExtinguisher: {} as ExtinguisherStructure,
 };
 
 const extinguishersSlice = createSlice({
@@ -69,6 +70,14 @@ const extinguishersSlice = createSlice({
     ) => ({
       ...currentExtinguishersState,
       classFilter: action.payload,
+    }),
+
+    loadSelectedExtinguisher: (
+      currentExtinguishersState,
+      action: PayloadAction<ExtinguisherStructure>
+    ) => ({
+      ...currentExtinguishersState,
+      selectedExtinguisher: action.payload,
     }),
   },
 });

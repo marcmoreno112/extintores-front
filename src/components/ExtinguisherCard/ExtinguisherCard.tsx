@@ -1,4 +1,4 @@
-import useExtinguishers from "../../hooks/useExtinguisers/useExtinguishers";
+import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { useAppDispatch } from "../../store";
 import { deleteExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import { ExtinguisherStructure } from "../../types";

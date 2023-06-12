@@ -10,6 +10,7 @@ import { vi } from "vitest";
 import { extinguishersMock } from "../../mocks/extinguishersMocks";
 import { getExtinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
 import { store } from "../../store";
+import { ExtinguisherStructure } from "../../types";
 
 beforeAll(() => {
   vi.clearAllMocks();
@@ -35,6 +36,7 @@ describe("Given a ListPage page", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       renderRouterWithProviders(<ListPage />, {
@@ -71,6 +73,7 @@ describe("Given a ListPage page", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       renderWithProviders(<ListPage />, {

@@ -1,3 +1,4 @@
+import { ExtinguisherStructure } from "../../../types";
 import {
   changeClassFilterActionCreator,
   extinguishersReducer,
@@ -12,6 +13,7 @@ describe("Given a changeClassFilter reducer", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 11,
         classFilter: "",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       const expectedExtinguishersState: ExtinguishersStateStructure = {
@@ -19,6 +21,7 @@ describe("Given a changeClassFilter reducer", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 11,
         classFilter: "K",
+        selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
       const selectedClass = "K";

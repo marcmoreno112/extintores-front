@@ -1,4 +1,5 @@
 import { getExtinguishersMock } from "../../../mocks/factories/extinguisherFactory/extinguisherFactory";
+import { ExtinguisherStructure } from "../../../types";
 import {
   deleteExtinguisherActionCreator,
   extinguishersReducer,
@@ -19,6 +20,7 @@ describe("Given a deleteExtinguisher reducer", () => {
           loadNumber: 1,
           numberOfExtinguishersAtDb: 3,
           classFilter: "",
+          selectedExtinguisher: {} as ExtinguisherStructure,
         },
         deleteExtinguisherAction
       );

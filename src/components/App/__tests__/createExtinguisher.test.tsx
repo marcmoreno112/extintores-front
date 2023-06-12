@@ -15,6 +15,7 @@ import { screen } from "@testing-library/react";
 import { server } from "../../../mocks/server";
 import { errorHandlers, handlers } from "../../../mocks/handlers";
 import ListPage from "../../../pages/ListPage/ListPage";
+import { ExtinguisherStructure } from "../../../types";
 
 describe("Given an App component", () => {
   describe("When it is rendered, the user navigates to AddExtinguisher page and sends the form", () => {
@@ -57,6 +58,7 @@ describe("Given an App component", () => {
           loadNumber: 1,
           numberOfExtinguishersAtDb: 3,
           classFilter: "",
+          selectedExtinguisher: {} as ExtinguisherStructure,
         },
       });
 

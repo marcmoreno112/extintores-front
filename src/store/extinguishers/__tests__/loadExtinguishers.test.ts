@@ -22,6 +22,7 @@ describe("Given a loadExtinguishers reducer", () => {
           loadNumber: 1,
           numberOfExtinguishersAtDb: 3,
           classFilter: "",
+          selectedExtinguisher: {} as ExtinguisherStructure,
         },
         loadExtinguishersAction
       );

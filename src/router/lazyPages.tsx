@@ -11,3 +11,7 @@ export const LazyNotFoundPage = lazy(
 export const LazyAddExtinguisherPage = lazy(
   () => import("../pages/AddExtinguisherPage/AddExtinguisherPage")
 );
+
+export const LazyDetailPage = lazy(
+  () => import("../pages/DetailPage/DetailPage")
+);

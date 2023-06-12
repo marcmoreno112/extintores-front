@@ -4,6 +4,7 @@ import App from "../components/App/App";
 import paths from "./paths";
 import {
   LazyAddExtinguisherPage,
+  LazyDetailPage,
   LazyListPage,
   LazyLoginPage,
   LazyNotFoundPage,
@@ -47,6 +48,14 @@ export const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyNotFoundPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${paths.detail}`,
+        element: (
+          <Suspense>
+            <LazyDetailPage />
           </Suspense>
         ),
       },

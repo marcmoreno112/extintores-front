@@ -108,7 +108,7 @@ const useExtinguishers = () => {
         data: { extinguisher },
       } = await axios.get<{
         extinguisher: ExtinguisherStructure;
-      }>(`${apiUrl}${paths.extinguishers}/${id}`);
+      }>(`${apiUrl}${paths.extinguishers}${paths.detail}/${id}`);
 
       dispatch(hideLoadingActionCreator());
 

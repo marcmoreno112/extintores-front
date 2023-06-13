@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
 import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { useAppDispatch } from "../../store";
 import { deleteExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import { ExtinguisherStructure } from "../../types";
 import Button from "../Button/Button";
 import ExtinguisherCardStyled from "./ExtinguisherCardStyled";
+import paths from "../../router/paths";
 
 interface ExtinguisherCardProps {
   extinguisher: ExtinguisherStructure;
@@ -38,15 +40,17 @@ const ExtinguisherCard = ({
           />
         </div>
       )}
+      <Link to={`${paths.detail}/${id}`}>
+        <img
+          alt={`${brand} ${model} extinguisher`}
+          src={img}
+          width={150}
+          height={300}
+          loading={isLazy}
+          className="card-image"
+        />
+      </Link>
 
-      <img
-        alt={`${brand} ${model} extinguisher`}
-        src={img}
-        width={150}
-        height={300}
-        loading={isLazy}
-        className="card-image"
-      />
       <h3>{brand}</h3>
       <h3>{model}</h3>
       <div className="fire-class-container">

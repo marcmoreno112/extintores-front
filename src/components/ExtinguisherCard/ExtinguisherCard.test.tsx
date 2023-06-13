@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { getExtinguisherMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
-import { renderWithProviders } from "../../utils/testUtils";
+import { renderRouterWithProviders } from "../../utils/testUtils";
 import ExtinguisherCard from "./ExtinguisherCard";
 
 describe("Given a ExtinguisherCard component", () => {
@@ -8,7 +8,7 @@ describe("Given a ExtinguisherCard component", () => {
 
   describe("When it receives a extinguisher", () => {
     test("Then it should show the model of the extinguisher", () => {
-      renderWithProviders(
+      renderRouterWithProviders(
         <ExtinguisherCard
           isOwner={false}
           extinguisher={extinguisher}

@@ -7,7 +7,19 @@ export const initialExtinguishersState: ExtinguishersStateStructure = {
   loadNumber: 1,
   numberOfExtinguishersAtDb: 0,
   classFilter: "",
-  selectedExtinguisher: {} as ExtinguisherStructure,
+  selectedExtinguisher: {
+    brand: "",
+    class: [""],
+    description: "",
+    disadvantages: "",
+    fireExtinguishingAgent: "",
+    id: "",
+    img: "",
+    model: "",
+    strengths: "",
+    usefulLife: "",
+    user: "",
+  },
 };
 
 const extinguishersSlice = createSlice({

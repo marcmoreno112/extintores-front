@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import ExtinguishersList from "./ExtinguishersList";
-import { renderWithProviders } from "../../utils/testUtils";
+import { renderRouterWithProviders } from "../../utils/testUtils";
 import { getExtinguishersMock } from "../../mocks/factories/extinguisherFactory/extinguisherFactory";
 import { ExtinguisherStructure } from "../../types";
 
@@ -11,7 +11,7 @@ describe("Given a ExtinguishersList component", () => {
 
       const expectedTitle = extinguishersListMock[0].brand;
 
-      renderWithProviders(
+      renderRouterWithProviders(
         <ExtinguishersList extinguishers={extinguishersListMock} />
       );
 
@@ -24,7 +24,7 @@ describe("Given a ExtinguishersList component", () => {
     test("Then the 'Cargar más' button must be enabled", () => {
       const extinguishersListMock = getExtinguishersMock(3);
 
-      renderWithProviders(
+      renderRouterWithProviders(
         <ExtinguishersList extinguishers={extinguishersListMock} />,
         {
           extinguishersState: {

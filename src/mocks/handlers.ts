@@ -31,15 +31,12 @@ export const handlers = [
     );
   }),
 
-  rest.get(
-    `${apiUrl}${paths.extinguishers}${paths.detail}/*`,
-    (_req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({ extinguisher: extinguishersMock[0] })
-      );
-    }
-  ),
+  rest.get(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ extinguisher: extinguishersMock[0] })
+    );
+  }),
 ];
 
 export const errorHandlers = [
@@ -58,15 +55,12 @@ export const errorHandlers = [
     );
   }),
 
-  rest.get(
-    `${apiUrl}${paths.extinguishers}${paths.detail}/*`,
-    (_req, res, ctx) => {
-      return res(
-        ctx.status(404),
-        ctx.json({ message: "Extinguisher not found" })
-      );
-    }
-  ),
+  rest.get(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
+    return res(
+      ctx.status(404),
+      ctx.json({ message: "Extinguisher not found" })
+    );
+  }),
 
   rest.get(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
     return res(ctx.status(500), ctx.json({ message: "Database error" }));

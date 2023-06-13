@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
-import { useAppDispatch } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import AddExtinguisherPageStyled from "./AddExtinguisherPageStyled";
 import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { ExtinguisherData } from "../../types";
@@ -8,7 +8,10 @@ import { createExtinguisherActionCreator } from "../../store/extinguishers/extin
 
 const AddExtinguisherPage = (): React.ReactElement => {
   const { createExtinguisher } = useExtinguishers();
+
   const dispatch = useAppDispatch();
+
+  const { id: userId } = useAppSelector((state) => state.userState);
 
   const navigate = useNavigate();
 
@@ -33,7 +36,7 @@ const AddExtinguisherPage = (): React.ReactElement => {
     model: "",
     strengths: "",
     usefulLife: "",
-    user: "",
+    user: userId,
   };
 
   return (

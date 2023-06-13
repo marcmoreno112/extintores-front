@@ -42,6 +42,14 @@ const ExtinguisherCardStyled = styled.li`
   .card-image {
     object-fit: contain;
   }
+
+  .card-title {
+    word-wrap: break-word;
+
+    &-container {
+      max-width: 100%;
+    }
+  }
 `;
 
 export default ExtinguisherCardStyled;

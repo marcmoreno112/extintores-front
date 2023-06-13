@@ -70,11 +70,11 @@ const ExtinguisherCard = ({
         />
       </Link>
 
-      <Link to={`${paths.detail}/${id}`}>
-        <h3>{brand}</h3>
+      <Link to={`${paths.detail}/${id}`} className="card-title-container">
+        <h3 className="card-title">{brand}</h3>
       </Link>
-      <Link to={`${paths.detail}/${id}`}>
-        <h4>{model}</h4>
+      <Link to={`${paths.detail}/${id}`} className="card-title-container">
+        <h4 className="card-title">{model}</h4>
       </Link>
       <div className="fire-class-container">
         {fireClasses.map((fireClass) => (

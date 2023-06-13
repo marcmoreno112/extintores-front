@@ -20,6 +20,19 @@ export const initialExtinguishersState: ExtinguishersStateStructure = {
     usefulLife: "",
     user: "",
   },
+  updatingExtinguisher: {
+    brand: "",
+    class: [""],
+    description: "",
+    disadvantages: "",
+    fireExtinguishingAgent: "",
+    id: "",
+    img: "",
+    model: "",
+    strengths: "",
+    usefulLife: "",
+    user: "",
+  },
 };
 
 const extinguishersSlice = createSlice({
@@ -90,6 +103,14 @@ const extinguishersSlice = createSlice({
     ) => ({
       ...currentExtinguishersState,
       selectedExtinguisher: action.payload,
+    }),
+
+    loadUpdatingExtinguisher: (
+      currentExtinguishersState,
+      action: PayloadAction<ExtinguisherStructure>
+    ) => ({
+      ...currentExtinguishersState,
+      updatingExtinguisher: action.payload,
     }),
   },
 });

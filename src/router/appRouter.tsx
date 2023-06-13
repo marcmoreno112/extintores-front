@@ -44,18 +44,18 @@ export const routes: RouteObject[] = [
         ),
       },
       {
-        path: "*",
+        path: `${paths.detail}/:id`,
         element: (
           <Suspense>
-            <LazyNotFoundPage />
+            <LazyDetailPage />
           </Suspense>
         ),
       },
       {
-        path: `${paths.detail}`,
+        path: "*",
         element: (
           <Suspense>
-            <LazyDetailPage />
+            <LazyNotFoundPage />
           </Suspense>
         ),
       },

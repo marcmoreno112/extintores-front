@@ -98,25 +98,26 @@ const useExtinguishers = () => {
     }
   };
 
-  const getSelectedExtinguisher = async (
-    id: string
-  ): Promise<GetItemApiResponse | undefined> => {
-    dispatch(showLoadingActionCreator());
+  const getSelectedExtinguisher = useCallback(
+    async (id: string): Promise<GetItemApiResponse | undefined> => {
+      dispatch(showLoadingActionCreator());
 
-    try {
-      const {
-        data: { extinguisher },
-      } = await axios.get<{
-        extinguisher: ExtinguisherStructure;
-      }>(`${apiUrl}${paths.extinguishers}${paths.detail}/${id}`);
+      try {
+        const {
+          data: { extinguisher },
+        } = await axios.get<{
+          extinguisher: ExtinguisherStructure;
+        }>(`${apiUrl}${paths.extinguishers}/${id}`);
 
-      dispatch(hideLoadingActionCreator());
+        dispatch(hideLoadingActionCreator());
 
-      return { extinguisher };
-    } catch {
-      dispatch(hideLoadingActionCreator());
-    }
-  };
+        return { extinguisher };
+      } catch {
+        dispatch(hideLoadingActionCreator());
+      }
+    },
+    [dispatch]
+  );
 
   return {
     getExtinguishers,

@@ -1,34 +1,50 @@
+import { useDispatch } from "react-redux";
+import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import DetailPageStyled from "./DetailPageStyled";
+import { useAppSelector } from "../../store";
+import { loadSelectedExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const DetailPage = (): React.ReactElement => {
-  // const {
-  //   selectedExtinguisher: { brand, model, img, class: fireClasses },
-  // } = useAppSelector((state) => state.extinguishersState);
+  const dispatch = useDispatch();
+
+  const { id: selectedId } = useParams();
+
+  const { getSelectedExtinguisher } = useExtinguishers();
+
+  useEffect(() => {
+    (async () => {
+      const extinguisherFromApi = await getSelectedExtinguisher(
+        selectedId as string
+      );
+
+      if (!extinguisherFromApi) {
+        return;
+      }
+
+      const loadSelectedExtinguisherAction =
+        loadSelectedExtinguisherActionCreator(extinguisherFromApi.extinguisher);
+
+      dispatch(loadSelectedExtinguisherAction);
+    })();
+  }, [dispatch, getSelectedExtinguisher, selectedId]);
+
+  const { selectedExtinguisher } = useAppSelector(
+    (state) => state.extinguishersState
+  );
 
   const {
     brand,
+    model,
+    img,
     class: fireClasses,
     description,
     disadvantages,
     fireExtinguishingAgent,
-    img,
-    model,
     strengths,
     usefulLife,
-  } = {
-    brand: "Buckeye",
-    model: "13315",
-    class: ["A", "B"],
-    img: "https://cdn.discordapp.com/attachments/1115063176153804870/1115063327295553586/5-EXT2.5ABC_8.webp",
-    description:
-      "El extintor Buckeye 13315 es adecuado para incendios de Clase A y B. Es una opción versátil para hogares, oficinas y entornos comerciales.",
-    disadvantages:
-      "El polvo químico seco puede causar contaminación y requerir limpieza adicional después de su uso. Además, el extintor puede ser pesado y voluminoso para algunas personas.",
-    strengths:
-      "El extintor Buckeye 13315 tiene una capacidad de extinción efectiva para incendios comunes en hogares y oficinas. Su diseño robusto y duradero garantiza un rendimiento confiable durante su vida útil.",
-    fireExtinguishingAgent: "Polvo químico seco",
-    usefulLife: "12 años",
-  };
+  } = selectedExtinguisher;
 
   return (
     <DetailPageStyled>

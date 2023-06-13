@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { useAppDispatch } from "../../store";
-import { deleteExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
+import {
+  deleteExtinguisherActionCreator,
+  loadExtinguishersActionCreator,
+  updateNumberOfExtinguishersActionCreator,
+} from "../../store/extinguishers/extinguishersSlice";
 import { ExtinguisherStructure } from "../../types";
 import Button from "../Button/Button";
 import ExtinguisherCardStyled from "./ExtinguisherCardStyled";
@@ -19,11 +23,28 @@ const ExtinguisherCard = ({
   isOwner,
 }: ExtinguisherCardProps): React.ReactElement => {
   const dispatch = useAppDispatch();
-  const { deleteExtinguisher } = useExtinguishers();
 
-  const deleteAction = () => {
-    deleteExtinguisher(id);
+  const { deleteExtinguisher, getExtinguishers } = useExtinguishers();
+
+  const deleteAction = async () => {
+    await deleteExtinguisher(id);
+
     dispatch(deleteExtinguisherActionCreator(id));
+
+    const extinguishers = await getExtinguishers();
+
+    if (!extinguishers) {
+      return;
+    }
+
+    const updateNumberOfExtinguishersAction =
+      updateNumberOfExtinguishersActionCreator(
+        extinguishers.numberOfExtinguishers
+      );
+
+    dispatch(updateNumberOfExtinguishersAction);
+
+    dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
   };
 
   return (

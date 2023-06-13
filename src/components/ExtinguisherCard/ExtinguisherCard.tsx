@@ -51,8 +51,12 @@ const ExtinguisherCard = ({
         />
       </Link>
 
-      <h3>{brand}</h3>
-      <h3>{model}</h3>
+      <Link to={`${paths.detail}/${id}`}>
+        <h3>{brand}</h3>
+      </Link>
+      <Link to={`${paths.detail}/${id}`}>
+        <h4>{model}</h4>
+      </Link>
       <div className="fire-class-container">
         {fireClasses.map((fireClass) => (
           <span key={fireClass} className="fire-class">

@@ -8,6 +8,8 @@ import { useParams } from "react-router-dom";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 const DetailPage = (): React.ReactElement => {
+  window.scroll(0, 0);
+
   const dispatch = useDispatch();
 
   const { id: selectedId } = useParams();
@@ -71,7 +73,7 @@ const DetailPage = (): React.ReactElement => {
         ))}
       </div>
       <div className="info">
-        <span className="info-title">Description:</span>
+        <span className="info-title">Descripción:</span>
         <span>{description}</span>
       </div>
       <div className="info">

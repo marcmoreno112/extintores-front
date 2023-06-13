@@ -26,7 +26,7 @@ const AddExtinguisherPage = (): React.ReactElement => {
 
   return (
     <AddExtinguisherPageStyled>
-      <h2 className="page-title">Add extinguisher</h2>
+      <h2 className="page-title">Añadir extintor</h2>
       <Form
         submitFunction={onSubmitCreateExtinguisher}
         buttonText="Crear"

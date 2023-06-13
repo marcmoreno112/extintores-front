@@ -4,28 +4,15 @@ import FormStyled from "./FormStyled";
 
 interface FormProps {
   buttonText: string;
-  userId: string;
   submitFunction: (formData: ExtinguisherData) => void;
+  initialFormState: ExtinguisherData;
 }
 
 const Form = ({
   buttonText,
-  userId,
   submitFunction,
+  initialFormState,
 }: FormProps): React.ReactElement => {
-  const initialFormState: ExtinguisherData = {
-    brand: "",
-    class: [],
-    description: "",
-    disadvantages: "",
-    fireExtinguishingAgent: "",
-    img: "",
-    model: "",
-    strengths: "",
-    usefulLife: "",
-    user: userId,
-  };
-
   const [formData, setFormData] = useState<ExtinguisherData>(initialFormState);
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,13 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form/Form";
-import { useAppDispatch, useAppSelector } from "../../store";
+import { useAppDispatch } from "../../store";
 import AddExtinguisherPageStyled from "./AddExtinguisherPageStyled";
 import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 import { ExtinguisherData } from "../../types";
 import { createExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 
 const AddExtinguisherPage = (): React.ReactElement => {
-  const userId = useAppSelector((state) => state.userState.id);
   const { createExtinguisher } = useExtinguishers();
   const dispatch = useAppDispatch();
 
@@ -24,13 +23,26 @@ const AddExtinguisherPage = (): React.ReactElement => {
     navigate("/");
   };
 
+  const initialFormState: ExtinguisherData = {
+    brand: "",
+    class: [],
+    description: "",
+    disadvantages: "",
+    fireExtinguishingAgent: "",
+    img: "",
+    model: "",
+    strengths: "",
+    usefulLife: "",
+    user: "",
+  };
+
   return (
     <AddExtinguisherPageStyled>
       <h2 className="page-title">Añadir extintor</h2>
       <Form
         submitFunction={onSubmitCreateExtinguisher}
         buttonText="Crear"
-        userId={userId}
+        initialFormState={initialFormState}
       />
     </AddExtinguisherPageStyled>
   );

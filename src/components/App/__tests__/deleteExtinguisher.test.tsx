@@ -12,7 +12,7 @@ import App from "../App";
 import modals from "../../Modal/modals";
 import { ExtinguishersStateStructure } from "../../../store/extinguishers/types";
 import { server } from "../../../mocks/server";
-import { errorHandlers, handlers } from "../../../mocks/handlers";
+import { errorDeletingHandlers, handlers } from "../../../mocks/handlers";
 import ListPage from "../../../pages/ListPage/ListPage";
 import paths from "../../../router/paths";
 import { ExtinguisherStructure } from "../../../types";
@@ -82,7 +82,7 @@ describe("Given an App component", () => {
 describe("Given a deleteExtinguisher function", () => {
   describe("When it is rendered, the user tries to delete an extinguisher of his own and it fails", () => {
     test(`Then it should show a '${modals.deleteItemError.text}' modal`, async () => {
-      server.resetHandlers(...errorHandlers);
+      server.resetHandlers(...errorDeletingHandlers);
 
       const initialExtinguisherState: ExtinguishersStateStructure = {
         extinguishers: extinguishersMock,

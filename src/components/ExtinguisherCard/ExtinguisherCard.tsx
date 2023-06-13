@@ -33,18 +33,16 @@ const ExtinguisherCard = ({
 
     const extinguishers = await getExtinguishers();
 
-    if (!extinguishers) {
-      return;
+    if (extinguishers) {
+      const updateNumberOfExtinguishersAction =
+        updateNumberOfExtinguishersActionCreator(
+          extinguishers.numberOfExtinguishers
+        );
+
+      dispatch(updateNumberOfExtinguishersAction);
+
+      dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
     }
-
-    const updateNumberOfExtinguishersAction =
-      updateNumberOfExtinguishersActionCreator(
-        extinguishers.numberOfExtinguishers
-      );
-
-    dispatch(updateNumberOfExtinguishersAction);
-
-    dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
   };
 
   return (

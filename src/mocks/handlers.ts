@@ -31,15 +31,12 @@ export const handlers = [
     );
   }),
 
-  rest.get(
-    `${apiUrl}${paths.extinguishers}${paths.detail}/*`,
-    (_req, res, ctx) => {
-      return res(
-        ctx.status(200),
-        ctx.json({ extinguisher: extinguishersMock[0] })
-      );
-    }
-  ),
+  rest.get(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ extinguisher: extinguishersMock[0] })
+    );
+  }),
 ];
 
 export const errorHandlers = [

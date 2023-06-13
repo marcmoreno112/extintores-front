@@ -1,8 +1,5 @@
 import { screen } from "@testing-library/react";
-import {
-  renderRouterWithProviders,
-  renderWithProviders,
-} from "../../utils/testUtils";
+import { renderRouterWithProviders } from "../../utils/testUtils";
 import ListPage from "./ListPage";
 import { ExtinguishersStateStructure } from "../../store/extinguishers/types";
 import userEvent from "@testing-library/user-event";
@@ -21,7 +18,7 @@ describe("Given a ListPage page", () => {
     test("Then it should show a 'Extintores' title", () => {
       const expectedTitle = "Extintores";
 
-      renderWithProviders(<ListPage />);
+      renderRouterWithProviders(<ListPage />);
 
       const title = screen.getByRole("heading", { name: expectedTitle });
 
@@ -76,7 +73,7 @@ describe("Given a ListPage page", () => {
         selectedExtinguisher: {} as ExtinguisherStructure,
       };
 
-      renderWithProviders(<ListPage />, {
+      renderRouterWithProviders(<ListPage />, {
         extinguishersState: initialExtinguishersState,
       });
 

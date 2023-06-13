@@ -5,6 +5,7 @@ import { useAppSelector } from "../../store";
 import { loadSelectedExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 const DetailPage = (): React.ReactElement => {
   const dispatch = useDispatch();
@@ -45,6 +46,10 @@ const DetailPage = (): React.ReactElement => {
     strengths,
     usefulLife,
   } = selectedExtinguisher;
+
+  if (selectedExtinguisher.brand === "") {
+    return <NotFoundPage />;
+  }
 
   return (
     <DetailPageStyled>

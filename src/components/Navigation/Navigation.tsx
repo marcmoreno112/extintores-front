@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import NavigationStyled from "./NavigationStyled";
 import paths from "../../router/paths";
 import { useAppDispatch, useAppSelector } from "../../store";
@@ -7,6 +7,8 @@ import { logoutUserActionCreator } from "../../store/user/userSlice";
 
 const Navigation = (): React.ReactElement => {
   const isLogged = useAppSelector((state) => state.userState.isLogged);
+
+  const { pathname } = useLocation();
 
   const dispatch = useAppDispatch();
   const { removeFromLocalStorage } = useLocalStorage();
@@ -21,7 +23,7 @@ const Navigation = (): React.ReactElement => {
 
   return (
     <NavigationStyled>
-      <NavLink to="/" className="navigation">
+      <NavLink to="/extintores" className="navigation">
         Lista
       </NavLink>
 
@@ -32,7 +34,9 @@ const Navigation = (): React.ReactElement => {
           className="navigation__center-link"
         >
           <img
-            src="/images/+.svg"
+            src={
+              pathname === "/add" ? "/images/add-red.svg" : "/images/add.svg"
+            }
             alt="Sum symbol for the create element page link"
             width={25}
             height={25}

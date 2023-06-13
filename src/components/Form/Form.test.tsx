@@ -3,6 +3,20 @@ import { screen } from "@testing-library/react";
 import { renderWithProviders } from "../../utils/testUtils";
 import Form from "./Form";
 import { vi } from "vitest";
+import { ExtinguisherData } from "../../types";
+
+const initialFormState: ExtinguisherData = {
+  brand: "",
+  class: [],
+  description: "",
+  disadvantages: "",
+  fireExtinguishingAgent: "",
+  img: "",
+  model: "",
+  strengths: "",
+  usefulLife: "",
+  user: "",
+};
 
 describe("Given a Form component", () => {
   const expectedButtonText = "Crear";
@@ -30,8 +44,8 @@ describe("Given a Form component", () => {
         renderWithProviders(
           <Form
             submitFunction={submitFunction}
-            userId=""
             buttonText={expectedButtonText}
+            initialFormState={initialFormState}
           />
         );
 
@@ -49,7 +63,7 @@ describe("Given a Form component", () => {
       renderWithProviders(
         <Form
           submitFunction={submitFunction}
-          userId=""
+          initialFormState={initialFormState}
           buttonText={expectedButtonText}
         />
       );
@@ -67,7 +81,7 @@ describe("Given a Form component", () => {
       renderWithProviders(
         <Form
           submitFunction={submitFunction}
-          userId=""
+          initialFormState={initialFormState}
           buttonText={expectedButtonText}
         />
       );
@@ -91,7 +105,7 @@ describe("Given a Form component", () => {
       renderWithProviders(
         <Form
           submitFunction={submitFunction}
-          userId=""
+          initialFormState={initialFormState}
           buttonText={expectedButtonText}
         />
       );
@@ -118,7 +132,7 @@ describe("Given a Form component", () => {
       renderWithProviders(
         <Form
           submitFunction={submitFunction}
-          userId=""
+          initialFormState={initialFormState}
           buttonText={expectedButtonText}
         />
       );
@@ -136,7 +150,7 @@ describe("Given a Form component", () => {
       renderWithProviders(
         <Form
           submitFunction={submitFunction}
-          userId=""
+          initialFormState={initialFormState}
           buttonText={expectedButtonText}
         />
       );

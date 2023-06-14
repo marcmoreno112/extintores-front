@@ -49,6 +49,19 @@ const ExtinguisherCard = ({
     <ExtinguisherCardStyled>
       {isOwner && (
         <div className="card-button-container">
+          <Link
+            to={`${paths.update}/${id}`}
+            className="card-button"
+            data-testid="modify-button"
+          >
+            <img
+              alt="update"
+              height={25}
+              width={25}
+              src="/images/edit-button.svg"
+            />
+          </Link>
+
           <Button
             altText="close button"
             height="25"
@@ -59,6 +72,7 @@ const ExtinguisherCard = ({
           />
         </div>
       )}
+
       <Link to={`${paths.detail}/${id}`}>
         <img
           alt={`${brand} ${model} extinguisher`}
@@ -70,11 +84,11 @@ const ExtinguisherCard = ({
         />
       </Link>
 
-      <Link to={`${paths.detail}/${id}`}>
-        <h3>{brand}</h3>
+      <Link to={`${paths.detail}/${id}`} className="card-title-container">
+        <h3 className="card-title">{brand}</h3>
       </Link>
-      <Link to={`${paths.detail}/${id}`}>
-        <h4>{model}</h4>
+      <Link to={`${paths.detail}/${id}`} className="card-title-container">
+        <h4 className="card-title">{model}</h4>
       </Link>
       <div className="fire-class-container">
         {fireClasses.map((fireClass) => (

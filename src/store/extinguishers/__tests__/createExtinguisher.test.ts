@@ -21,6 +21,7 @@ describe("Given a createExtinguisher reducer", () => {
         numberOfExtinguishersAtDb: 2,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const newExtinguisher: ExtinguisherStructure = getExtinguisherMock();

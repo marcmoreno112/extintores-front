@@ -28,6 +28,7 @@ describe("Given an App component", () => {
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const newRoutes: RouteObject[] = [
@@ -90,6 +91,7 @@ describe("Given a deleteExtinguisher function", () => {
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const newRoutes: RouteObject[] = [

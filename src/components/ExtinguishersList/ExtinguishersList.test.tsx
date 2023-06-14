@@ -33,6 +33,7 @@ describe("Given a ExtinguishersList component", () => {
             numberOfExtinguishersAtDb: 4,
             classFilter: "",
             selectedExtinguisher: {} as ExtinguisherStructure,
+            updatingExtinguisher: {} as ExtinguisherStructure,
           },
         }
       );

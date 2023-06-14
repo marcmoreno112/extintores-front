@@ -14,6 +14,7 @@ describe("Given a changeClassFilter reducer", () => {
         numberOfExtinguishersAtDb: 11,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const expectedExtinguishersState: ExtinguishersStateStructure = {
@@ -22,6 +23,7 @@ describe("Given a changeClassFilter reducer", () => {
         numberOfExtinguishersAtDb: 11,
         classFilter: "K",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const selectedClass = "K";

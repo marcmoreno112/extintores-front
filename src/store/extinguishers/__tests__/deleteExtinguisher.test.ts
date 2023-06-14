@@ -21,6 +21,7 @@ describe("Given a deleteExtinguisher reducer", () => {
           numberOfExtinguishersAtDb: 3,
           classFilter: "",
           selectedExtinguisher: {} as ExtinguisherStructure,
+          updatingExtinguisher: {} as ExtinguisherStructure,
         },
         deleteExtinguisherAction
       );

@@ -11,6 +11,8 @@ import Filter from "../../components/Filter/Filter";
 import NoExtinguishers from "../../components/NoExtinguishersComponent/NoExtinguishers";
 
 const ListPage = (): React.ReactElement => {
+  window.scroll(0, 0);
+
   const dispatch = useAppDispatch();
 
   const extinguishers = useAppSelector((state) => state.extinguishersState);

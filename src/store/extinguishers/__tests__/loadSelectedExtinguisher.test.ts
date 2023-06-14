@@ -15,6 +15,7 @@ describe("Given a loadSelectedExtinguisher reducer", () => {
         loadNumber: 1,
         numberOfExtinguishersAtDb: 5,
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const newSelectedExtinguisher: ExtinguisherStructure =

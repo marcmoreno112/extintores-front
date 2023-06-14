@@ -33,14 +33,23 @@ const ExtinguisherCardStyled = styled.li`
     width: 25px;
 
     &-container {
-      text-align: right;
+      display: flex;
+      justify-content: space-between;
       width: 100%;
-      padding-right: 20px;
+      padding: 0 20px;
     }
   }
 
   .card-image {
     object-fit: contain;
+  }
+
+  .card-title {
+    word-wrap: break-word;
+
+    &-container {
+      max-width: 100%;
+    }
   }
 `;
 

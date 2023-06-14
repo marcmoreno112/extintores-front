@@ -49,6 +49,15 @@ const ExtinguisherCard = ({
     <ExtinguisherCardStyled>
       {isOwner && (
         <div className="card-button-container">
+          <Link to={`${paths.update}/${id}`} className="card-button">
+            <img
+              alt="update"
+              height={25}
+              width={25}
+              src="/images/edit-button.svg"
+            />
+          </Link>
+
           <Button
             altText="close button"
             height="25"
@@ -59,6 +68,7 @@ const ExtinguisherCard = ({
           />
         </div>
       )}
+
       <Link to={`${paths.detail}/${id}`}>
         <img
           alt={`${brand} ${model} extinguisher`}

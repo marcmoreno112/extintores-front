@@ -11,6 +11,8 @@ interface ModalsObject {
   deleteItemError: ModalStructure;
   createItemSuccess: ModalStructure;
   createItemError: ModalStructure;
+  updateItemSuccess: ModalStructure;
+  updateItemError: ModalStructure;
 }
 
 const modals: ModalsObject = {
@@ -46,6 +48,18 @@ const modals: ModalsObject = {
 
   createItemError: {
     text: "No se puede crear",
+    color: "fail",
+    img: "images/errorModal.svg",
+  },
+
+  updateItemSuccess: {
+    text: "¡Extintor actualizado!",
+    color: "ok",
+    img: "images/successModal.svg",
+  },
+
+  updateItemError: {
+    text: "No se puede actualizar",
     color: "fail",
     img: "images/errorModal.svg",
   },

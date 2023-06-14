@@ -8,6 +8,7 @@ import {
   LazyListPage,
   LazyLoginPage,
   LazyNotFoundPage,
+  LazyUpdatePage,
 } from "./lazyPages";
 
 export const routes: RouteObject[] = [
@@ -48,6 +49,14 @@ export const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: `${paths.update}/:id`,
+        element: (
+          <Suspense>
+            <LazyUpdatePage />
           </Suspense>
         ),
       },

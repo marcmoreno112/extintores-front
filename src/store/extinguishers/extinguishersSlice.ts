@@ -123,6 +123,7 @@ export const {
   updateNumberOfExtinguishers: updateNumberOfExtinguishersActionCreator,
   changeClassFilter: changeClassFilterActionCreator,
   loadSelectedExtinguisher: loadSelectedExtinguisherActionCreator,
+  loadUpdatingExtinguisher: loadUpdatingExtinguisherActionCreator,
 } = extinguishersSlice.actions;
 
 export const extinguishersReducer = extinguishersSlice.reducer;

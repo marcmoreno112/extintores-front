@@ -12,7 +12,9 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { id: selectedId } = useParams();
+  const { id } = useParams();
+
+  const selectedId = id as string;
 
   const { getSelectedExtinguisher, updateExtinguisher } = useExtinguishers();
 
@@ -48,8 +50,6 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
   };
 
   const initialFormState: ExtinguisherStructure = { ...updatingExtinguisher };
-
-  delete initialFormState.id;
 
   return (
     <UpdateExtinguisherPageStyled>

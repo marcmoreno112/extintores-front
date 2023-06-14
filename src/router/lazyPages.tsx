@@ -15,3 +15,7 @@ export const LazyAddExtinguisherPage = lazy(
 export const LazyDetailPage = lazy(
   () => import("../pages/DetailPage/DetailPage")
 );
+
+export const LazyUpdatePage = lazy(
+  () => import("../pages/UpdateExtinguisherPage/UpdateExtinguisherPage")
+);

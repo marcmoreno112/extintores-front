@@ -4,6 +4,7 @@ const paths = {
   extinguishers: "/extintores",
   add: "/add",
   detail: "/detail",
+  update: "/update",
 };
 
 export default paths;

@@ -34,6 +34,19 @@ describe("Given a ListPage page", () => {
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {
+          brand: "",
+          class: [""],
+          description: "",
+          disadvantages: "",
+          fireExtinguishingAgent: "",
+          id: "",
+          img: "",
+          model: "",
+          strengths: "",
+          usefulLife: "",
+          user: "",
+        },
       };
 
       renderRouterWithProviders(<ListPage />, {
@@ -71,6 +84,19 @@ describe("Given a ListPage page", () => {
         numberOfExtinguishersAtDb: 3,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {
+          brand: "",
+          class: [""],
+          description: "",
+          disadvantages: "",
+          fireExtinguishingAgent: "",
+          id: "",
+          img: "",
+          model: "",
+          strengths: "",
+          usefulLife: "",
+          user: "",
+        },
       };
 
       renderRouterWithProviders(<ListPage />, {

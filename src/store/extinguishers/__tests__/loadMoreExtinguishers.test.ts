@@ -14,6 +14,7 @@ describe("Given a loadMoreExtinguishers reducer", () => {
         numberOfExtinguishersAtDb: 11,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const expectedExtinguishersState: ExtinguishersStateStructure = {
@@ -22,6 +23,7 @@ describe("Given a loadMoreExtinguishers reducer", () => {
         numberOfExtinguishersAtDb: 11,
         classFilter: "",
         selectedExtinguisher: {} as ExtinguisherStructure,
+        updatingExtinguisher: {} as ExtinguisherStructure,
       };
 
       const loadMoreExtinguishersAction = loadMoreExtinguishersActionCreator();

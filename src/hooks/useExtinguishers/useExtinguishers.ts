@@ -119,11 +119,32 @@ const useExtinguishers = () => {
     [dispatch]
   );
 
+  const updateApiExtinguisher = async (
+    apiExtinguisher: ExtinguisherStructure
+  ) => {
+    dispatch(showLoadingActionCreator());
+
+    try {
+      await axios.put(`${apiUrl}${paths.extinguishers}/${apiExtinguisher.id}`, {
+        extinguisher: apiExtinguisher,
+      });
+
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(showModalActionCreator(modals.updateItemSuccess));
+    } catch {
+      dispatch(hideLoadingActionCreator());
+
+      dispatch(showModalActionCreator(modals.updateItemError));
+    }
+  };
+
   return {
     getExtinguishers,
     deleteExtinguisher,
     createExtinguisher,
     getSelectedExtinguisher,
+    updateExtinguisher: updateApiExtinguisher,
   };
 };
 

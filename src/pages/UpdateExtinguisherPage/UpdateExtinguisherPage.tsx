@@ -4,27 +4,19 @@ import { useAppSelector } from "../../store";
 import { ExtinguisherData, ExtinguisherStructure } from "../../types";
 import Form from "../../components/Form/Form";
 import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  loadExtinguishersActionCreator,
-  loadUpdatingExtinguisherActionCreator,
-  updateNumberOfExtinguishersActionCreator,
-} from "../../store/extinguishers/extinguishersSlice";
+import { loadUpdatingExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 
 const UpdateExtinguisherPage = (): React.ReactElement => {
-  window.scroll(0, 0);
-
   const dispatch = useDispatch();
-
-  const { updatingExtinguisher } = useAppSelector(
-    (state) => state.extinguishersState
-  );
+  const navigate = useNavigate();
 
   const { id: selectedId } = useParams();
 
-  const { getSelectedExtinguisher, updateExtinguisher, getExtinguishers } =
-    useExtinguishers();
+  const { getSelectedExtinguisher, updateExtinguisher } = useExtinguishers();
+
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -40,26 +32,17 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
         loadUpdatingExtinguisherActionCreator(extinguisherFromApi.extinguisher);
 
       dispatch(loadUpdatingExtinguisherAction);
+
+      setIsLoaded(true);
     })();
   }, [dispatch, getSelectedExtinguisher, selectedId]);
 
-  const navigate = useNavigate();
+  const { updatingExtinguisher } = useAppSelector(
+    (state) => state.extinguishersState
+  );
 
-  const onSubmitUpdateExtinguisher = async (formdata: ExtinguisherData) => {
-    await updateExtinguisher({ ...formdata, id: selectedId });
-
-    const extinguishers = await getExtinguishers();
-
-    if (extinguishers) {
-      const updateNumberOfExtinguishersAction =
-        updateNumberOfExtinguishersActionCreator(
-          extinguishers.numberOfExtinguishers
-        );
-
-      dispatch(updateNumberOfExtinguishersAction);
-
-      dispatch(loadExtinguishersActionCreator(extinguishers.extinguishers));
-    }
+  const onSubmitUpdateExtinguisher = async (formData: ExtinguisherData) => {
+    await updateExtinguisher({ ...formData, id: selectedId });
 
     navigate("/");
   };
@@ -71,11 +54,13 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
   return (
     <UpdateExtinguisherPageStyled>
       <h2 className="page-title">Actualizar extintor</h2>
-      <Form
-        submitFunction={onSubmitUpdateExtinguisher}
-        buttonText="Actualizar"
-        initialFormState={initialFormState}
-      />
+      {isLoaded && (
+        <Form
+          submitFunction={onSubmitUpdateExtinguisher}
+          buttonText="Actualizar"
+          initialFormState={initialFormState}
+        />
+      )}
     </UpdateExtinguisherPageStyled>
   );
 };

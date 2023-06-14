@@ -9,6 +9,8 @@ import LoginPageStyled from "./LoginPageStyled";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 
 const LoginPage = (): React.ReactElement => {
+  window.scroll(0, 0);
+
   const { getToken } = useUser();
   const dispatch = useAppDispatch();
   const { decodeToken } = useToken();

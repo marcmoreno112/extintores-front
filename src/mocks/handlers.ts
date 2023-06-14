@@ -24,6 +24,13 @@ export const handlers = [
     return res(ctx.status(200), ctx.json({ message: "Extinguisher deleted" }));
   }),
 
+  rest.put(`${apiUrl}${paths.extinguishers}/*`, (_req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({ extinguisher: extinguishersMock[0] })
+    );
+  }),
+
   rest.post(`${apiUrl}${paths.extinguishers}`, (_req, res, ctx) => {
     return res(
       ctx.status(200),

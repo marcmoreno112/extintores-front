@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { loadUpdatingExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 
 const UpdateExtinguisherPage = (): React.ReactElement => {
+  window.scroll(0, 0);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

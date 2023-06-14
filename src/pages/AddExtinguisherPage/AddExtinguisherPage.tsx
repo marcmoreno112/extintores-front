@@ -7,6 +7,8 @@ import { ExtinguisherData } from "../../types";
 import { createExtinguisherActionCreator } from "../../store/extinguishers/extinguishersSlice";
 
 const AddExtinguisherPage = (): React.ReactElement => {
+  window.scroll(0, 0);
+
   const { createExtinguisher } = useExtinguishers();
 
   const dispatch = useAppDispatch();

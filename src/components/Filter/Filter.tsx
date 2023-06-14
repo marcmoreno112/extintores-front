@@ -26,7 +26,6 @@ const Filter = () => {
         id="filter"
         value={selectedValue}
         onChange={handleSelectChange}
-        placeholder="Selecciona clase de extintor"
         className="filter"
       >
         <option value="" disabled>

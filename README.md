@@ -2,7 +2,7 @@
 
 Frontend project for the Extintores app. This application shows a public list of extinguishers. The logged user can create new ones and delete or update extinguishers created by him.
 
-Follow the link to access the front repository: https://github.com/isdi-coders-2023/Marc-Moreno-Final-Project-back-202304-bcn
+Follow the link to access the back repository: https://github.com/isdi-coders-2023/Marc-Moreno-Final-Project-back-202304-bcn
 
 ## Scripts
 

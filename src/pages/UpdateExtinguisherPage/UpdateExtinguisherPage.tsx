@@ -18,7 +18,7 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
 
   const selectedId = id as string;
 
-  const { getSelectedExtinguisher, updateExtinguisher } = useExtinguishers();
+  const { getSelectedExtinguisher, updateApiExtinguisher } = useExtinguishers();
 
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -46,7 +46,7 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
   );
 
   const onSubmitUpdateExtinguisher = async (formData: ExtinguisherData) => {
-    await updateExtinguisher({ ...formData, id: selectedId });
+    await updateApiExtinguisher({ ...formData, id: selectedId });
 
     navigate("/");
   };

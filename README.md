@@ -32,7 +32,7 @@ Follow the link to access the back repository: https://github.com/isdi-coders-20
 
 ### **Deploy**
 
-🔸Netflify (https://www.netlify.com/)  
+🔸Netlify (https://www.netlify.com/)  
 <br>
 
 ### **Languages**

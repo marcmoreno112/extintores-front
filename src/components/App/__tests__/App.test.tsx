@@ -19,8 +19,8 @@ import { routes } from "../../../router/appRouter";
 
 describe("Given an App component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image with the alternative text 'Extintores'", async () => {
-      const expectedTitle = "Extintores";
+    test("Then it should show an image with the alternative text 'extintores logo'", async () => {
+      const expectedAltText = "extintores logo";
       const preloadedState: UserStateStructure = initialUserState;
 
       const routes: RouteObject[] = [
@@ -36,9 +36,9 @@ describe("Given an App component", () => {
         userState: preloadedState,
       });
 
-      const title = await screen.getByRole("heading", { name: expectedTitle });
+      const logo = screen.getByAltText(expectedAltText);
 
-      expect(title).toBeInTheDocument();
+      expect(logo).toBeInTheDocument();
     });
   });
 

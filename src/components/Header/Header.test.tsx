@@ -4,14 +4,14 @@ import { renderRouterWithProviders } from "../../utils/testUtils";
 
 describe("Given a Header component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show an image with the alternative text 'Extintores'", () => {
-      const expectedTitle = "Extintores";
+    test("Then it should show an image with the alternative text 'extintores logo'", () => {
+      const expectedAltText = "extintores logo";
 
       renderRouterWithProviders(<Header />);
 
-      const title = screen.getByRole("heading", { name: expectedTitle });
+      const logo = screen.getByAltText(expectedAltText);
 
-      expect(title).toBeInTheDocument();
+      expect(logo).toBeInTheDocument();
     });
   });
 });

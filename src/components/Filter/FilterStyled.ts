@@ -7,7 +7,7 @@ const FilterStyled = styled.form`
   .filter {
     width: 100%;
     font-family: inherit;
-    background-color: ${(props) => props.theme.colors.tertiaryDark};
+    background-color: ${(props) => props.theme.colors.primary};
     padding: 10px;
     color: white;
     border-radius: 8px;

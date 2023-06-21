@@ -10,7 +10,7 @@ const LoginFormStyled = styled.form`
   .form {
     &__text-field {
       padding: 18px;
-      background-color: ${(props) => props.theme.colors.tertiaryDark};
+      background-color: ${(props) => props.theme.colors.primary};
       border-radius: 8px;
       color: white;
       font-size: 1.2rem;

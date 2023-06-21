@@ -5,10 +5,10 @@ const HeaderStyled = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 10px;
   background-color: white;
   top: 0;
-  padding: 20px;
+  padding: 20px 20px 0 20px;
   position: fixed;
   width: 100%;
 

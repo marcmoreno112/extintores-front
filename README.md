@@ -47,7 +47,12 @@ Follow the link to access the back repository: https://github.com/isdi-coders-20
 🔸Code formatter Prettier (https://prettier.io/)  
 🔸Editorconfig  
 🔸SonarCloud (https://www.sonarsource.com/products/sonarcloud/)
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=isdi-coders-2023_Marc-Moreno-Final-Project-front-202304-bcn)](https://sonarcloud.io/summary/new_code?id=isdi-coders-2023_Marc-Moreno-Final-Project-front-202304-bcn)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=marcmoreno112_extintores-front&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=marcmoreno112_extintores-front)
+
+History of coverage during the project:
+
+![Hi](./sonarcloud-screenshots/sonarcloud-front-1.png)
+![Hi](./sonarcloud-screenshots/sonarcloud-front-2.png)
 
 <br>
 

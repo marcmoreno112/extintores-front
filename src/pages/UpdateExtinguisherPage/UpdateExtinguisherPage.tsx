@@ -24,9 +24,7 @@ const UpdateExtinguisherPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const extinguisherFromApi = await getSelectedExtinguisher(
-        selectedId as string
-      );
+      const extinguisherFromApi = await getSelectedExtinguisher(selectedId);
 
       if (!extinguisherFromApi) {
         return;

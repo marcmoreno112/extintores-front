@@ -6,7 +6,7 @@ export const tokenMock =
 
 export const userCredentialsMock: UserStructure = {
   username: "Juan",
-  password: "1234",
+  password: "hk1iiofAA!23",
 };
 
 export const userStateLoggedMock: UserStateStructure = {

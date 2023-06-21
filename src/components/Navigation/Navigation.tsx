@@ -17,8 +17,6 @@ const Navigation = (): React.ReactElement => {
     dispatch(logoutUserActionCreator());
 
     removeFromLocalStorage("token");
-
-    return;
   };
 
   return (

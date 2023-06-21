@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const NotFoundPageStyled = styled.main`
   width: 100%;
-  padding-top: 180px;
+  padding-top: 220px;
   text-align: center;
 
   .page-title {

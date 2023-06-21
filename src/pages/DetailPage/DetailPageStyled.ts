@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const DetailPageStyled = styled.main`
   width: 100%;
-  padding-top: 180px;
+  padding-top: 220px;
   display: flex;
   flex-direction: column;
   align-items: center;

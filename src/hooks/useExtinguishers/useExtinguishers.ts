@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ExtinguisherStructure } from "../../types";
+import { ExtinguisherStructure, ExtinguisherData } from "../../types";
 import paths from "../../router/paths";
 import { useCallback } from "react";
 import { useAppDispatch, useAppSelector } from "../../store";
@@ -9,7 +9,6 @@ import {
   showModalActionCreator,
 } from "../../store/ui/uiSlice";
 import modals from "../../components/Modal/modals";
-import { ExtinguisherData } from "../../types";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 

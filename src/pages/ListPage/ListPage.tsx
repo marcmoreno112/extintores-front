@@ -38,14 +38,26 @@ const ListPage = (): React.ReactElement => {
       if (extinguishers.extinguishers[0]) {
         const firstExtinguishersUrl = extinguishers.extinguishers[0].img;
 
-        const preloadedElement = document.createElement("link");
-        preloadedElement.rel = "preload";
-        preloadedElement.as = "image";
-        preloadedElement.href = firstExtinguishersUrl;
+        const position =
+          firstExtinguishersUrl.search(/[a-z0-9]\/[a-z0-9]/i) + 1;
+
+        const preconnectOrigin = firstExtinguishersUrl.slice(0, position);
+
+        const preconnectedElement = document.createElement("link");
+        preconnectedElement.rel = "preconnect";
+        preconnectedElement.crossOrigin = "";
+        preconnectedElement.href = preconnectOrigin;
 
         const parent = document.head;
 
         const selectedChild = document.getElementsByName("description")[0];
+
+        parent.insertBefore(preconnectedElement, selectedChild);
+
+        const preloadedElement = document.createElement("link");
+        preloadedElement.rel = "preload";
+        preloadedElement.as = "image";
+        preloadedElement.href = firstExtinguishersUrl;
 
         parent.insertBefore(preloadedElement, selectedChild);
       }

@@ -2,6 +2,8 @@
 
 Frontend project for the Extintores app. This application shows a public list of extinguishers. The logged user can create new ones and delete or update extinguishers created by him.
 
+Figma design: https://www.figma.com/file/4kySDGAqAGKQk79UoxEPoS/Extintores?type=design&mode=design&t=GbmGjf4IdKzWEOnZ-1
+
 Follow the link to access the back repository: https://github.com/isdi-coders-2023/Marc-Moreno-Final-Project-back-202304-bcn
 
 ## Scripts
@@ -51,8 +53,8 @@ Follow the link to access the back repository: https://github.com/isdi-coders-20
 
 History of coverage during the project:
 
-![Hi](./sonarcloud-screenshots/sonarcloud-front-1.png)
-![Hi](./sonarcloud-screenshots/sonarcloud-front-2.png)
+![ ](./sonarcloud-screenshots/sonarcloud-front-1.png)
+![ ](./sonarcloud-screenshots/sonarcloud-front-2.png)
 
 <br>
 
@@ -67,3 +69,8 @@ History of coverage during the project:
 ---
 
 <br>
+
+## Performance
+
+![Lighthouse screenshot 1](./performance-screenshots/lighthouse-1.png)
+![Lighthouse screenshot 2](./performance-screenshots/lighthouse-2.png)

@@ -9,12 +9,9 @@ import Layout from "../Layout/Layout";
 import Modal from "../Modal/Modal";
 import { hideModalActionCreator } from "../../store/ui/uiSlice";
 import Loader from "../Loader/Loader";
-import useExtinguishers from "../../hooks/useExtinguishers/useExtinguishers";
 
 const App = (): React.ReactElement => {
   const { getFromLocalStorage } = useLocalStorage();
-
-  const { getExtinguishers } = useExtinguishers();
 
   const { decodeToken } = useToken();
 
@@ -25,22 +22,6 @@ const App = (): React.ReactElement => {
   const { hasModal, modal, isLoading } = useAppSelector(
     (state) => state.uiState
   );
-
-  useEffect(() => {
-    (async () => {
-      const extinguishers = await getExtinguishers();
-
-      if (!extinguishers) {
-        return;
-      }
-
-      if (extinguishers.extinguishers[0]) {
-        const firstUrl = extinguishers.extinguishers[0].img;
-        const image = new Image();
-        image.src = firstUrl;
-      }
-    })();
-  }, [getExtinguishers]);
 
   useEffect(() => {
     const token = getFromLocalStorage("token");

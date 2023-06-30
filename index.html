@@ -7,22 +7,6 @@
   <title>Extintores</title>
   <meta name="description" content="La mejor página de extintores en español">
   <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch(`https://extintores-back.onrender.com/extintores?loadNumber=1&filter=""`)
-        .then((response) => response.json())
-        .then((data) => {
-          if (data && data.extinguishers && data.extinguishers.length > 0) {
-            const firstImageUrl = data.extinguishers[0].img;
-            const image = new Image();
-            image.src = firstImageUrl;
-          }
-        })
-        .catch((error) => {
-          console.error('Error fetching extinguishers:', error);
-        });
-    });
-  </script>
 </head>
 
 <body>
